@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 搜索词报告透视分析与动作清单"
+  short_description: "Amazon 搜索词报告透视分析与动作清单：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-qiongqi-amazon-search-term-report-pivot to diagnose this Amazon task and return an evidence-gated plan."

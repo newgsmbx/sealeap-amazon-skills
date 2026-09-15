@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "entrypoint": "sealeap-athena-commerce-copywriting",
+  "capabilities": [
+    {
+      "name": "sealeap-athena-commerce-copy-draft",
+      "title": "电商文本草稿",
+      "description": "电商文本草稿。用于根据事实组织标题、卖点或营销文案，并逐句核对可证实性。输入需明确语言、渠道、产品事实、目标受众、字数和关键词；边界见执行手册。",
+      "category": "电商文本草稿",
+      "mode": "text",
+      "route": "本地文本处理",
+      "capabilities": [
+        {
+          "provider": "host",
+          "tool": "text",
+          "validation": "runtime_discovery"
+        }
+      ],
+      "limitation": "缺功效证据时避免承诺；关键词自然使用；草稿不自动发布",
+      "legacy_path": "sealeap-athena-commerce-copy-draft",
+      "entrypoint": "sealeap-athena-commerce-copywriting",
+      "guide_path": "references/capabilities/commerce-copy-draft/workflow.md",
+      "playbook_path": "references/capabilities/commerce-copy-draft/playbook.md",
+      "tool_routing_path": "references/capabilities/commerce-copy-draft/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-amazon-title-audit",
+      "title": "Amazon 标题质量核对",
+      "description": "Amazon 标题质量核对。用于检查相关性、信息顺序、重复、可读性与当前类目要求，给出改稿。输入需明确站点、类目、原始标题、已证实属性和词表；边界见执行手册。",
+      "category": "Amazon",
+      "mode": "text",
+      "route": "本地文本处理",
+      "capabilities": [
+        {
+          "provider": "host",
+          "tool": "text",
+          "validation": "runtime_discovery"
+        }
+      ],
+      "limitation": "不编造功效和认证；关键规格和数量不得在优化中丢失",
+      "legacy_path": "sealeap-athena-amazon-title-audit",
+      "entrypoint": "sealeap-athena-commerce-copywriting",
+      "guide_path": "references/capabilities/amazon-title-audit/workflow.md",
+      "playbook_path": "references/capabilities/amazon-title-audit/playbook.md",
+      "tool_routing_path": "references/capabilities/amazon-title-audit/tool-routing.md"
+    }
+  ]
+}

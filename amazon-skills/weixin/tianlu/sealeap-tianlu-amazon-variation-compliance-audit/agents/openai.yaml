@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 变体合并合规排查"
+  short_description: "Amazon 变体合并合规排查：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-tianlu-amazon-variation-compliance-audit to diagnose this Amazon task and return an evidence-gated plan."

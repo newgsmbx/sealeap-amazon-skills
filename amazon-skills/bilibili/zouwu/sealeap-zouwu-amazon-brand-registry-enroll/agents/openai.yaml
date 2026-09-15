@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 品牌备案资料预检与验证闭环"
+  short_description: "Amazon 品牌备案资料预检与验证闭环：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-zouwu-amazon-brand-registry-enroll to diagnose this Amazon task and return an evidence-gated plan."

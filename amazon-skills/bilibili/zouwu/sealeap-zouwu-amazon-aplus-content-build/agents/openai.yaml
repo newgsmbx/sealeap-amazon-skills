@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon A+ 页面模块规划与提交预检"
+  short_description: "Amazon A+ 页面模块规划与提交预检：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-zouwu-amazon-aplus-content-build to diagnose this Amazon task and return an evidence-gated plan."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 关键词需求与季节性判读"
+  short_description: "Amazon 关键词需求与季节性判读：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-taotie-amazon-keyword-demand-seasonality-reading to diagnose this Amazon task and return an evidence-gated plan."

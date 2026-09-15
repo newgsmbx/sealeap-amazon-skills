@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon SP 广告起步结构与预算节奏校准"
+  short_description: "Amazon SP 广告起步结构与预算节奏校准：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-taotie-amazon-sp-starter-structure-budget-pacing to diagnose this Amazon task and return an evidence-gated plan."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon AI内容合规标注自查"
+  short_description: "Amazon AI内容合规标注自查：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-jiaotu-amazon-ai-content-disclosure-audit to diagnose this Amazon task and return an evidence-gated plan."

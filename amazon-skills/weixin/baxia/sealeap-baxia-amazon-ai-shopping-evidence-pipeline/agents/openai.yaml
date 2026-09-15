@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon AI购物入口内容生产流程"
+  short_description: "Amazon AI购物入口内容生产流程：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-baxia-amazon-ai-shopping-evidence-pipeline to diagnose this Amazon task and return an evidence-gated plan."

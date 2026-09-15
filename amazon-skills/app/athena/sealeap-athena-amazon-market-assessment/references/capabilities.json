@@ -1,0 +1,299 @@
+{
+  "schema_version": 1,
+  "entrypoint": "sealeap-athena-amazon-market-assessment",
+  "capabilities": [
+    {
+      "name": "sealeap-athena-amazon-keyword-opportunity",
+      "title": "Amazon 关键词市场机会",
+      "description": "Amazon 关键词市场机会。用于把关键词需求、季节性、竞品集中度与单位经济放在相同口径下评估。输入需明确关键词、站点、期间、目标价格和成本；边界见执行手册。",
+      "category": "Amazon",
+      "mode": "data",
+      "route": "Sorftime 直接工具",
+      "capabilities": [
+        {
+          "provider": "sorftime",
+          "tool": "keyword_detail",
+          "validation": "tool_schema",
+          "required_fields": [
+            "keyword"
+          ]
+        },
+        {
+          "provider": "sorftime",
+          "tool": "keyword_trend",
+          "validation": "tool_schema",
+          "required_fields": [
+            "keyword"
+          ]
+        },
+        {
+          "provider": "sorftime",
+          "tool": "category_search_from_product_name",
+          "validation": "tool_schema",
+          "required_fields": [
+            "product_name"
+          ]
+        },
+        {
+          "provider": "sorftime",
+          "tool": "category_report",
+          "validation": "tool_schema",
+          "required_fields": [
+            "node_id"
+          ]
+        }
+      ],
+      "limitation": "第三方市场报告不能冒充账户的商机探测器报告；缺成本时不下采购结论",
+      "legacy_path": "sealeap-athena-amazon-keyword-opportunity",
+      "entrypoint": "sealeap-athena-amazon-market-assessment",
+      "guide_path": "references/capabilities/amazon-keyword-opportunity/workflow.md",
+      "playbook_path": "references/capabilities/amazon-keyword-opportunity/playbook.md",
+      "tool_routing_path": "references/capabilities/amazon-keyword-opportunity/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-amazon-niche-assessment",
+      "title": "Amazon 细分市场评估",
+      "description": "Amazon 细分市场评估。用于冻结样本后分析需求、集中度、新品与利润约束。输入需明确站点、已确认类目节点、期间和成本边界；边界见执行手册。",
+      "category": "Amazon",
+      "mode": "data",
+      "route": "Sorftime 直接工具",
+      "capabilities": [
+        {
+          "provider": "sorftime",
+          "tool": "category_report",
+          "validation": "tool_schema",
+          "required_fields": [
+            "node_id"
+          ]
+        },
+        {
+          "provider": "sorftime",
+          "tool": "category_trend",
+          "validation": "tool_schema",
+          "required_fields": [
+            "node_id"
+          ]
+        },
+        {
+          "provider": "sorftime",
+          "tool": "category_keywords",
+          "validation": "tool_schema",
+          "required_fields": [
+            "node_id"
+          ]
+        }
+      ],
+      "limitation": "样本不完整时不推算全市场容量；无供应成本时保持采购判断待定",
+      "legacy_path": "sealeap-athena-amazon-niche-assessment",
+      "entrypoint": "sealeap-athena-amazon-market-assessment",
+      "guide_path": "references/capabilities/amazon-niche-assessment/workflow.md",
+      "playbook_path": "references/capabilities/amazon-niche-assessment/playbook.md",
+      "tool_routing_path": "references/capabilities/amazon-niche-assessment/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-amazon-market-discovery",
+      "title": "Amazon 类目机会发现",
+      "description": "Amazon 类目机会发现。用于按市场维度发现候选类目，确认类目节点和统计样本。输入需明确站点、类目范围、需求与竞争约束；边界见执行手册。",
+      "category": "Amazon",
+      "mode": "ss",
+      "route": "卖家精灵直连",
+      "capabilities": [
+        {
+          "provider": "sellersprite_open",
+          "tool": "market_research",
+          "validation": "local_interface"
+        }
+      ],
+      "limitation": "商品筛选和市场筛选粒度不同；不可把两者数量混报",
+      "legacy_path": "sealeap-athena-amazon-market-discovery",
+      "entrypoint": "sealeap-athena-amazon-market-assessment",
+      "guide_path": "references/capabilities/amazon-market-discovery/workflow.md",
+      "playbook_path": "references/capabilities/amazon-market-discovery/playbook.md",
+      "tool_routing_path": "references/capabilities/amazon-market-discovery/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-amazon-market-statistics",
+      "title": "Amazon 市场统计核对",
+      "description": "Amazon 市场统计核对。用于分析品牌集中、价格带、上架 cohort 与商品构成并核对分母。输入需明确站点、市场节点、期间、样本定义；边界见执行手册。",
+      "category": "Amazon",
+      "mode": "ss",
+      "route": "卖家精灵直连",
+      "capabilities": [
+        {
+          "provider": "sellersprite_open",
+          "tool": "market_statistics",
+          "validation": "local_interface"
+        },
+        {
+          "provider": "sellersprite_open",
+          "tool": "market_goods",
+          "validation": "local_interface"
+        },
+        {
+          "provider": "sellersprite_open",
+          "tool": "market_brand",
+          "validation": "local_interface"
+        },
+        {
+          "provider": "sellersprite_open",
+          "tool": "market_shelf_time",
+          "validation": "local_interface"
+        }
+      ],
+      "limitation": "集中度按统一销量或销售额计算；缺样本不补零",
+      "legacy_path": "sealeap-athena-amazon-market-statistics",
+      "entrypoint": "sealeap-athena-amazon-market-assessment",
+      "guide_path": "references/capabilities/amazon-market-statistics/workflow.md",
+      "playbook_path": "references/capabilities/amazon-market-statistics/playbook.md",
+      "tool_routing_path": "references/capabilities/amazon-market-statistics/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-amazon-niche-from-keyword",
+      "title": "关键词定义细分市场",
+      "description": "关键词定义细分市场。用于先定义需求边界，再识别相关类目与直接竞品，剔除异类流量。输入需明确站点、关键词、购买用途、目标规格；边界见执行手册。",
+      "category": "关键词定义细分市场",
+      "mode": "data",
+      "route": "Sorftime 直接工具",
+      "capabilities": [
+        {
+          "provider": "sorftime",
+          "tool": "category_search_from_product_name",
+          "validation": "tool_schema",
+          "required_fields": [
+            "product_name"
+          ]
+        },
+        {
+          "provider": "sorftime",
+          "tool": "keyword_detail",
+          "validation": "tool_schema",
+          "required_fields": [
+            "keyword"
+          ]
+        },
+        {
+          "provider": "sorftime",
+          "tool": "product_search_from_name",
+          "validation": "tool_schema",
+          "required_fields": [
+            "name"
+          ]
+        }
+      ],
+      "limitation": "同关键词不代表同需求；跨用途商品需单列",
+      "legacy_path": "sealeap-athena-amazon-niche-from-keyword",
+      "entrypoint": "sealeap-athena-amazon-market-assessment",
+      "guide_path": "references/capabilities/amazon-niche-from-keyword/workflow.md",
+      "playbook_path": "references/capabilities/amazon-niche-from-keyword/playbook.md",
+      "tool_routing_path": "references/capabilities/amazon-niche-from-keyword/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-amazon-niche-from-asin",
+      "title": "ASIN 定位细分市场",
+      "description": "ASIN 定位细分市场。用于从商品属性与实际流量词构建相邻竞品池，再确认直接竞争关系。输入需明确站点、种子 ASIN、核心用途和价格带；边界见执行手册。",
+      "category": "ASIN",
+      "mode": "data",
+      "route": "Sorftime 直接工具",
+      "capabilities": [
+        {
+          "provider": "sorftime",
+          "tool": "product_detail",
+          "validation": "tool_schema",
+          "required_fields": [
+            "asin"
+          ]
+        },
+        {
+          "provider": "sorftime",
+          "tool": "product_traffic_terms",
+          "validation": "tool_schema",
+          "required_fields": [
+            "asin"
+          ]
+        },
+        {
+          "provider": "sorftime",
+          "tool": "competitor_product_keywords",
+          "validation": "tool_schema",
+          "required_fields": [
+            "asin"
+          ]
+        }
+      ],
+      "limitation": "广告共同曝光不能单独证明同一细分市场",
+      "legacy_path": "sealeap-athena-amazon-niche-from-asin",
+      "entrypoint": "sealeap-athena-amazon-market-assessment",
+      "guide_path": "references/capabilities/amazon-niche-from-asin/workflow.md",
+      "playbook_path": "references/capabilities/amazon-niche-from-asin/playbook.md",
+      "tool_routing_path": "references/capabilities/amazon-niche-from-asin/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-amazon-niche-product-discovery",
+      "title": "细分需求找产品",
+      "description": "细分需求找产品。用于按场景与经济性发现产品，解释匹配依据及淘汰条件。输入需明确站点、购买场景、需求约束、价格和体积范围；边界见执行手册。",
+      "category": "细分需求找产品",
+      "mode": "data",
+      "route": "Sorftime 直接工具",
+      "capabilities": [
+        {
+          "provider": "sorftime",
+          "tool": "potential_product",
+          "validation": "tool_schema",
+          "required_fields": []
+        },
+        {
+          "provider": "sorftime",
+          "tool": "product_search",
+          "validation": "tool_schema",
+          "required_fields": []
+        }
+      ],
+      "limitation": "平台评分是启发指标；不得用单一指数作采购结论",
+      "legacy_path": "sealeap-athena-amazon-niche-product-discovery",
+      "entrypoint": "sealeap-athena-amazon-market-assessment",
+      "guide_path": "references/capabilities/amazon-niche-product-discovery/workflow.md",
+      "playbook_path": "references/capabilities/amazon-niche-product-discovery/playbook.md",
+      "tool_routing_path": "references/capabilities/amazon-niche-product-discovery/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-amazon-niche-asin-expansion",
+      "title": "Amazon 相邻竞品扩展",
+      "description": "Amazon 相邻竞品扩展。用于从种子商品提取用途和词群，扩展并人工核对相邻 ASIN。输入需明确站点、种子 ASIN、核心属性与排除条件；边界见执行手册。",
+      "category": "Amazon",
+      "mode": "data",
+      "route": "Sorftime 直接工具",
+      "capabilities": [
+        {
+          "provider": "sorftime",
+          "tool": "product_detail",
+          "validation": "tool_schema",
+          "required_fields": [
+            "asin"
+          ]
+        },
+        {
+          "provider": "sorftime",
+          "tool": "product_search_from_name",
+          "validation": "tool_schema",
+          "required_fields": [
+            "name"
+          ]
+        },
+        {
+          "provider": "sorftime",
+          "tool": "product_traffic_terms",
+          "validation": "tool_schema",
+          "required_fields": [
+            "asin"
+          ]
+        }
+      ],
+      "limitation": "同页出现只证明共现；扩展结果不自动认定直接竞争",
+      "legacy_path": "sealeap-athena-amazon-niche-asin-expansion",
+      "entrypoint": "sealeap-athena-amazon-market-assessment",
+      "guide_path": "references/capabilities/amazon-niche-asin-expansion/workflow.md",
+      "playbook_path": "references/capabilities/amazon-niche-asin-expansion/playbook.md",
+      "tool_routing_path": "references/capabilities/amazon-niche-asin-expansion/tool-routing.md"
+    }
+  ]
+}

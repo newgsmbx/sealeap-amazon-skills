@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 自动广告竞价阶段与否定词"
+  short_description: "Amazon 自动广告竞价阶段与否定词：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-hundun-amazon-auto-campaign-bid-lifecycle to diagnose this Amazon task and return an evidence-gated plan."

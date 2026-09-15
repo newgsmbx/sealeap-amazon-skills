@@ -1,0 +1,289 @@
+{
+  "schema_version": 1,
+  "entrypoint": "sealeap-athena-tiktok-content-creator-research",
+  "capabilities": [
+    {
+      "name": "sealeap-athena-tiktok-video-discovery",
+      "title": "TikTok 视频检索",
+      "description": "TikTok 视频检索。用于检索公开视频，按视频 ID 去重后标注内容、互动与带货证据。输入需明确国家、关键词或标签、发布时间窗；边界见执行手册。",
+      "category": "TikTok",
+      "mode": "data",
+      "route": "Sorftime 直接工具",
+      "capabilities": [
+        {
+          "provider": "sorftime",
+          "tool": "tiktok_video_search_from_name",
+          "validation": "tool_schema",
+          "required_fields": []
+        },
+        {
+          "provider": "sorftime",
+          "tool": "tiktok_video_tag_search",
+          "validation": "tool_schema",
+          "required_fields": [
+            "tag_name"
+          ]
+        }
+      ],
+      "limitation": "互动不等于购买；标签相关不证明人群精准",
+      "legacy_path": "sealeap-athena-tiktok-video-discovery",
+      "entrypoint": "sealeap-athena-tiktok-content-creator-research",
+      "guide_path": "references/capabilities/tiktok-video-discovery/workflow.md",
+      "playbook_path": "references/capabilities/tiktok-video-discovery/playbook.md",
+      "tool_routing_path": "references/capabilities/tiktok-video-discovery/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-tiktok-video-sample-ranking",
+      "title": "TikTok 视频样本排行",
+      "description": "TikTok 视频样本排行。用于获取同窗视频，按可用播放或互动指标排序并解释分母。输入需明确地区、时间窗、排序指标、样本上限；边界见执行手册。",
+      "category": "TikTok",
+      "mode": "data",
+      "route": "Sorftime 直接工具",
+      "capabilities": [
+        {
+          "provider": "sorftime",
+          "tool": "tiktok_video_search_from_name",
+          "validation": "tool_schema",
+          "required_fields": []
+        },
+        {
+          "provider": "sorftime",
+          "tool": "tiktok_video_tag_search",
+          "validation": "tool_schema",
+          "required_fields": [
+            "tag_name"
+          ]
+        }
+      ],
+      "limitation": "检索样本排序不是全站榜；缺播放量时不能算互动率",
+      "legacy_path": "sealeap-athena-tiktok-video-sample-ranking",
+      "entrypoint": "sealeap-athena-tiktok-content-creator-research",
+      "guide_path": "references/capabilities/tiktok-video-sample-ranking/workflow.md",
+      "playbook_path": "references/capabilities/tiktok-video-sample-ranking/playbook.md",
+      "tool_routing_path": "references/capabilities/tiktok-video-sample-ranking/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-tiktok-video-batch-review",
+      "title": "TikTok 视频批量核对",
+      "description": "TikTok 视频批量核对。用于逐条获取详情并汇总成功、缺失、删除和不可访问状态。输入需明确视频 ID 清单、目标字段、并发与额度范围；边界见执行手册。",
+      "category": "TikTok",
+      "mode": "data",
+      "route": "Sorftime 直接工具",
+      "capabilities": [
+        {
+          "provider": "sorftime",
+          "tool": "tiktok_video_request",
+          "validation": "tool_schema",
+          "required_fields": [
+            "video_id"
+          ]
+        }
+      ],
+      "limitation": "批量部分失败不可报告全成功；不下载或再分发未授权媒体",
+      "legacy_path": "sealeap-athena-tiktok-video-batch-review",
+      "entrypoint": "sealeap-athena-tiktok-content-creator-research",
+      "guide_path": "references/capabilities/tiktok-video-batch-review/workflow.md",
+      "playbook_path": "references/capabilities/tiktok-video-batch-review/playbook.md",
+      "tool_routing_path": "references/capabilities/tiktok-video-batch-review/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-tiktok-video-performance",
+      "title": "TikTok 视频表现研究",
+      "description": "TikTok 视频表现研究。用于从检索进入单视频详情，拆开内容结构与公开表现。输入需明确国家、视频或关键词、期间和关注指标；边界见执行手册。",
+      "category": "TikTok",
+      "mode": "data",
+      "route": "Sorftime 直接工具",
+      "capabilities": [
+        {
+          "provider": "sorftime",
+          "tool": "tiktok_video_search_from_name",
+          "validation": "tool_schema",
+          "required_fields": []
+        },
+        {
+          "provider": "sorftime",
+          "tool": "tiktok_video_request",
+          "validation": "tool_schema",
+          "required_fields": [
+            "video_id"
+          ]
+        }
+      ],
+      "limitation": "播放、互动、GMV 定义不同；无法获得的历史值不补算",
+      "legacy_path": "sealeap-athena-tiktok-video-performance",
+      "entrypoint": "sealeap-athena-tiktok-content-creator-research",
+      "guide_path": "references/capabilities/tiktok-video-performance/workflow.md",
+      "playbook_path": "references/capabilities/tiktok-video-performance/playbook.md",
+      "tool_routing_path": "references/capabilities/tiktok-video-performance/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-tiktok-video-content-drilldown",
+      "title": "TikTok 视频内容深查",
+      "description": "TikTok 视频内容深查。用于分析单视频脚本、商品关系与有出处的评论反馈。输入需明确视频 ID、国家、研究目标、可访问评论；边界见执行手册。",
+      "category": "TikTok",
+      "mode": "data",
+      "route": "Sorftime 直接工具",
+      "capabilities": [
+        {
+          "provider": "sorftime",
+          "tool": "tiktok_video_request",
+          "validation": "tool_schema",
+          "required_fields": [
+            "video_id"
+          ]
+        }
+      ],
+      "limitation": "当前视频接口无评论字段时改用获准评论来源；不能生成伪评论",
+      "legacy_path": "sealeap-athena-tiktok-video-content-drilldown",
+      "entrypoint": "sealeap-athena-tiktok-content-creator-research",
+      "guide_path": "references/capabilities/tiktok-video-content-drilldown/workflow.md",
+      "playbook_path": "references/capabilities/tiktok-video-content-drilldown/playbook.md",
+      "tool_routing_path": "references/capabilities/tiktok-video-content-drilldown/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-tiktok-livestream-research",
+      "title": "TikTok 直播表现研究",
+      "description": "TikTok 直播表现研究。用于通过可用官方或授权分析工具核对场次、商品和观看表现。输入需明确国家、直播间或场次、时间窗、授权或公开数据；边界见执行手册。",
+      "category": "TikTok",
+      "mode": "web",
+      "route": "公开网页或授权接口",
+      "capabilities": [
+        {
+          "provider": "public-primary-sources",
+          "tool": "web",
+          "validation": "runtime_discovery"
+        }
+      ],
+      "limitation": "公开视频详情不能替代直播场次数据；无来源时交付分析模板和缺口",
+      "legacy_path": "sealeap-athena-tiktok-livestream-research",
+      "entrypoint": "sealeap-athena-tiktok-content-creator-research",
+      "guide_path": "references/capabilities/tiktok-livestream-research/workflow.md",
+      "playbook_path": "references/capabilities/tiktok-livestream-research/playbook.md",
+      "tool_routing_path": "references/capabilities/tiktok-livestream-research/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-tiktok-live-product-links",
+      "title": "TikTok 直播商品关联",
+      "description": "TikTok 直播商品关联。用于在授权直播分析来源里定位场次，再核对带货商品和可用表现。输入需明确直播场次、国家、日期、商品和权限；边界见执行手册。",
+      "category": "TikTok",
+      "mode": "web",
+      "route": "公开网页或授权接口",
+      "capabilities": [
+        {
+          "provider": "public-primary-sources",
+          "tool": "web",
+          "validation": "runtime_discovery"
+        }
+      ],
+      "limitation": "视频指标不替代直播指标；无场次数据时保持待核实",
+      "legacy_path": "sealeap-athena-tiktok-live-product-links",
+      "entrypoint": "sealeap-athena-tiktok-content-creator-research",
+      "guide_path": "references/capabilities/tiktok-live-product-links/workflow.md",
+      "playbook_path": "references/capabilities/tiktok-live-product-links/playbook.md",
+      "tool_routing_path": "references/capabilities/tiktok-live-product-links/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-tiktok-ad-creative-research",
+      "title": "TikTok 广告创意研究",
+      "description": "TikTok 广告创意研究。用于使用可访问的官方广告资料或授权数据，拆分素材、脚本、商品关系和表现证据。输入需明确国家、商品、广告时间窗、创意或广告 ID；边界见执行手册。",
+      "category": "TikTok",
+      "mode": "web",
+      "route": "公开网页或授权接口",
+      "capabilities": [
+        {
+          "provider": "public-primary-sources",
+          "tool": "web",
+          "validation": "runtime_discovery"
+        }
+      ],
+      "limitation": "公开视频不自动认定付费广告；向量相似不代表转化效果；不搬运未授权素材",
+      "legacy_path": "sealeap-athena-tiktok-ad-creative-research",
+      "entrypoint": "sealeap-athena-tiktok-content-creator-research",
+      "guide_path": "references/capabilities/tiktok-ad-creative-research/workflow.md",
+      "playbook_path": "references/capabilities/tiktok-ad-creative-research/playbook.md",
+      "tool_routing_path": "references/capabilities/tiktok-ad-creative-research/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-tiktok-content-creator",
+      "title": "TikTok 内容账户 达人合作数据",
+      "description": "TikTok 内容账户 达人合作数据。用于读取正式开放能力中的达人资料和获准合作指标，整理潜在人选与关系。输入需明确已授权账户、市场、达人对象和合作范围；边界见执行手册。",
+      "category": "TikTok",
+      "mode": "commerce",
+      "route": "官方账户连接或导出文件",
+      "capabilities": [
+        {
+          "provider": "official-account",
+          "tool": "creator",
+          "validation": "connection_required",
+          "platform": "TikTok"
+        }
+      ],
+      "limitation": "公开达人研究不等于官方合作权限；不自动邀约或发送消息",
+      "legacy_path": "sealeap-athena-tiktok-content-creator",
+      "entrypoint": "sealeap-athena-tiktok-content-creator-research",
+      "guide_path": "references/capabilities/tiktok-content-creator/workflow.md",
+      "playbook_path": "references/capabilities/tiktok-content-creator/playbook.md",
+      "tool_routing_path": "references/capabilities/tiktok-content-creator/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-tiktok-creator-research",
+      "title": "TikTok 达人研究",
+      "description": "TikTok 达人研究。用于核实达人身份、内容主题和公开表现，评估品类适配线索。输入需明确国家、达人名称或 ID、品类、人群和期间；边界见执行手册。",
+      "category": "TikTok",
+      "mode": "data",
+      "route": "Sorftime 直接工具",
+      "capabilities": [
+        {
+          "provider": "sorftime",
+          "tool": "tiktok_author_search_from_name",
+          "validation": "tool_schema",
+          "required_fields": []
+        },
+        {
+          "provider": "sorftime",
+          "tool": "tiktok_author_request",
+          "validation": "tool_schema",
+          "required_fields": [
+            "author_id"
+          ]
+        }
+      ],
+      "limitation": "粉丝量不能替代真实触达或转化；没有后台证据不承诺带货效果",
+      "legacy_path": "sealeap-athena-tiktok-creator-research",
+      "entrypoint": "sealeap-athena-tiktok-content-creator-research",
+      "guide_path": "references/capabilities/tiktok-creator-research/workflow.md",
+      "playbook_path": "references/capabilities/tiktok-creator-research/playbook.md",
+      "tool_routing_path": "references/capabilities/tiktok-creator-research/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-tiktok-creator-commerce-links",
+      "title": "TikTok 达人商业关联",
+      "description": "TikTok 达人商业关联。用于核对达人身份，再读取可用商品、内容和机构关系。输入需明确国家、达人 ID 或名称、期间、商品与机构线索；边界见执行手册。",
+      "category": "TikTok",
+      "mode": "data",
+      "route": "Sorftime 直接工具",
+      "capabilities": [
+        {
+          "provider": "sorftime",
+          "tool": "tiktok_author_request",
+          "validation": "tool_schema",
+          "required_fields": [
+            "author_id"
+          ]
+        },
+        {
+          "provider": "sorftime",
+          "tool": "tiktok_author_search_from_name",
+          "validation": "tool_schema",
+          "required_fields": []
+        }
+      ],
+      "limitation": "普通达人详情不能补造机构榜或涨粉榜；关联不等于代言",
+      "legacy_path": "sealeap-athena-tiktok-creator-commerce-links",
+      "entrypoint": "sealeap-athena-tiktok-content-creator-research",
+      "guide_path": "references/capabilities/tiktok-creator-commerce-links/workflow.md",
+      "playbook_path": "references/capabilities/tiktok-creator-commerce-links/playbook.md",
+      "tool_routing_path": "references/capabilities/tiktok-creator-commerce-links/tool-routing.md"
+    }
+  ]
+}

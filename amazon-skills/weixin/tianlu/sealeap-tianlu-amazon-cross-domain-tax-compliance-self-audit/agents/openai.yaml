@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 多维度税务合规自查"
+  short_description: "Amazon 多维度税务合规自查：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-tianlu-amazon-cross-domain-tax-compliance-self-audit to diagnose this Amazon task and return an evidence-gated plan."

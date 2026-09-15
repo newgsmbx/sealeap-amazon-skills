@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 主图数据驱动 AI 迭代测试"
+  short_description: "Amazon 主图数据驱动 AI 迭代测试：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-qiongqi-amazon-main-image-ai-iteration to diagnose this Amazon task and return an evidence-gated plan."

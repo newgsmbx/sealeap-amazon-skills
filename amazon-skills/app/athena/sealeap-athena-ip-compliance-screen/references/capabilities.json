@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "entrypoint": "sealeap-athena-ip-compliance-screen",
+  "capabilities": [
+    {
+      "name": "sealeap-athena-image-rights-screen",
+      "title": "图片权利来源初筛",
+      "description": "图片权利来源初筛。用于先核对权利链，再检索疑似相似作品并记录权利人和登记证据。输入需明确图片、素材来源、许可文件、目标用途与销售地区；边界见执行手册。",
+      "category": "图片权利来源初筛",
+      "mode": "ip",
+      "route": "官方权利资料与公开检索",
+      "capabilities": [
+        {
+          "provider": "public-primary-sources",
+          "tool": "ip",
+          "validation": "runtime_discovery"
+        }
+      ],
+      "limitation": "相似度或未检出都不能证明侵权与否；改名不改变素材使用许可",
+      "legacy_path": "sealeap-athena-image-rights-screen",
+      "entrypoint": "sealeap-athena-ip-compliance-screen",
+      "guide_path": "references/capabilities/image-rights-screen/workflow.md",
+      "playbook_path": "references/capabilities/image-rights-screen/playbook.md",
+      "tool_routing_path": "references/capabilities/image-rights-screen/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-graphic-mark-screen",
+      "title": "图形商标初筛",
+      "description": "图形商标初筛。用于提取显著图形特征并检索目标法域相关商标，按商品服务范围比较。输入需明确图形、产品类目、目标国家和使用方式；边界见执行手册。",
+      "category": "图形商标初筛",
+      "mode": "ip",
+      "route": "官方权利资料与公开检索",
+      "capabilities": [
+        {
+          "provider": "public-primary-sources",
+          "tool": "ip",
+          "validation": "runtime_discovery"
+        }
+      ],
+      "limitation": "图形相似不等于法律结论；登记状态与相关类别需分别核实",
+      "legacy_path": "sealeap-athena-graphic-mark-screen",
+      "entrypoint": "sealeap-athena-ip-compliance-screen",
+      "guide_path": "references/capabilities/graphic-mark-screen/workflow.md",
+      "playbook_path": "references/capabilities/graphic-mark-screen/playbook.md",
+      "tool_routing_path": "references/capabilities/graphic-mark-screen/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-restricted-product-image-screen",
+      "title": "受限商品图片初筛",
+      "description": "受限商品图片初筛。用于识别可能触发平台限制的商品特征，再核对当前官方销售规则。输入需明确图片、商品用途、站点、类目和已知规格；边界见执行手册。",
+      "category": "受限商品图片初筛",
+      "mode": "ip",
+      "route": "官方权利资料与公开检索",
+      "capabilities": [
+        {
+          "provider": "public-primary-sources",
+          "tool": "ip",
+          "validation": "runtime_discovery"
+        }
+      ],
+      "limitation": "不能仅凭外观认定功能；不提供规避审核或拆词上架方案",
+      "legacy_path": "sealeap-athena-restricted-product-image-screen",
+      "entrypoint": "sealeap-athena-ip-compliance-screen",
+      "guide_path": "references/capabilities/restricted-product-image-screen/workflow.md",
+      "playbook_path": "references/capabilities/restricted-product-image-screen/playbook.md",
+      "tool_routing_path": "references/capabilities/restricted-product-image-screen/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-design-right-screen",
+      "title": "外观设计权初筛",
+      "description": "外观设计权初筛。用于以产品类别和外观要点检索设计权，再逐视图记录相同与不同点。输入需明确多角度图片、目标国家、产品功能和公开时间；边界见执行手册。",
+      "category": "外观设计权初筛",
+      "mode": "ip",
+      "route": "官方权利资料与公开检索",
+      "capabilities": [
+        {
+          "provider": "public-primary-sources",
+          "tool": "ip",
+          "validation": "runtime_discovery"
+        }
+      ],
+      "limitation": "以图搜图只形成线索；需核实保护范围、法律状态和法域",
+      "legacy_path": "sealeap-athena-design-right-screen",
+      "entrypoint": "sealeap-athena-ip-compliance-screen",
+      "guide_path": "references/capabilities/design-right-screen/workflow.md",
+      "playbook_path": "references/capabilities/design-right-screen/playbook.md",
+      "tool_routing_path": "references/capabilities/design-right-screen/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-word-mark-screen",
+      "title": "文字商标初筛",
+      "description": "文字商标初筛。用于检索完全一致与近似文字，核对权利人、类别及当前状态。输入需明确文字、拼写变体、商品服务类别和目标国家；边界见执行手册。",
+      "category": "文字商标初筛",
+      "mode": "ip",
+      "route": "官方权利资料与公开检索",
+      "capabilities": [
+        {
+          "provider": "public-primary-sources",
+          "tool": "ip",
+          "validation": "runtime_discovery"
+        }
+      ],
+      "limitation": "相同文字在不同类别的意义需分别评估；不得给出确定注册成功承诺",
+      "legacy_path": "sealeap-athena-word-mark-screen",
+      "entrypoint": "sealeap-athena-ip-compliance-screen",
+      "guide_path": "references/capabilities/word-mark-screen/workflow.md",
+      "playbook_path": "references/capabilities/word-mark-screen/playbook.md",
+      "tool_routing_path": "references/capabilities/word-mark-screen/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-utility-patent-screen",
+      "title": "技术方案专利初筛",
+      "description": "技术方案专利初筛。用于把技术方案拆为检索概念，检索专利后定位独立权利要求与法律状态。输入需明确功能结构、技术特征、目标国家、公开时间；边界见执行手册。",
+      "category": "技术方案专利初筛",
+      "mode": "ip",
+      "route": "官方权利资料与公开检索",
+      "capabilities": [
+        {
+          "provider": "public-primary-sources",
+          "tool": "ip",
+          "validation": "runtime_discovery"
+        }
+      ],
+      "limitation": "摘要相似不能代替权利要求比对；无命中不代表可自由实施",
+      "legacy_path": "sealeap-athena-utility-patent-screen",
+      "entrypoint": "sealeap-athena-ip-compliance-screen",
+      "guide_path": "references/capabilities/utility-patent-screen/workflow.md",
+      "playbook_path": "references/capabilities/utility-patent-screen/playbook.md",
+      "tool_routing_path": "references/capabilities/utility-patent-screen/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-product-litigation-screen",
+      "title": "商品诉讼线索初筛",
+      "description": "商品诉讼线索初筛。用于在可用公开案件与权利登记资料中匹配主体和案件，核对文件内容。输入需明确产品、品牌或权利人、目标法域、期间；边界见执行手册。",
+      "category": "商品诉讼线索初筛",
+      "mode": "ip",
+      "route": "官方权利资料与公开检索",
+      "capabilities": [
+        {
+          "provider": "public-primary-sources",
+          "tool": "ip",
+          "validation": "runtime_discovery"
+        }
+      ],
+      "limitation": "同名主体不直接归并；历史诉讼不代表当前商品侵权；无结果不保证无诉讼",
+      "legacy_path": "sealeap-athena-product-litigation-screen",
+      "entrypoint": "sealeap-athena-ip-compliance-screen",
+      "guide_path": "references/capabilities/product-litigation-screen/workflow.md",
+      "playbook_path": "references/capabilities/product-litigation-screen/playbook.md",
+      "tool_routing_path": "references/capabilities/product-litigation-screen/tool-routing.md"
+    }
+  ]
+}

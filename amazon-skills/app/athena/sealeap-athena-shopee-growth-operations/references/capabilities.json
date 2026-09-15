@@ -1,0 +1,248 @@
+{
+  "schema_version": 1,
+  "entrypoint": "sealeap-athena-shopee-growth-operations",
+  "capabilities": [
+    {
+      "name": "sealeap-athena-shopee-account-add-on-deal",
+      "title": "Shopee 加购优惠 促销管理",
+      "description": "Shopee 加购优惠 促销管理。用于限定本次活动类型为加购优惠；核对当前活动与资格，计算折扣叠加、库存和毛利影响，提交授权配置后回读。输入需明确账户、地区、活动类型、SKU、日期、折扣与预算；边界见执行手册。",
+      "category": "Shopee",
+      "mode": "commerce",
+      "route": "官方账户连接或导出文件",
+      "capabilities": [
+        {
+          "provider": "official-account",
+          "tool": "promotion",
+          "validation": "connection_required",
+          "platform": "Shopee"
+        }
+      ],
+      "limitation": "折扣、券和平台补贴分开；结束时间和时区明确；不重复创建同一活动；加购、捆绑、折扣、闪购和优惠券分别核对资格、最低件数、叠加和库存锁定规则",
+      "legacy_path": "sealeap-athena-shopee-account-add-on-deal",
+      "entrypoint": "sealeap-athena-shopee-growth-operations",
+      "guide_path": "references/capabilities/shopee-account-add-on-deal/workflow.md",
+      "playbook_path": "references/capabilities/shopee-account-add-on-deal/playbook.md",
+      "tool_routing_path": "references/capabilities/shopee-account-add-on-deal/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-shopee-account-ads",
+      "title": "Shopee 广告管理",
+      "description": "Shopee 广告管理。用于先读广告实体与同窗报表，形成出价、预算或状态差异，执行已授权对象并回读。输入需明确账户、地区、广告产品、活动/广告组、期间、预算边界；边界见执行手册。",
+      "category": "Shopee",
+      "mode": "commerce",
+      "route": "官方账户连接或导出文件",
+      "capabilities": [
+        {
+          "provider": "official-account",
+          "tool": "ads",
+          "validation": "connection_required",
+          "platform": "Shopee"
+        }
+      ],
+      "limitation": "公开竞品广告数据没有自家写权限；预算是活动级；失败不切账户或 API 版本兜底",
+      "legacy_path": "sealeap-athena-shopee-account-ads",
+      "entrypoint": "sealeap-athena-shopee-growth-operations",
+      "guide_path": "references/capabilities/shopee-account-ads/workflow.md",
+      "playbook_path": "references/capabilities/shopee-account-ads/playbook.md",
+      "tool_routing_path": "references/capabilities/shopee-account-ads/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-shopee-account-ams",
+      "title": "Shopee 联盟营销",
+      "description": "Shopee 联盟营销。用于核对活动与商品资格，分开自然销售和联盟归因，准备授权佣金或活动变更。输入需明确账户、国家、达人或联盟活动、商品、佣金和期间；边界见执行手册。",
+      "category": "Shopee",
+      "mode": "commerce",
+      "route": "官方账户连接或导出文件",
+      "capabilities": [
+        {
+          "provider": "official-account",
+          "tool": "ams",
+          "validation": "connection_required",
+          "platform": "Shopee"
+        }
+      ],
+      "limitation": "联盟归因需明确窗口；不自动邀约达人；佣金不是广告 CPC",
+      "legacy_path": "sealeap-athena-shopee-account-ams",
+      "entrypoint": "sealeap-athena-shopee-growth-operations",
+      "guide_path": "references/capabilities/shopee-account-ams/workflow.md",
+      "playbook_path": "references/capabilities/shopee-account-ams/playbook.md",
+      "tool_routing_path": "references/capabilities/shopee-account-ams/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-shopee-account-bundle-deal",
+      "title": "Shopee 捆绑优惠 促销管理",
+      "description": "Shopee 捆绑优惠 促销管理。用于限定本次活动类型为捆绑优惠；核对当前活动与资格，计算折扣叠加、库存和毛利影响，提交授权配置后回读。输入需明确账户、地区、活动类型、SKU、日期、折扣与预算；边界见执行手册。",
+      "category": "Shopee",
+      "mode": "commerce",
+      "route": "官方账户连接或导出文件",
+      "capabilities": [
+        {
+          "provider": "official-account",
+          "tool": "promotion",
+          "validation": "connection_required",
+          "platform": "Shopee"
+        }
+      ],
+      "limitation": "折扣、券和平台补贴分开；结束时间和时区明确；不重复创建同一活动；加购、捆绑、折扣、闪购和优惠券分别核对资格、最低件数、叠加和库存锁定规则",
+      "legacy_path": "sealeap-athena-shopee-account-bundle-deal",
+      "entrypoint": "sealeap-athena-shopee-growth-operations",
+      "guide_path": "references/capabilities/shopee-account-bundle-deal/workflow.md",
+      "playbook_path": "references/capabilities/shopee-account-bundle-deal/playbook.md",
+      "tool_routing_path": "references/capabilities/shopee-account-bundle-deal/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-shopee-account-discount",
+      "title": "Shopee 单品折扣 促销管理",
+      "description": "Shopee 单品折扣 促销管理。用于限定本次活动类型为单品折扣；核对当前活动与资格，计算折扣叠加、库存和毛利影响，提交授权配置后回读。输入需明确账户、地区、活动类型、SKU、日期、折扣与预算；边界见执行手册。",
+      "category": "Shopee",
+      "mode": "commerce",
+      "route": "官方账户连接或导出文件",
+      "capabilities": [
+        {
+          "provider": "official-account",
+          "tool": "promotion",
+          "validation": "connection_required",
+          "platform": "Shopee"
+        }
+      ],
+      "limitation": "折扣、券和平台补贴分开；结束时间和时区明确；不重复创建同一活动；加购、捆绑、折扣、闪购和优惠券分别核对资格、最低件数、叠加和库存锁定规则",
+      "legacy_path": "sealeap-athena-shopee-account-discount",
+      "entrypoint": "sealeap-athena-shopee-growth-operations",
+      "guide_path": "references/capabilities/shopee-account-discount/workflow.md",
+      "playbook_path": "references/capabilities/shopee-account-discount/playbook.md",
+      "tool_routing_path": "references/capabilities/shopee-account-discount/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-shopee-account-follow-prize",
+      "title": "Shopee 关注奖励活动",
+      "description": "Shopee 关注奖励活动。用于核对当前平台允许的关注奖励类型和叠加条件，创建可评审配置后按授权执行。输入需明确账户、国家、活动期限、奖励规则、预算与资格；边界见执行手册。",
+      "category": "Shopee",
+      "mode": "commerce",
+      "route": "官方账户连接或导出文件",
+      "capabilities": [
+        {
+          "provider": "official-account",
+          "tool": "follow-prize",
+          "validation": "connection_required",
+          "platform": "Shopee"
+        }
+      ],
+      "limitation": "关注奖励不能延伸到评价激励；预算和库存上限须明确",
+      "legacy_path": "sealeap-athena-shopee-account-follow-prize",
+      "entrypoint": "sealeap-athena-shopee-growth-operations",
+      "guide_path": "references/capabilities/shopee-account-follow-prize/workflow.md",
+      "playbook_path": "references/capabilities/shopee-account-follow-prize/playbook.md",
+      "tool_routing_path": "references/capabilities/shopee-account-follow-prize/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-shopee-account-livestream",
+      "title": "Shopee 直播管理",
+      "description": "Shopee 直播管理。用于读取正式直播能力和场次状态，准备商品或场次变更，再核对生效结果。输入需明确账户、国家、场次、素材、关联商品与目标动作；边界见执行手册。",
+      "category": "Shopee",
+      "mode": "commerce",
+      "route": "官方账户连接或导出文件",
+      "capabilities": [
+        {
+          "provider": "official-account",
+          "tool": "livestream",
+          "validation": "connection_required",
+          "platform": "Shopee"
+        }
+      ],
+      "limitation": "公开直播观看数据不授予开播权限；时间与商品库存必须同步",
+      "legacy_path": "sealeap-athena-shopee-account-livestream",
+      "entrypoint": "sealeap-athena-shopee-growth-operations",
+      "guide_path": "references/capabilities/shopee-account-livestream/workflow.md",
+      "playbook_path": "references/capabilities/shopee-account-livestream/playbook.md",
+      "tool_routing_path": "references/capabilities/shopee-account-livestream/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-shopee-account-flash-sale",
+      "title": "Shopee 限时特卖 促销管理",
+      "description": "Shopee 限时特卖 促销管理。用于限定本次活动类型为限时特卖；核对当前活动与资格，计算折扣叠加、库存和毛利影响，提交授权配置后回读。输入需明确账户、地区、活动类型、SKU、日期、折扣与预算；边界见执行手册。",
+      "category": "Shopee",
+      "mode": "commerce",
+      "route": "官方账户连接或导出文件",
+      "capabilities": [
+        {
+          "provider": "official-account",
+          "tool": "promotion",
+          "validation": "connection_required",
+          "platform": "Shopee"
+        }
+      ],
+      "limitation": "折扣、券和平台补贴分开；结束时间和时区明确；不重复创建同一活动；加购、捆绑、折扣、闪购和优惠券分别核对资格、最低件数、叠加和库存锁定规则",
+      "legacy_path": "sealeap-athena-shopee-account-flash-sale",
+      "entrypoint": "sealeap-athena-shopee-growth-operations",
+      "guide_path": "references/capabilities/shopee-account-flash-sale/workflow.md",
+      "playbook_path": "references/capabilities/shopee-account-flash-sale/playbook.md",
+      "tool_routing_path": "references/capabilities/shopee-account-flash-sale/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-shopee-account-top-picks",
+      "title": "Shopee 精选商品",
+      "description": "Shopee 精选商品。用于核对可售状态和现有精选配置，准备顺序或商品调整并回读。输入需明确账户、国家、商品组合、展示位置和目标日期；边界见执行手册。",
+      "category": "Shopee",
+      "mode": "commerce",
+      "route": "官方账户连接或导出文件",
+      "capabilities": [
+        {
+          "provider": "official-account",
+          "tool": "top-picks",
+          "validation": "connection_required",
+          "platform": "Shopee"
+        }
+      ],
+      "limitation": "精选展示不保证流量；不把缺货 SKU 作为默认推荐",
+      "legacy_path": "sealeap-athena-shopee-account-top-picks",
+      "entrypoint": "sealeap-athena-shopee-growth-operations",
+      "guide_path": "references/capabilities/shopee-account-top-picks/workflow.md",
+      "playbook_path": "references/capabilities/shopee-account-top-picks/playbook.md",
+      "tool_routing_path": "references/capabilities/shopee-account-top-picks/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-shopee-account-video",
+      "title": "Shopee 视频管理",
+      "description": "Shopee 视频管理。用于核对视频及商品关系，准备内容或状态变更预览，执行授权操作并查看发布状态。输入需明确账户、地区、视频 ID 或素材、商品关系与动作；边界见执行手册。",
+      "category": "Shopee",
+      "mode": "commerce",
+      "route": "官方账户连接或导出文件",
+      "capabilities": [
+        {
+          "provider": "official-account",
+          "tool": "video",
+          "validation": "connection_required",
+          "platform": "Shopee"
+        }
+      ],
+      "limitation": "上传成功不等于审核通过；不得自动发评论或联系达人",
+      "legacy_path": "sealeap-athena-shopee-account-video",
+      "entrypoint": "sealeap-athena-shopee-growth-operations",
+      "guide_path": "references/capabilities/shopee-account-video/workflow.md",
+      "playbook_path": "references/capabilities/shopee-account-video/playbook.md",
+      "tool_routing_path": "references/capabilities/shopee-account-video/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-shopee-account-voucher",
+      "title": "Shopee 优惠券 促销管理",
+      "description": "Shopee 优惠券 促销管理。用于限定本次活动类型为优惠券；核对当前活动与资格，计算折扣叠加、库存和毛利影响，提交授权配置后回读。输入需明确账户、地区、活动类型、SKU、日期、折扣与预算；边界见执行手册。",
+      "category": "Shopee",
+      "mode": "commerce",
+      "route": "官方账户连接或导出文件",
+      "capabilities": [
+        {
+          "provider": "official-account",
+          "tool": "promotion",
+          "validation": "connection_required",
+          "platform": "Shopee"
+        }
+      ],
+      "limitation": "折扣、券和平台补贴分开；结束时间和时区明确；不重复创建同一活动；加购、捆绑、折扣、闪购和优惠券分别核对资格、最低件数、叠加和库存锁定规则",
+      "legacy_path": "sealeap-athena-shopee-account-voucher",
+      "entrypoint": "sealeap-athena-shopee-growth-operations",
+      "guide_path": "references/capabilities/shopee-account-voucher/workflow.md",
+      "playbook_path": "references/capabilities/shopee-account-voucher/playbook.md",
+      "tool_routing_path": "references/capabilities/shopee-account-voucher/tool-routing.md"
+    }
+  ]
+}

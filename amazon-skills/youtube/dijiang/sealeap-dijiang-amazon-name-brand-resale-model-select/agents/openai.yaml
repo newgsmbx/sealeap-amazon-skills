@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 名牌转售模式与履约选择"
+  short_description: "Amazon 名牌转售模式与履约选择：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-dijiang-amazon-name-brand-resale-model-select to diagnose this Amazon task and return an evidence-gated plan."

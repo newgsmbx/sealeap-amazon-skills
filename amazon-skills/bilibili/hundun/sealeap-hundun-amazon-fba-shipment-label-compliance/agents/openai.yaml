@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon FBA 发货装箱与标签合规"
+  short_description: "Amazon FBA 发货装箱与标签合规：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-hundun-amazon-fba-shipment-label-compliance to diagnose this Amazon task and return an evidence-gated plan."

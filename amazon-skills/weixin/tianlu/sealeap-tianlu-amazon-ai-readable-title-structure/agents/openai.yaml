@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 标题语义结构化改写"
+  short_description: "Amazon 标题语义结构化改写：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-tianlu-amazon-ai-readable-title-structure to diagnose this Amazon task and return an evidence-gated plan."

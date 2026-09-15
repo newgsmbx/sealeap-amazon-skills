@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 新品上市备货与达人引流"
+  short_description: "Amazon 新品上市备货与达人引流：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-dijiang-amazon-creator-seeding-launch-buffer to diagnose this Amazon task and return an evidence-gated plan."

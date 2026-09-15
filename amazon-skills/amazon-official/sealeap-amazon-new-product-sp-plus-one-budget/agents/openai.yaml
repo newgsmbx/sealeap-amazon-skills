@@ -1,0 +1,4 @@
+interface:
+  display_name: "SeaLeap 新品 SP 加品牌工具预算架构"
+  short_description: "估算新品广告所需预算并按流量特征选择品牌工具和阶段调整方案"
+  default_prompt: "使用 $sealeap-amazon-new-product-sp-plus-one-budget，按我的目标订单、CPC、CVR 和预算上限制定一个新品 SP+1 广告草案。"

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 标题字符合规与关键词重排"
+  short_description: "Amazon 标题字符合规与关键词重排：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-chiwen-amazon-title-cap-keyword-rebuild to diagnose this Amazon task and return an evidence-gated plan."

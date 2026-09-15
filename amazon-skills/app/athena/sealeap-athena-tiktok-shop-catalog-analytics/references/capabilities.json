@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "entrypoint": "sealeap-athena-tiktok-shop-catalog-analytics",
+  "capabilities": [
+    {
+      "name": "sealeap-athena-tiktok-shop-auth",
+      "title": "TikTok Shop 账户授权检查",
+      "description": "TikTok Shop 账户授权检查。用于先读取既有连接的非敏感状态；需要新授权时通过官方流程绑定明确账户，再回读身份。输入需明确账户别名、地区、所需权限与目标动作；边界见执行手册。",
+      "category": "TikTok Shop",
+      "mode": "commerce",
+      "route": "官方账户连接或导出文件",
+      "capabilities": [
+        {
+          "provider": "official-account",
+          "tool": "auth",
+          "validation": "connection_required",
+          "platform": "TikTok Shop"
+        }
+      ],
+      "limitation": "不得靠市场数据推断已授权；多账户歧义需澄清；不输出或索取明文令牌",
+      "legacy_path": "sealeap-athena-tiktok-shop-auth",
+      "entrypoint": "sealeap-athena-tiktok-shop-catalog-analytics",
+      "guide_path": "references/capabilities/tiktok-shop-auth/workflow.md",
+      "playbook_path": "references/capabilities/tiktok-shop-auth/playbook.md",
+      "tool_routing_path": "references/capabilities/tiktok-shop-auth/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-tiktok-shop-product",
+      "title": "TikTok Shop 商品管理",
+      "description": "TikTok Shop 商品管理。用于读取商品现状与当前类目 schema，生成字段级变更预览，验证后执行授权范围并回读。输入需明确账户、地区、SKU/商品 ID、属性和目标动作；边界见执行手册。",
+      "category": "TikTok Shop",
+      "mode": "commerce",
+      "route": "官方账户连接或导出文件",
+      "capabilities": [
+        {
+          "provider": "official-account",
+          "tool": "product",
+          "validation": "connection_required",
+          "platform": "TikTok Shop"
+        }
+      ],
+      "limitation": "全量更新可能覆盖省略属性；价格和库存变化分别核实；删除前保存可恢复资料",
+      "legacy_path": "sealeap-athena-tiktok-shop-product",
+      "entrypoint": "sealeap-athena-tiktok-shop-catalog-analytics",
+      "guide_path": "references/capabilities/tiktok-shop-product/workflow.md",
+      "playbook_path": "references/capabilities/tiktok-shop-product/playbook.md",
+      "tool_routing_path": "references/capabilities/tiktok-shop-product/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-tiktok-shop-analytics",
+      "title": "TikTok Shop 经营分析",
+      "description": "TikTok Shop 经营分析。用于获取正式分析或导出表，对齐订单、商品、内容与归因窗口，再解释经营变化。输入需明确账户、国家、期间、维度和指标定义；边界见执行手册。",
+      "category": "TikTok Shop",
+      "mode": "commerce",
+      "route": "官方账户连接或导出文件",
+      "capabilities": [
+        {
+          "provider": "official-account",
+          "tool": "analytics",
+          "validation": "connection_required",
+          "platform": "TikTok Shop"
+        }
+      ],
+      "limitation": "内容 GMV 与店铺销售不可重复相加；延迟归因单独说明",
+      "legacy_path": "sealeap-athena-tiktok-shop-analytics",
+      "entrypoint": "sealeap-athena-tiktok-shop-catalog-analytics",
+      "guide_path": "references/capabilities/tiktok-shop-analytics/workflow.md",
+      "playbook_path": "references/capabilities/tiktok-shop-analytics/playbook.md",
+      "tool_routing_path": "references/capabilities/tiktok-shop-analytics/tool-routing.md"
+    }
+  ]
+}

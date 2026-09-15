@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 评论痛点驱动主图迭代"
+  short_description: "Amazon 评论痛点驱动主图迭代：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-dijiang-amazon-review-mined-image-iteration to diagnose this Amazon task and return an evidence-gated plan."

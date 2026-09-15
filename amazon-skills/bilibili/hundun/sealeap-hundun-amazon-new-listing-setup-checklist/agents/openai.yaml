@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 新建 Listing 合规核对"
+  short_description: "Amazon 新建 Listing 合规核对：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-hundun-amazon-new-listing-setup-checklist to diagnose this Amazon task and return an evidence-gated plan."

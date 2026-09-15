@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 大促分层促销与站外承接规划"
+  short_description: "Amazon 大促分层促销与站外承接规划：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-feilian-amazon-promo-tier-remarketing-plan to diagnose this Amazon task and return an evidence-gated plan."

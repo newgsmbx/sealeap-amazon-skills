@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 高级 A+ 模块取舍与布局"
+  short_description: "Amazon 高级 A+ 模块取舍与布局：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-qiongqi-amazon-premium-aplus-module-select to diagnose this Amazon task and return an evidence-gated plan."

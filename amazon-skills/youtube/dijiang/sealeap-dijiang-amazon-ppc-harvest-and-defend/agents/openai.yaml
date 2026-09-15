@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 捡漏反查双轨PPC结构"
+  short_description: "Amazon 捡漏反查双轨PPC结构：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-dijiang-amazon-ppc-harvest-and-defend to diagnose this Amazon task and return an evidence-gated plan."

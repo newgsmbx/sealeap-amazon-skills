@@ -1,0 +1,320 @@
+{
+  "collection": "apollo",
+  "skill_count": 52,
+  "source_package_count": 53,
+  "installed": false,
+  "skills": [
+    {
+      "name": "sealeap-apollo-amazon-product-details",
+      "title": "Amazon ASIN 商品详情采集",
+      "group": "Amazon 采集与 VOC",
+      "path": "sealeap-apollo-amazon-product-details/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-amazon-review-media",
+      "title": "Amazon 评论与媒体采集",
+      "group": "Amazon 采集与 VOC",
+      "path": "sealeap-apollo-amazon-review-media/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-amazon-product-search-lite",
+      "title": "Amazon 轻量商品搜索",
+      "group": "Amazon 采集与 VOC",
+      "path": "sealeap-apollo-amazon-product-search-lite/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-amazon-review-voc",
+      "title": "Amazon 评论 VOC 分析",
+      "group": "Amazon 采集与 VOC",
+      "path": "sealeap-apollo-amazon-review-voc/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-keepa-product-finder",
+      "title": "Amazon Keepa 商品筛选",
+      "group": "Keepa 数据",
+      "path": "sealeap-apollo-keepa-product-finder/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-keepa-product-history",
+      "title": "Amazon Keepa 历史趋势",
+      "group": "Keepa 数据",
+      "path": "sealeap-apollo-keepa-product-history/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-keepa-product-search",
+      "title": "Amazon Keepa 商品搜索",
+      "group": "Keepa 数据",
+      "path": "sealeap-apollo-keepa-product-search/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-sellersprite-asin-detail",
+      "title": "Amazon 卖家精灵 ASIN 商品详情",
+      "group": "卖家精灵数据",
+      "path": "sealeap-apollo-sellersprite-asin-detail/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-sellersprite-coupon-trend",
+      "title": "Amazon 卖家精灵 ASIN 优惠券趋势",
+      "group": "卖家精灵数据",
+      "path": "sealeap-apollo-sellersprite-coupon-trend/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-sellersprite-competitors",
+      "title": "Amazon 卖家精灵 竞品列表查询",
+      "group": "卖家精灵数据",
+      "path": "sealeap-apollo-sellersprite-competitors/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-sellersprite-market-research",
+      "title": "Amazon 卖家精灵 类目市场研究",
+      "group": "卖家精灵数据",
+      "path": "sealeap-apollo-sellersprite-market-research/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-sellersprite-market-statistics",
+      "title": "Amazon 卖家精灵 类目市场统计",
+      "group": "卖家精灵数据",
+      "path": "sealeap-apollo-sellersprite-market-statistics/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-sellersprite-product-search",
+      "title": "Amazon 卖家精灵 商品池筛选",
+      "group": "卖家精灵数据",
+      "path": "sealeap-apollo-sellersprite-product-search/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-sellersprite-reviews",
+      "title": "Amazon 卖家精灵 评论列表",
+      "group": "卖家精灵数据",
+      "path": "sealeap-apollo-sellersprite-reviews/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-sellersprite-traffic-keywords",
+      "title": "Amazon 卖家精灵 ASIN 流量关键词",
+      "group": "卖家精灵数据",
+      "path": "sealeap-apollo-sellersprite-traffic-keywords/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-sellersprite-traffic-keyword-stats",
+      "title": "Amazon 卖家精灵 ASIN 流量关键词统计",
+      "group": "卖家精灵数据",
+      "path": "sealeap-apollo-sellersprite-traffic-keyword-stats/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-sellersprite-traffic-products",
+      "title": "Amazon 卖家精灵 ASIN 关联流量商品",
+      "group": "卖家精灵数据",
+      "path": "sealeap-apollo-sellersprite-traffic-products/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-sellersprite-traffic-sources",
+      "title": "Amazon 卖家精灵 ASIN 流量来源分析",
+      "group": "卖家精灵数据",
+      "path": "sealeap-apollo-sellersprite-traffic-sources/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-sif-asin-keywords",
+      "title": "Amazon SIF ASIN 关键词反查",
+      "group": "SIF 数据",
+      "path": "sealeap-apollo-sif-asin-keywords/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-sif-asin-summary",
+      "title": "Amazon SIF ASIN 流量结构概览",
+      "group": "SIF 数据",
+      "path": "sealeap-apollo-sif-asin-summary/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-sif-keyword-overview",
+      "title": "Amazon SIF 关键词需求概览",
+      "group": "SIF 数据",
+      "path": "sealeap-apollo-sif-keyword-overview/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-sif-keyword-traffic",
+      "title": "Amazon SIF 关键词流量竞争",
+      "group": "SIF 数据",
+      "path": "sealeap-apollo-sif-keyword-traffic/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-sorftime-category-keywords",
+      "title": "Amazon Sorftime 类目核心关键词",
+      "group": "Sorftime 数据",
+      "path": "sealeap-apollo-sorftime-category-keywords/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-sorftime-category-report",
+      "title": "Amazon Sorftime 类目实时市场报告",
+      "group": "Sorftime 数据",
+      "path": "sealeap-apollo-sorftime-category-report/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-sorftime-category-report-from-history",
+      "title": "Amazon Sorftime 类目历史市场报告",
+      "group": "Sorftime 数据",
+      "path": "sealeap-apollo-sorftime-category-report-from-history/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-sorftime-category-trend",
+      "title": "Amazon Sorftime 类目销量趋势",
+      "group": "Sorftime 数据",
+      "path": "sealeap-apollo-sorftime-category-trend/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-sorftime-competitor-product-keywords",
+      "title": "Amazon Sorftime 竞品关键词分析",
+      "group": "Sorftime 数据",
+      "path": "sealeap-apollo-sorftime-competitor-product-keywords/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-sorftime-keyword-detail",
+      "title": "Amazon Sorftime 关键词详情",
+      "group": "Sorftime 数据",
+      "path": "sealeap-apollo-sorftime-keyword-detail/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-sorftime-keyword-extends",
+      "title": "Amazon Sorftime 关键词扩展",
+      "group": "Sorftime 数据",
+      "path": "sealeap-apollo-sorftime-keyword-extends/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-sorftime-keyword-list",
+      "title": "Amazon Sorftime 实时热搜关键词榜",
+      "group": "Sorftime 数据",
+      "path": "sealeap-apollo-sorftime-keyword-list/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-sorftime-keyword-list-from-history",
+      "title": "Amazon Sorftime 历史热搜关键词榜",
+      "group": "Sorftime 数据",
+      "path": "sealeap-apollo-sorftime-keyword-list-from-history/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-sorftime-keyword-search-results",
+      "title": "Amazon Sorftime 关键词搜索结果",
+      "group": "Sorftime 数据",
+      "path": "sealeap-apollo-sorftime-keyword-search-results/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-sorftime-keyword-trend",
+      "title": "Amazon Sorftime 关键词历史趋势",
+      "group": "Sorftime 数据",
+      "path": "sealeap-apollo-sorftime-keyword-trend/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-sorftime-potential-product",
+      "title": "Amazon Sorftime 潜力商品筛选",
+      "group": "Sorftime 数据",
+      "path": "sealeap-apollo-sorftime-potential-product/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-sorftime-product-customers-say",
+      "title": "Amazon Sorftime 买家评论洞察",
+      "group": "Sorftime 数据",
+      "path": "sealeap-apollo-sorftime-product-customers-say/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-sorftime-product-detail",
+      "title": "Amazon Sorftime 商品详情",
+      "group": "Sorftime 数据",
+      "path": "sealeap-apollo-sorftime-product-detail/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-sorftime-product-ranking-trend-by-keyword",
+      "title": "Amazon Sorftime 关键词排名趋势",
+      "group": "Sorftime 数据",
+      "path": "sealeap-apollo-sorftime-product-ranking-trend-by-keyword/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-sorftime-product-reviews",
+      "title": "Amazon Sorftime 商品评论",
+      "group": "Sorftime 数据",
+      "path": "sealeap-apollo-sorftime-product-reviews/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-sorftime-product-search",
+      "title": "Amazon Sorftime 商品筛选",
+      "group": "Sorftime 数据",
+      "path": "sealeap-apollo-sorftime-product-search/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-sorftime-product-search-from-history",
+      "title": "Amazon Sorftime 历史商品筛选",
+      "group": "Sorftime 数据",
+      "path": "sealeap-apollo-sorftime-product-search-from-history/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-sorftime-product-traffic-terms",
+      "title": "Amazon Sorftime ASIN 流量词反查",
+      "group": "Sorftime 数据",
+      "path": "sealeap-apollo-sorftime-product-traffic-terms/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-sorftime-product-trend",
+      "title": "Amazon Sorftime 商品历史趋势",
+      "group": "Sorftime 数据",
+      "path": "sealeap-apollo-sorftime-product-trend/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-sorftime-product-variations",
+      "title": "Amazon Sorftime 商品变体",
+      "group": "Sorftime 数据",
+      "path": "sealeap-apollo-sorftime-product-variations/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-sorftime-similar-product-feature",
+      "title": "Amazon Sorftime 相似商品特征",
+      "group": "Sorftime 数据",
+      "path": "sealeap-apollo-sorftime-similar-product-feature/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-ads-demo",
+      "title": "Amazon 广告规则离线演示",
+      "group": "运营与研究工作流",
+      "path": "sealeap-apollo-ads-demo/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-ad-planning",
+      "title": "Amazon 广告推进方案",
+      "group": "运营与研究工作流",
+      "path": "sealeap-apollo-ad-planning/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-keyword-library",
+      "title": "Amazon ASIN 分层关键词库",
+      "group": "运营与研究工作流",
+      "path": "sealeap-apollo-keyword-library/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-asin-research-brief",
+      "title": "Amazon ASIN 深度调研简报",
+      "group": "运营与研究工作流",
+      "path": "sealeap-apollo-asin-research-brief/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-batch-title-rewrite",
+      "title": "Amazon 批量标题与商品亮点",
+      "group": "运营与研究工作流",
+      "path": "sealeap-apollo-batch-title-rewrite/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-competitor-monitor",
+      "title": "Amazon 竞品快照与变化监控",
+      "group": "运营与研究工作流",
+      "path": "sealeap-apollo-competitor-monitor/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-product-research",
+      "title": "Amazon 选品研究与决策报告",
+      "group": "运营与研究工作流",
+      "path": "sealeap-apollo-product-research/SKILL.md"
+    },
+    {
+      "name": "sealeap-apollo-price-discounts",
+      "title": "Amazon 价格折扣核查与计划",
+      "group": "运营与研究工作流",
+      "path": "sealeap-apollo-price-discounts/SKILL.md"
+    }
+  ]
+}

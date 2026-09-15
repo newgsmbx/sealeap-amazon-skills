@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 欧洲合规体系核对"
+  short_description: "Amazon 欧洲合规体系核对：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-tianlu-amazon-eu-compliance-system-audit to diagnose this Amazon task and return an evidence-gated plan."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 促销价格资格排错"
+  short_description: "Amazon 促销价格资格排错：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-tianlu-amazon-promo-price-eligibility-troubleshoot to diagnose this Amazon task and return an evidence-gated plan."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 广告活动分类型利润优化例行"
+  short_description: "Amazon 广告活动分类型利润优化例行：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-qiongqi-amazon-campaign-profit-optimization to diagnose this Amazon task and return an evidence-gated plan."

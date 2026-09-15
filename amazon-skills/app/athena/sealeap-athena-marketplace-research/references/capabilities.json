@@ -1,0 +1,635 @@
+{
+  "schema_version": 1,
+  "entrypoint": "sealeap-athena-marketplace-research",
+  "capabilities": [
+    {
+      "name": "sealeap-athena-walmart-category-market",
+      "title": "Walmart 类目市场研究",
+      "description": "Walmart 类目市场研究。用于先确认类目节点，再对同一批商品比较价格、卖家与需求集中度。输入需明确市场、类目或节点、观察时间、样本范围；边界见执行手册。",
+      "category": "Walmart",
+      "mode": "data",
+      "route": "Sorftime 直接工具",
+      "capabilities": [
+        {
+          "provider": "sorftime",
+          "tool": "walmart_category_search_from_name",
+          "validation": "tool_schema",
+          "required_fields": [
+            "name"
+          ]
+        },
+        {
+          "provider": "sorftime",
+          "tool": "walmart_category_report_by_node_id",
+          "validation": "tool_schema",
+          "required_fields": [
+            "node_id"
+          ]
+        }
+      ],
+      "limitation": "Top 样本不等于全市场；商品变体不能重复计入市场规模",
+      "legacy_path": "sealeap-athena-walmart-category-market",
+      "entrypoint": "sealeap-athena-marketplace-research",
+      "guide_path": "references/capabilities/walmart-category-market/workflow.md",
+      "playbook_path": "references/capabilities/walmart-category-market/playbook.md",
+      "tool_routing_path": "references/capabilities/walmart-category-market/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-walmart-product-analysis",
+      "title": "Walmart 商品趋势分析",
+      "description": "Walmart 商品趋势分析。用于串联商品详情、历史趋势与变体估算，解释变化对应的时间段。输入需明确商品 ID、市场、期间、变体口径；边界见执行手册。",
+      "category": "Walmart",
+      "mode": "data",
+      "route": "Sorftime 直接工具",
+      "capabilities": [
+        {
+          "provider": "sorftime",
+          "tool": "walmart_product_detail_by_product_id",
+          "validation": "tool_schema",
+          "required_fields": [
+            "product_id"
+          ]
+        },
+        {
+          "provider": "sorftime",
+          "tool": "walmart_product_trend_by_product_id",
+          "validation": "tool_schema",
+          "required_fields": [
+            "product_id"
+          ]
+        },
+        {
+          "provider": "sorftime",
+          "tool": "walmart_product_variation_sales_by_product_id",
+          "validation": "tool_schema",
+          "required_fields": [
+            "product_id"
+          ]
+        }
+      ],
+      "limitation": "估算销量与真实订单分开；历史空档不补零；不同 ID 不合并",
+      "legacy_path": "sealeap-athena-walmart-product-analysis",
+      "entrypoint": "sealeap-athena-marketplace-research",
+      "guide_path": "references/capabilities/walmart-product-analysis/workflow.md",
+      "playbook_path": "references/capabilities/walmart-product-analysis/playbook.md",
+      "tool_routing_path": "references/capabilities/walmart-product-analysis/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-walmart-keyword-research",
+      "title": "Walmart 关键词研究",
+      "description": "Walmart 关键词研究。用于拓展相关关键词并核对搜索结果与商品相关性，记录需求和竞争代理指标。输入需明确种子词或商品 ID、目标市场、期间；边界见执行手册。",
+      "category": "Walmart",
+      "mode": "data",
+      "route": "Sorftime 直接工具",
+      "capabilities": [
+        {
+          "provider": "sorftime",
+          "tool": "walmart_keyword_detail",
+          "validation": "tool_schema",
+          "required_fields": [
+            "keyword"
+          ]
+        },
+        {
+          "provider": "sorftime",
+          "tool": "walmart_keyword_extends",
+          "validation": "tool_schema",
+          "required_fields": [
+            "keyword"
+          ]
+        },
+        {
+          "provider": "sorftime",
+          "tool": "walmart_product_traffic_terms",
+          "validation": "tool_schema",
+          "required_fields": [
+            "product_id"
+          ]
+        }
+      ],
+      "limitation": "流量词不是成交词；搜索结果位置不能直接当点击量",
+      "legacy_path": "sealeap-athena-walmart-keyword-research",
+      "entrypoint": "sealeap-athena-marketplace-research",
+      "guide_path": "references/capabilities/walmart-keyword-research/workflow.md",
+      "playbook_path": "references/capabilities/walmart-keyword-research/playbook.md",
+      "tool_routing_path": "references/capabilities/walmart-keyword-research/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-ebay-product-discovery",
+      "title": "eBay 商品检索",
+      "description": "eBay 商品检索。用于使用已授权官方检索工具或公开页面，区分在售与已售并核对商品状态。输入需明确目标站点、关键词、状态、新旧程度和价格区间；边界见执行手册。",
+      "category": "eBay",
+      "mode": "web",
+      "route": "公开网页或授权接口",
+      "capabilities": [
+        {
+          "provider": "public-primary-sources",
+          "tool": "web",
+          "validation": "runtime_discovery"
+        }
+      ],
+      "limitation": "在售价不能充当成交价；缺少已售数据时不估算成交率",
+      "legacy_path": "sealeap-athena-ebay-product-discovery",
+      "entrypoint": "sealeap-athena-marketplace-research",
+      "guide_path": "references/capabilities/ebay-product-discovery/workflow.md",
+      "playbook_path": "references/capabilities/ebay-product-discovery/playbook.md",
+      "tool_routing_path": "references/capabilities/ebay-product-discovery/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-etsy-category-map",
+      "title": "Etsy 类目定位",
+      "description": "Etsy 类目定位。用于用当前官方类目资料或可访问页面确认名称、层级和适用属性。输入需明确市场、商品用途、候选类目、语言；边界见执行手册。",
+      "category": "Etsy",
+      "mode": "web",
+      "route": "公开网页或授权接口",
+      "capabilities": [
+        {
+          "provider": "public-primary-sources",
+          "tool": "web",
+          "validation": "runtime_discovery"
+        }
+      ],
+      "limitation": "不可验证的节点 ID 不编造；搜索标签不等于正式类目",
+      "legacy_path": "sealeap-athena-etsy-category-map",
+      "entrypoint": "sealeap-athena-marketplace-research",
+      "guide_path": "references/capabilities/etsy-category-map/workflow.md",
+      "playbook_path": "references/capabilities/etsy-category-map/playbook.md",
+      "tool_routing_path": "references/capabilities/etsy-category-map/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-etsy-product-discovery",
+      "title": "Etsy 商品检索",
+      "description": "Etsy 商品检索。用于使用可用 Etsy 搜索工具或公开页面，核对商品类型与变体价格。输入需明确国家、关键词、手工/数字/古董属性、价格带；边界见执行手册。",
+      "category": "Etsy",
+      "mode": "web",
+      "route": "公开网页或授权接口",
+      "capabilities": [
+        {
+          "provider": "public-primary-sources",
+          "tool": "web",
+          "validation": "runtime_discovery"
+        }
+      ],
+      "limitation": "数字下载与实物不可混比；展示价可能是最低变体价",
+      "legacy_path": "sealeap-athena-etsy-product-discovery",
+      "entrypoint": "sealeap-athena-marketplace-research",
+      "guide_path": "references/capabilities/etsy-product-discovery/workflow.md",
+      "playbook_path": "references/capabilities/etsy-product-discovery/playbook.md",
+      "tool_routing_path": "references/capabilities/etsy-product-discovery/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-etsy-shop-analysis",
+      "title": "Etsy 店铺观察",
+      "description": "Etsy 店铺观察。用于核对店铺身份、商品组合和公开评价，保留观察时间。输入需明确店铺链接、市场、期间和经营问题；边界见执行手册。",
+      "category": "Etsy",
+      "mode": "web",
+      "route": "公开网页或授权接口",
+      "capabilities": [
+        {
+          "provider": "public-primary-sources",
+          "tool": "web",
+          "validation": "runtime_discovery"
+        }
+      ],
+      "limitation": "店铺累计销售不是月销量；评价数量不等于订单数量",
+      "legacy_path": "sealeap-athena-etsy-shop-analysis",
+      "entrypoint": "sealeap-athena-marketplace-research",
+      "guide_path": "references/capabilities/etsy-shop-analysis/workflow.md",
+      "playbook_path": "references/capabilities/etsy-shop-analysis/playbook.md",
+      "tool_routing_path": "references/capabilities/etsy-shop-analysis/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-shopify-product-observation",
+      "title": "Shopify 商品页面观察",
+      "description": "Shopify 商品页面观察。用于读取公开商品与可见变体，核对价格、库存可见性和配送提示。输入需明确获准访问的店铺域名、商品链接、币种；边界见执行手册。",
+      "category": "Shopify",
+      "mode": "web",
+      "route": "公开网页或授权接口",
+      "capabilities": [
+        {
+          "provider": "public-primary-sources",
+          "tool": "web",
+          "validation": "runtime_discovery"
+        }
+      ],
+      "limitation": "公开 storefront 无法证明后台库存或实际销量；不枚举未授权私有接口",
+      "legacy_path": "sealeap-athena-shopify-product-observation",
+      "entrypoint": "sealeap-athena-marketplace-research",
+      "guide_path": "references/capabilities/shopify-product-observation/workflow.md",
+      "playbook_path": "references/capabilities/shopify-product-observation/playbook.md",
+      "tool_routing_path": "references/capabilities/shopify-product-observation/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-shopify-store-observation",
+      "title": "Shopify 独立站研究",
+      "description": "Shopify 独立站研究。用于比较公开目录、导航、内容与转化路径，并区分实测和推断。输入需明确店铺域名、目标市场、研究范围；边界见执行手册。",
+      "category": "Shopify",
+      "mode": "web",
+      "route": "公开网页或授权接口",
+      "capabilities": [
+        {
+          "provider": "public-primary-sources",
+          "tool": "web",
+          "validation": "runtime_discovery"
+        }
+      ],
+      "limitation": "流量估算与店铺真实订单分开；测试不自动提交订单",
+      "legacy_path": "sealeap-athena-shopify-store-observation",
+      "entrypoint": "sealeap-athena-marketplace-research",
+      "guide_path": "references/capabilities/shopify-store-observation/workflow.md",
+      "playbook_path": "references/capabilities/shopify-store-observation/playbook.md",
+      "tool_routing_path": "references/capabilities/shopify-store-observation/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-walmart-product-discovery",
+      "title": "Walmart 商品搜索",
+      "description": "Walmart 商品搜索。用于检索商品后逐项检查 ID、变体、售价与配送条件。输入需明确市场、关键词、价格和规格范围；边界见执行手册。",
+      "category": "Walmart",
+      "mode": "data",
+      "route": "Sorftime 直接工具",
+      "capabilities": [
+        {
+          "provider": "sorftime",
+          "tool": "walmart_product_search_from_name",
+          "validation": "tool_schema",
+          "required_fields": [
+            "name"
+          ]
+        }
+      ],
+      "limitation": "返回上限不代表完整结果；相似标题不自动合并",
+      "legacy_path": "sealeap-athena-walmart-product-discovery",
+      "entrypoint": "sealeap-athena-marketplace-research",
+      "guide_path": "references/capabilities/walmart-product-discovery/workflow.md",
+      "playbook_path": "references/capabilities/walmart-product-discovery/playbook.md",
+      "tool_routing_path": "references/capabilities/walmart-product-discovery/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-walmart-offer-detail",
+      "title": "Walmart 报价与变体核对",
+      "description": "Walmart 报价与变体核对。用于核对选中变体、卖家、价格、配送及可用需求估计。输入需明确商品 ID、配送地区、变体、数量和时间；边界见执行手册。",
+      "category": "Walmart",
+      "mode": "data",
+      "route": "Sorftime 直接工具",
+      "capabilities": [
+        {
+          "provider": "sorftime",
+          "tool": "walmart_product_detail_by_product_id",
+          "validation": "tool_schema",
+          "required_fields": [
+            "product_id"
+          ]
+        },
+        {
+          "provider": "sorftime",
+          "tool": "walmart_product_variation_sales_by_product_id",
+          "validation": "tool_schema",
+          "required_fields": [
+            "product_id"
+          ]
+        }
+      ],
+      "limitation": "变体销量估计不是库存；促销和常规价分列",
+      "legacy_path": "sealeap-athena-walmart-offer-detail",
+      "entrypoint": "sealeap-athena-marketplace-research",
+      "guide_path": "references/capabilities/walmart-offer-detail/workflow.md",
+      "playbook_path": "references/capabilities/walmart-offer-detail/playbook.md",
+      "tool_routing_path": "references/capabilities/walmart-offer-detail/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-ozon-product-discovery",
+      "title": "Ozon 商品条件检索",
+      "description": "Ozon 商品条件检索。用于按明确条件检索商品并核对 SKU、价格、需求估计和筛选覆盖。输入需明确Ozon 市场、关键词、品牌、价格和日期；边界见执行手册。",
+      "category": "Ozon",
+      "mode": "mpstats",
+      "route": "MPStats 直连",
+      "capabilities": [
+        {
+          "provider": "mpstats",
+          "tool": "items_search",
+          "validation": "local_interface"
+        }
+      ],
+      "limitation": "使用 Ozon 端点；不能把 Wildberries 返回混入结果",
+      "legacy_path": "sealeap-athena-ozon-product-discovery",
+      "entrypoint": "sealeap-athena-marketplace-research",
+      "guide_path": "references/capabilities/ozon-product-discovery/workflow.md",
+      "playbook_path": "references/capabilities/ozon-product-discovery/playbook.md",
+      "tool_routing_path": "references/capabilities/ozon-product-discovery/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-ozon-product-detail",
+      "title": "Ozon 商品详情核对",
+      "description": "Ozon 商品详情核对。用于核对单商品规格、价格、销量估计、库存代理和类目。输入需明确Ozon SKU、期间、币种和关注字段；边界见执行手册。",
+      "category": "Ozon",
+      "mode": "mpstats",
+      "route": "MPStats 直连",
+      "capabilities": [
+        {
+          "provider": "mpstats",
+          "tool": "item_full",
+          "validation": "local_interface"
+        }
+      ],
+      "limitation": "估计库存不代表可向卖家下单的实时库存；不混规格",
+      "legacy_path": "sealeap-athena-ozon-product-detail",
+      "entrypoint": "sealeap-athena-marketplace-research",
+      "guide_path": "references/capabilities/ozon-product-detail/workflow.md",
+      "playbook_path": "references/capabilities/ozon-product-detail/playbook.md",
+      "tool_routing_path": "references/capabilities/ozon-product-detail/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-ozon-product-trend",
+      "title": "Ozon 商品历史趋势",
+      "description": "Ozon 商品历史趋势。用于获取逐日销售和库存序列并标注缺口、促销与异常。输入需明确Ozon SKU、起止日期、时间粒度；边界见执行手册。",
+      "category": "Ozon",
+      "mode": "mpstats",
+      "route": "MPStats 直连",
+      "capabilities": [
+        {
+          "provider": "mpstats",
+          "tool": "item_sales",
+          "validation": "local_interface"
+        }
+      ],
+      "limitation": "缺日不补零；累计值和日值分开；销量估计非财务收入",
+      "legacy_path": "sealeap-athena-ozon-product-trend",
+      "entrypoint": "sealeap-athena-marketplace-research",
+      "guide_path": "references/capabilities/ozon-product-trend/workflow.md",
+      "playbook_path": "references/capabilities/ozon-product-trend/playbook.md",
+      "tool_routing_path": "references/capabilities/ozon-product-trend/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-ozon-brand-catalog",
+      "title": "Ozon 品牌商品研究",
+      "description": "Ozon 品牌商品研究。用于按品牌检索商品并核对品牌归属，分析已取样本的组合结构。输入需明确品牌、Ozon 市场、期间、筛选范围；边界见执行手册。",
+      "category": "Ozon",
+      "mode": "mpstats",
+      "route": "MPStats 直连",
+      "capabilities": [
+        {
+          "provider": "mpstats",
+          "tool": "brand_items",
+          "validation": "local_interface"
+        }
+      ],
+      "limitation": "样本品牌份额不是全市场品牌份额；同名不自动同主体",
+      "legacy_path": "sealeap-athena-ozon-brand-catalog",
+      "entrypoint": "sealeap-athena-marketplace-research",
+      "guide_path": "references/capabilities/ozon-brand-catalog/workflow.md",
+      "playbook_path": "references/capabilities/ozon-brand-catalog/playbook.md",
+      "tool_routing_path": "references/capabilities/ozon-brand-catalog/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-ozon-category-products",
+      "title": "Ozon 类目商品研究",
+      "description": "Ozon 类目商品研究。用于确认类目路径再查询商品，比较价格带、卖家和需求集中度。输入需明确类目路径、Ozon 市场、日期、筛选和分页上限；边界见执行手册。",
+      "category": "Ozon",
+      "mode": "mpstats",
+      "route": "MPStats 直连",
+      "capabilities": [
+        {
+          "provider": "mpstats",
+          "tool": "category_items",
+          "validation": "local_interface"
+        }
+      ],
+      "limitation": "路径不能照搬别的平台；分页未完不称类目全量",
+      "legacy_path": "sealeap-athena-ozon-category-products",
+      "entrypoint": "sealeap-athena-marketplace-research",
+      "guide_path": "references/capabilities/ozon-category-products/workflow.md",
+      "playbook_path": "references/capabilities/ozon-category-products/playbook.md",
+      "tool_routing_path": "references/capabilities/ozon-category-products/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-ozon-seller-products",
+      "title": "Ozon 卖家商品组合",
+      "description": "Ozon 卖家商品组合。用于仅在接口支持卖家筛选时查询，逐项核对卖家和商品关系。输入需明确卖家标识、Ozon 市场、期间与商品范围；边界见执行手册。",
+      "category": "Ozon",
+      "mode": "mpstats",
+      "route": "MPStats 直连",
+      "capabilities": [
+        {
+          "provider": "mpstats",
+          "tool": "seller_items",
+          "validation": "local_interface"
+        }
+      ],
+      "limitation": "接口无卖家过滤时不能用关键词匹配冒充店铺全量",
+      "legacy_path": "sealeap-athena-ozon-seller-products",
+      "entrypoint": "sealeap-athena-marketplace-research",
+      "guide_path": "references/capabilities/ozon-seller-products/workflow.md",
+      "playbook_path": "references/capabilities/ozon-seller-products/playbook.md",
+      "tool_routing_path": "references/capabilities/ozon-seller-products/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-ozon-market-keywords",
+      "title": "Ozon 市场关键词研究",
+      "description": "Ozon 市场关键词研究。用于查询可用关键词频率并核对搜索指标与时间定义。输入需明确Ozon 市场、关键词、时间窗；边界见执行手册。",
+      "category": "Ozon",
+      "mode": "mpstats",
+      "route": "MPStats 直连",
+      "capabilities": [
+        {
+          "provider": "mpstats",
+          "tool": "keyword_freq",
+          "validation": "local_interface"
+        }
+      ],
+      "limitation": "当前连接缺相应端点时可分析用户导出；不以 Amazon 搜索量替代",
+      "legacy_path": "sealeap-athena-ozon-market-keywords",
+      "entrypoint": "sealeap-athena-marketplace-research",
+      "guide_path": "references/capabilities/ozon-market-keywords/workflow.md",
+      "playbook_path": "references/capabilities/ozon-market-keywords/playbook.md",
+      "tool_routing_path": "references/capabilities/ozon-market-keywords/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-ozon-keyword-expansion",
+      "title": "Ozon 相关词挖掘",
+      "description": "Ozon 相关词挖掘。用于从有出处的相关词和搜索建议扩展，核对真实需求数据。输入需明确种子词、俄语同义词、Ozon 市场和期间；边界见执行手册。",
+      "category": "Ozon",
+      "mode": "mpstats",
+      "route": "MPStats 直连",
+      "capabilities": [
+        {
+          "provider": "mpstats",
+          "tool": "keyword_freq",
+          "validation": "local_interface"
+        }
+      ],
+      "limitation": "语言模型扩写词标 ASSUMPTION；没有频率则不补造搜索量",
+      "legacy_path": "sealeap-athena-ozon-keyword-expansion",
+      "entrypoint": "sealeap-athena-marketplace-research",
+      "guide_path": "references/capabilities/ozon-keyword-expansion/workflow.md",
+      "playbook_path": "references/capabilities/ozon-keyword-expansion/playbook.md",
+      "tool_routing_path": "references/capabilities/ozon-keyword-expansion/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-ozon-reverse-keywords",
+      "title": "Ozon 商品关键词反查",
+      "description": "Ozon 商品关键词反查。用于读取商品关联关键词与位置，按时间和相关性整理。输入需明确Ozon SKU、起止日期、所需排名字段；边界见执行手册。",
+      "category": "Ozon",
+      "mode": "mpstats",
+      "route": "MPStats 直连",
+      "capabilities": [
+        {
+          "provider": "mpstats",
+          "tool": "item_keywords",
+          "validation": "local_interface"
+        }
+      ],
+      "limitation": "曝光排名不是转化；缺关键词端点时不以通用词扩写冒充反查",
+      "legacy_path": "sealeap-athena-ozon-reverse-keywords",
+      "entrypoint": "sealeap-athena-marketplace-research",
+      "guide_path": "references/capabilities/ozon-reverse-keywords/workflow.md",
+      "playbook_path": "references/capabilities/ozon-reverse-keywords/playbook.md",
+      "tool_routing_path": "references/capabilities/ozon-reverse-keywords/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-ozon-shop-discovery",
+      "title": "Ozon 店铺检索与核对",
+      "description": "Ozon 店铺检索与核对。用于使用当前可用官方或授权店铺搜索核对身份和公开经营信息。输入需明确Ozon 店铺标识或名称、市场、期间；边界见执行手册。",
+      "category": "Ozon",
+      "mode": "mpstats",
+      "route": "MPStats 直连",
+      "capabilities": [
+        {
+          "provider": "mpstats",
+          "tool": "seller_list",
+          "validation": "local_interface"
+        },
+        {
+          "provider": "mpstats",
+          "tool": "seller_info",
+          "validation": "local_interface"
+        }
+      ],
+      "limitation": "商品关键词检索不能冒充店铺目录接口；同名需核对 URL 或 ID",
+      "legacy_path": "sealeap-athena-ozon-shop-discovery",
+      "entrypoint": "sealeap-athena-marketplace-research",
+      "guide_path": "references/capabilities/ozon-shop-discovery/workflow.md",
+      "playbook_path": "references/capabilities/ozon-shop-discovery/playbook.md",
+      "tool_routing_path": "references/capabilities/ozon-shop-discovery/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-ozon-category-discovery",
+      "title": "Ozon 类目发现",
+      "description": "Ozon 类目发现。用于先从当前类目资料确定路径，再查询相关商品验证类目匹配。输入需明确Ozon 类目词或已有路径、期间、研究目标；边界见执行手册。",
+      "category": "Ozon",
+      "mode": "mpstats",
+      "route": "MPStats 直连",
+      "capabilities": [
+        {
+          "provider": "mpstats",
+          "tool": "category_list",
+          "validation": "local_interface"
+        },
+        {
+          "provider": "mpstats",
+          "tool": "category_items",
+          "validation": "local_interface"
+        }
+      ],
+      "limitation": "只有类目商品接口时不能声称已遍历全类目树",
+      "legacy_path": "sealeap-athena-ozon-category-discovery",
+      "entrypoint": "sealeap-athena-marketplace-research",
+      "guide_path": "references/capabilities/ozon-category-discovery/workflow.md",
+      "playbook_path": "references/capabilities/ozon-category-discovery/playbook.md",
+      "tool_routing_path": "references/capabilities/ozon-category-discovery/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-ozon-offer-comparison",
+      "title": "Ozon 报价规格比较",
+      "description": "Ozon 报价规格比较。用于核对不同 SKU 的包装数量、价格、履约与可用需求指标。输入需明确Ozon SKU 清单、采购数量、规格、期间和币种；边界见执行手册。",
+      "category": "Ozon",
+      "mode": "mpstats",
+      "route": "MPStats 直连",
+      "capabilities": [
+        {
+          "provider": "mpstats",
+          "tool": "item_full",
+          "validation": "local_interface"
+        }
+      ],
+      "limitation": "价格必须按同单位数量比较；规格不明不能算单位价",
+      "legacy_path": "sealeap-athena-ozon-offer-comparison",
+      "entrypoint": "sealeap-athena-marketplace-research",
+      "guide_path": "references/capabilities/ozon-offer-comparison/workflow.md",
+      "playbook_path": "references/capabilities/ozon-offer-comparison/playbook.md",
+      "tool_routing_path": "references/capabilities/ozon-offer-comparison/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-ozon-product-report",
+      "title": "Ozon 商品研究报表",
+      "description": "Ozon 商品研究报表。用于把详情、趋势和关键词按相同 SKU 与期间汇总，逐项对账。输入需明确Ozon SKU、报告期间、所需指标、比较基准；边界见执行手册。",
+      "category": "Ozon",
+      "mode": "mpstats",
+      "route": "MPStats 直连",
+      "capabilities": [
+        {
+          "provider": "mpstats",
+          "tool": "item_full",
+          "validation": "local_interface"
+        },
+        {
+          "provider": "mpstats",
+          "tool": "item_sales",
+          "validation": "local_interface"
+        },
+        {
+          "provider": "mpstats",
+          "tool": "item_keywords",
+          "validation": "local_interface"
+        }
+      ],
+      "limitation": "工具报告不等于卖家损益表；缺成本不输出利润结论",
+      "legacy_path": "sealeap-athena-ozon-product-report",
+      "entrypoint": "sealeap-athena-marketplace-research",
+      "guide_path": "references/capabilities/ozon-product-report/workflow.md",
+      "playbook_path": "references/capabilities/ozon-product-report/playbook.md",
+      "tool_routing_path": "references/capabilities/ozon-product-report/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-mercado-market-research",
+      "title": "Mercado Libre 市场研究",
+      "description": "Mercado Libre 市场研究。用于使用该市场官方或授权数据检索商品并核对币种、配送和需求证据。输入需明确国家、类目、关键词、价格和期间；边界见执行手册。",
+      "category": "Mercado",
+      "mode": "web",
+      "route": "公开网页或授权接口",
+      "capabilities": [
+        {
+          "provider": "public-primary-sources",
+          "tool": "web",
+          "validation": "runtime_discovery"
+        }
+      ],
+      "limitation": "其他平台数据不能代替本地市场；未获销量数据时不估算 GMV",
+      "legacy_path": "sealeap-athena-mercado-market-research",
+      "entrypoint": "sealeap-athena-marketplace-research",
+      "guide_path": "references/capabilities/mercado-market-research/workflow.md",
+      "playbook_path": "references/capabilities/mercado-market-research/playbook.md",
+      "tool_routing_path": "references/capabilities/mercado-market-research/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-etsy-listing-detail",
+      "title": "Etsy 单商品详情核对",
+      "description": "Etsy 单商品详情核对。用于使用可用 Etsy 工具或公开页核对标题、材质声明、价格和交付方式。输入需明确商品链接或 ID、国家、变体与关注字段；边界见执行手册。",
+      "category": "Etsy",
+      "mode": "web",
+      "route": "公开网页或授权接口",
+      "capabilities": [
+        {
+          "provider": "public-primary-sources",
+          "tool": "web",
+          "validation": "runtime_discovery"
+        }
+      ],
+      "limitation": "数字商品和实物分开；卖家描述不自动升级为认证事实",
+      "legacy_path": "sealeap-athena-etsy-listing-detail",
+      "entrypoint": "sealeap-athena-marketplace-research",
+      "guide_path": "references/capabilities/etsy-listing-detail/workflow.md",
+      "playbook_path": "references/capabilities/etsy-listing-detail/playbook.md",
+      "tool_routing_path": "references/capabilities/etsy-listing-detail/tool-routing.md"
+    }
+  ]
+}

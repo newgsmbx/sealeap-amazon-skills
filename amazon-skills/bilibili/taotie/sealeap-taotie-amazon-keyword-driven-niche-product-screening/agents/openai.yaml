@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 关键词驱动的细分市场选品筛选"
+  short_description: "Amazon 关键词驱动的细分市场选品筛选：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-taotie-amazon-keyword-driven-niche-product-screening to diagnose this Amazon task and return an evidence-gated plan."

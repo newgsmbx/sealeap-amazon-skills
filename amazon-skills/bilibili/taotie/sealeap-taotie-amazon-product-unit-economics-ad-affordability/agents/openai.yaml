@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 选品单位经济与广告承受力测算"
+  short_description: "Amazon 选品单位经济与广告承受力测算：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-taotie-amazon-product-unit-economics-ad-affordability to diagnose this Amazon task and return an evidence-gated plan."

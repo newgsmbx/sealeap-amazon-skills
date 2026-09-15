@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 品牌内容站搭建与域名主机选型"
+  short_description: "Amazon 品牌内容站搭建与域名主机选型：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-luduan-amazon-brand-content-site-setup to diagnose this Amazon task and return an evidence-gated plan."

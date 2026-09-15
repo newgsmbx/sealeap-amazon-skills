@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "entrypoint": "sealeap-athena-1688-procurement",
+  "capabilities": [
+    {
+      "name": "sealeap-athena-1688-procurement",
+      "title": "1688 采购与履约",
+      "description": "1688 采购与履约。用于先读取商品与订单状态，核对含运费预览，再按授权处理订单、物流、收货或发票。输入需明确授权采购账户、offer/SKU、数量、地址、目标动作；边界见执行手册。",
+      "category": "1688",
+      "mode": "commerce",
+      "route": "官方账户连接或导出文件",
+      "capabilities": [
+        {
+          "provider": "official-account",
+          "tool": "procurement",
+          "validation": "connection_required",
+          "platform": "1688"
+        }
+      ],
+      "limitation": "供货搜索工具没有下单能力；付款、收货与开票需精确授权；超时先查订单防止重复下单；取消不等于退款",
+      "legacy_path": "sealeap-athena-1688-procurement",
+      "entrypoint": "sealeap-athena-1688-procurement",
+      "guide_path": "references/capabilities/1688-procurement/workflow.md",
+      "playbook_path": "references/capabilities/1688-procurement/playbook.md",
+      "tool_routing_path": "references/capabilities/1688-procurement/tool-routing.md"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon A+ 内容策划与合规"
+  short_description: "Amazon A+ 内容策划与合规：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-dijiang-amazon-aplus-content-playbook to diagnose this Amazon task and return an evidence-gated plan."

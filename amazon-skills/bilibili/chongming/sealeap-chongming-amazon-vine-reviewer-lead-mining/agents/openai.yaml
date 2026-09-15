@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon Vine 评论者反查新品线索"
+  short_description: "Amazon Vine 评论者反查新品线索：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-chongming-amazon-vine-reviewer-lead-mining to diagnose this Amazon task and return an evidence-gated plan."

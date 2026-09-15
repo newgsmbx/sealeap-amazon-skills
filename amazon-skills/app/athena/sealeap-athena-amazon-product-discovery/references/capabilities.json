@@ -1,0 +1,199 @@
+{
+  "schema_version": 1,
+  "entrypoint": "sealeap-athena-amazon-product-discovery",
+  "capabilities": [
+    {
+      "name": "sealeap-athena-amazon-product-search",
+      "title": "Amazon 商品检索",
+      "description": "Amazon 商品检索。用于先定义筛选口径，再检索并按 child ASIN 去重，核对与需求的匹配程度。输入需明确站点、搜索词、价格和规格筛选、页数上限；边界见执行手册。",
+      "category": "Amazon",
+      "mode": "data",
+      "route": "Sorftime 直接工具",
+      "capabilities": [
+        {
+          "provider": "sorftime",
+          "tool": "product_search_from_name",
+          "validation": "tool_schema",
+          "required_fields": [
+            "name"
+          ]
+        },
+        {
+          "provider": "sorftime",
+          "tool": "product_search",
+          "validation": "tool_schema",
+          "required_fields": []
+        }
+      ],
+      "limitation": "实际页数与截断必须披露；样本排名不等于平台全量排名",
+      "legacy_path": "sealeap-athena-amazon-product-search",
+      "entrypoint": "sealeap-athena-amazon-product-discovery",
+      "guide_path": "references/capabilities/amazon-product-search/workflow.md",
+      "playbook_path": "references/capabilities/amazon-product-search/playbook.md",
+      "tool_routing_path": "references/capabilities/amazon-product-search/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-amazon-visual-discovery",
+      "title": "Amazon 图片找商品",
+      "description": "Amazon 图片找商品。用于先识别可见属性，再使用可用视觉搜索或属性检索找到候选并逐项比图。输入需明确图片、目标站点、关键外观和功能；边界见执行手册。",
+      "category": "Amazon",
+      "mode": "web",
+      "route": "公开网页或授权接口",
+      "capabilities": [
+        {
+          "provider": "public-primary-sources",
+          "tool": "web",
+          "validation": "runtime_discovery"
+        }
+      ],
+      "limitation": "文字检索属于近似替代；不声称使用了平台原生图片搜索；无权图片不公开上传",
+      "legacy_path": "sealeap-athena-amazon-visual-discovery",
+      "entrypoint": "sealeap-athena-amazon-product-discovery",
+      "guide_path": "references/capabilities/amazon-visual-discovery/workflow.md",
+      "playbook_path": "references/capabilities/amazon-visual-discovery/playbook.md",
+      "tool_routing_path": "references/capabilities/amazon-visual-discovery/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-amazon-opportunity-screen",
+      "title": "Amazon 市场条件筛选",
+      "description": "Amazon 市场条件筛选。用于先做可调整的初筛，再核实边界样本与新品机会，报告命中和淘汰理由。输入需明确站点、类目、价格/需求/竞争范围、阈值依据；边界见执行手册。",
+      "category": "Amazon",
+      "mode": "ss",
+      "route": "卖家精灵直连",
+      "capabilities": [
+        {
+          "provider": "sellersprite_open",
+          "tool": "market_research",
+          "validation": "local_interface"
+        },
+        {
+          "provider": "sellersprite_open",
+          "tool": "market_statistics",
+          "validation": "local_interface"
+        },
+        {
+          "provider": "sellersprite_open",
+          "tool": "product_research",
+          "validation": "local_interface"
+        }
+      ],
+      "limitation": "阈值是筛选参数不是成功保证；指标或样本缺失时保留 UNKNOWN",
+      "legacy_path": "sealeap-athena-amazon-opportunity-screen",
+      "entrypoint": "sealeap-athena-amazon-product-discovery",
+      "guide_path": "references/capabilities/amazon-opportunity-screen/workflow.md",
+      "playbook_path": "references/capabilities/amazon-opportunity-screen/playbook.md",
+      "tool_routing_path": "references/capabilities/amazon-opportunity-screen/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-amazon-history-product-screen",
+      "title": "Amazon 历史表现筛选",
+      "description": "Amazon 历史表现筛选。用于在指定历史时点筛选商品，再核对当前状态与期间变化。输入需明确站点、历史日期、筛选指标和候选上限；边界见执行手册。",
+      "category": "Amazon",
+      "mode": "data",
+      "route": "Sorftime 直接工具",
+      "capabilities": [
+        {
+          "provider": "sorftime",
+          "tool": "product_search_from_history",
+          "validation": "tool_schema",
+          "required_fields": [
+            "search_time"
+          ]
+        },
+        {
+          "provider": "sorftime",
+          "tool": "product_trend",
+          "validation": "tool_schema",
+          "required_fields": [
+            "asin"
+          ]
+        }
+      ],
+      "limitation": "当前数据不可替代历史截面；下架样本缺失造成幸存者偏差",
+      "legacy_path": "sealeap-athena-amazon-history-product-screen",
+      "entrypoint": "sealeap-athena-amazon-product-discovery",
+      "guide_path": "references/capabilities/amazon-history-product-screen/workflow.md",
+      "playbook_path": "references/capabilities/amazon-history-product-screen/playbook.md",
+      "tool_routing_path": "references/capabilities/amazon-history-product-screen/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-amazon-metric-product-screen",
+      "title": "Amazon 指标选品",
+      "description": "Amazon 指标选品。用于先筛可比商品，再核对临界值、异常点与供应成本。输入需明确站点、价格/销量/评价/体积范围及阈值依据；边界见执行手册。",
+      "category": "Amazon",
+      "mode": "ss",
+      "route": "卖家精灵直连",
+      "capabilities": [
+        {
+          "provider": "sellersprite_open",
+          "tool": "product_research",
+          "validation": "local_interface"
+        }
+      ],
+      "limitation": "筛选阈值可调整；估计利润缺费用时保持未知",
+      "legacy_path": "sealeap-athena-amazon-metric-product-screen",
+      "entrypoint": "sealeap-athena-amazon-product-discovery",
+      "guide_path": "references/capabilities/amazon-metric-product-screen/workflow.md",
+      "playbook_path": "references/capabilities/amazon-metric-product-screen/playbook.md",
+      "tool_routing_path": "references/capabilities/amazon-metric-product-screen/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-amazon-product-database-screen",
+      "title": "Amazon 商品库条件筛选",
+      "description": "Amazon 商品库条件筛选。用于按明确条件筛选商品并保留命中与排除记录。输入需明确站点、类目、价格、需求、评价与候选数；边界见执行手册。",
+      "category": "Amazon",
+      "mode": "data",
+      "route": "Sorftime 直接工具",
+      "capabilities": [
+        {
+          "provider": "sorftime",
+          "tool": "product_search",
+          "validation": "tool_schema",
+          "required_fields": []
+        },
+        {
+          "provider": "sorftime",
+          "tool": "potential_product",
+          "validation": "tool_schema",
+          "required_fields": []
+        }
+      ],
+      "limitation": "第三方库不是平台全量；缺字段不能默认为符合条件",
+      "legacy_path": "sealeap-athena-amazon-product-database-screen",
+      "entrypoint": "sealeap-athena-amazon-product-discovery",
+      "guide_path": "references/capabilities/amazon-product-database-screen/workflow.md",
+      "playbook_path": "references/capabilities/amazon-product-database-screen/playbook.md",
+      "tool_routing_path": "references/capabilities/amazon-product-database-screen/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-amazon-sales-product-query",
+      "title": "Amazon 需求导向检索",
+      "description": "Amazon 需求导向检索。用于按已验证的需求指标查询商品并对边界条件复查。输入需明确站点、需求条件、类目、销量窗口和页数上限；边界见执行手册。",
+      "category": "Amazon",
+      "mode": "data",
+      "route": "Sorftime 直接工具",
+      "capabilities": [
+        {
+          "provider": "sorftime",
+          "tool": "product_search",
+          "validation": "tool_schema",
+          "required_fields": []
+        },
+        {
+          "provider": "sorftime",
+          "tool": "product_search_from_name",
+          "validation": "tool_schema",
+          "required_fields": [
+            "name"
+          ]
+        }
+      ],
+      "limitation": "月销量估计不能当日销量；返回默认排序需显式披露",
+      "legacy_path": "sealeap-athena-amazon-sales-product-query",
+      "entrypoint": "sealeap-athena-amazon-product-discovery",
+      "guide_path": "references/capabilities/amazon-sales-product-query/workflow.md",
+      "playbook_path": "references/capabilities/amazon-sales-product-query/playbook.md",
+      "tool_routing_path": "references/capabilities/amazon-sales-product-query/tool-routing.md"
+    }
+  ]
+}

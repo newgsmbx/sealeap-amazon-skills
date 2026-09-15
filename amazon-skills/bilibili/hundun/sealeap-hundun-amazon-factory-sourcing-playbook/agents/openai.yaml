@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 个体卖家供应链搭建方法"
+  short_description: "Amazon 个体卖家供应链搭建方法：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-hundun-amazon-factory-sourcing-playbook to diagnose this Amazon task and return an evidence-gated plan."

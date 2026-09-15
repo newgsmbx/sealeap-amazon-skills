@@ -1,0 +1,4 @@
+interface:
+  display_name: "SeaLeap 品牌工具与旺季促销组合"
+  short_description: "按品牌和商品成熟度组合页面广告促销并处理老带新与旺季承接"
+  default_prompt: "使用 $sealeap-amazon-brand-tool-promotion-mix，根据品牌和 ASIN 现状选择工具，制定老带新及旺季促销配合草案。"

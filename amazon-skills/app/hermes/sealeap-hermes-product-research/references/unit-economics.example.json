@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "scope": {
+    "platform": "Amazon",
+    "marketplace": "US",
+    "product_id": "SYNTHETIC-SKU",
+    "currency": "USD",
+    "period": "Synthetic scenario, no real reporting period",
+    "sellable_unit": "One retail pack",
+    "unit_evidence": "Synthetic one-pack assumption",
+    "revenue_basis": "net-sales-excluding-tax"
+  },
+  "revenue": {
+    "value": "30",
+    "currency": "USD",
+    "evidence_type": "ASSUMPTION",
+    "source": "Synthetic example; replace with verified evidence",
+    "observed_at": "2026-09-13T00:00:00+08:00"
+  },
+  "costs": {
+    "procurement": {
+      "value": "8",
+      "currency": "USD",
+      "evidence_type": "ASSUMPTION",
+      "source": "Synthetic example; replace with verified evidence",
+      "observed_at": "2026-09-13T00:00:00+08:00"
+    },
+    "inbound": {
+      "value": "1.5",
+      "currency": "USD",
+      "evidence_type": "ASSUMPTION",
+      "source": "Synthetic example; replace with verified evidence",
+      "observed_at": "2026-09-13T00:00:00+08:00"
+    },
+    "fulfillment": {
+      "value": "4",
+      "currency": "USD",
+      "evidence_type": "ASSUMPTION",
+      "source": "Synthetic example; replace with verified evidence",
+      "observed_at": "2026-09-13T00:00:00+08:00"
+    },
+    "storage": {
+      "value": "0.5",
+      "currency": "USD",
+      "evidence_type": "ASSUMPTION",
+      "source": "Synthetic example; replace with verified evidence",
+      "observed_at": "2026-09-13T00:00:00+08:00"
+    },
+    "platform_fees": {
+      "value": "4.5",
+      "currency": "USD",
+      "evidence_type": "ASSUMPTION",
+      "source": "Synthetic example; replace with verified evidence",
+      "observed_at": "2026-09-13T00:00:00+08:00"
+    },
+    "duties_and_nonrecoverable_tax": {
+      "value": "0.6",
+      "currency": "USD",
+      "evidence_type": "ASSUMPTION",
+      "source": "Synthetic example; replace with verified evidence",
+      "observed_at": "2026-09-13T00:00:00+08:00"
+    },
+    "expected_return_loss": {
+      "value": "1",
+      "currency": "USD",
+      "evidence_type": "ASSUMPTION",
+      "source": "Synthetic example; replace with verified evidence",
+      "observed_at": "2026-09-13T00:00:00+08:00"
+    },
+    "other_variable": {
+      "value": "0.4",
+      "currency": "USD",
+      "evidence_type": "ASSUMPTION",
+      "source": "Synthetic example; replace with verified evidence",
+      "observed_at": "2026-09-13T00:00:00+08:00"
+    }
+  },
+  "ad_cost_per_unit": {
+    "value": "3.5",
+    "currency": "USD",
+    "evidence_type": "ASSUMPTION",
+    "source": "Synthetic example; replace with verified evidence",
+    "observed_at": "2026-09-13T00:00:00+08:00"
+  },
+  "ad_sales_revenue_basis": "net-sales-excluding-tax"
+}

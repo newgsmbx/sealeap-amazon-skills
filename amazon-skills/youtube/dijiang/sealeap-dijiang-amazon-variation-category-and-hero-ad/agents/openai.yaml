@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 变体类目适配与主推广告"
+  short_description: "Amazon 变体类目适配与主推广告：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-dijiang-amazon-variation-category-and-hero-ad to diagnose this Amazon task and return an evidence-gated plan."

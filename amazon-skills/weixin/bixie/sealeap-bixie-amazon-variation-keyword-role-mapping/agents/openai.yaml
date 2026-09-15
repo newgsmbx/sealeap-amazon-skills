@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 变体结构关键词角色分配"
+  short_description: "Amazon 变体结构关键词角色分配：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-bixie-amazon-variation-keyword-role-mapping to diagnose this Amazon task and return an evidence-gated plan."

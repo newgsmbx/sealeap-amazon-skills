@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 表格新建变体家族与增补"
+  short_description: "Amazon 表格新建变体家族与增补：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-hundun-amazon-flatfile-build-variant-family to diagnose this Amazon task and return an evidence-gated plan."

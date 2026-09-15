@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 单Listing并入变体防丢失"
+  short_description: "Amazon 单Listing并入变体防丢失：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-hundun-amazon-single-listing-merge-content-backup to diagnose this Amazon task and return an evidence-gated plan."

@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "entrypoint": "sealeap-athena-commerce-product-video",
+  "capabilities": [
+    {
+      "name": "sealeap-athena-authorized-video-retrieval",
+      "title": "已授权视频文件获取",
+      "description": "已授权视频文件获取。用于使用作者提供下载或官方允许的导出途径取得文件，并核对可播放性。输入需明确视频地址、使用权证据、目标格式和存储位置；边界见执行手册。",
+      "category": "已授权视频文件获取",
+      "mode": "web",
+      "route": "公开网页或授权接口",
+      "capabilities": [
+        {
+          "provider": "public-primary-sources",
+          "tool": "web",
+          "validation": "runtime_discovery"
+        }
+      ],
+      "limitation": "不绕过 DRM、登录或下载限制；无权限时返回原页面与获取授权路径",
+      "legacy_path": "sealeap-athena-authorized-video-retrieval",
+      "entrypoint": "sealeap-athena-commerce-product-video",
+      "guide_path": "references/capabilities/authorized-video-retrieval/workflow.md",
+      "playbook_path": "references/capabilities/authorized-video-retrieval/playbook.md",
+      "tool_routing_path": "references/capabilities/authorized-video-retrieval/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-product-video-brief",
+      "title": "商品视频生成与核验",
+      "description": "商品视频生成与核验。用于先写时间轴脚本，再由可用视频工具生成，检查画面连贯与产品还原。输入需明确商品素材、用途、时长、画幅、卖点、字幕和预算；边界见执行手册。",
+      "category": "商品视频生成与核验",
+      "mode": "video",
+      "route": "当前视频工具或分镜交付",
+      "capabilities": [
+        {
+          "provider": "host",
+          "tool": "video",
+          "validation": "runtime_discovery"
+        }
+      ],
+      "limitation": "没有可用视频生成工具时交付分镜而非宣称已出片；实际计费依据提供方",
+      "legacy_path": "sealeap-athena-product-video-brief",
+      "entrypoint": "sealeap-athena-commerce-product-video",
+      "guide_path": "references/capabilities/product-video-brief/workflow.md",
+      "playbook_path": "references/capabilities/product-video-brief/playbook.md",
+      "tool_routing_path": "references/capabilities/product-video-brief/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-product-multiscene-video",
+      "title": "商品多场景视频制作",
+      "description": "商品多场景视频制作。用于逐场景定义镜头、旁白和转场，再检查跨镜头商品身份与时间总和。输入需明确商品素材、场景清单、总时长、画幅和预算；边界见执行手册。",
+      "category": "商品多场景视频制作",
+      "mode": "video",
+      "route": "当前视频工具或分镜交付",
+      "capabilities": [
+        {
+          "provider": "host",
+          "tool": "video",
+          "validation": "runtime_discovery"
+        }
+      ],
+      "limitation": "各段不能随意改变颜色、配件和比例；批量渲染按已授权费用范围执行",
+      "legacy_path": "sealeap-athena-product-multiscene-video",
+      "entrypoint": "sealeap-athena-commerce-product-video",
+      "guide_path": "references/capabilities/product-multiscene-video/workflow.md",
+      "playbook_path": "references/capabilities/product-multiscene-video/playbook.md",
+      "tool_routing_path": "references/capabilities/product-multiscene-video/tool-routing.md"
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "entrypoint": "sealeap-athena-amazon-advertising-operations",
+  "capabilities": [
+    {
+      "name": "sealeap-athena-amazon-ads-auth",
+      "title": "Amazon Ads 账户授权检查",
+      "description": "Amazon Ads 账户授权检查。用于先读取既有连接的非敏感状态；需要新授权时通过官方流程绑定明确账户，再回读身份。输入需明确账户别名、地区、所需权限与目标动作；边界见执行手册。",
+      "category": "Amazon Ads",
+      "mode": "commerce",
+      "route": "官方账户连接或导出文件",
+      "capabilities": [
+        {
+          "provider": "official-account",
+          "tool": "auth",
+          "validation": "connection_required",
+          "platform": "Amazon Ads"
+        }
+      ],
+      "limitation": "不得靠市场数据推断已授权；多账户歧义需澄清；不输出或索取明文令牌",
+      "legacy_path": "sealeap-athena-amazon-ads-auth",
+      "entrypoint": "sealeap-athena-amazon-advertising-operations",
+      "guide_path": "references/capabilities/amazon-ads-auth/workflow.md",
+      "playbook_path": "references/capabilities/amazon-ads-auth/playbook.md",
+      "tool_routing_path": "references/capabilities/amazon-ads-auth/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-amazon-ads-management",
+      "title": "Amazon Ads 广告管理",
+      "description": "Amazon Ads 广告管理。用于先读广告实体与同窗报表，形成出价、预算或状态差异，执行已授权对象并回读。输入需明确账户、地区、广告产品、活动/广告组、期间、预算边界；边界见执行手册。",
+      "category": "Amazon Ads",
+      "mode": "commerce",
+      "route": "官方账户连接或导出文件",
+      "capabilities": [
+        {
+          "provider": "official-account",
+          "tool": "ads",
+          "validation": "connection_required",
+          "platform": "Amazon Ads"
+        }
+      ],
+      "limitation": "公开竞品广告数据没有自家写权限；预算是活动级；失败不切账户或 API 版本兜底",
+      "legacy_path": "sealeap-athena-amazon-ads-management",
+      "entrypoint": "sealeap-athena-amazon-advertising-operations",
+      "guide_path": "references/capabilities/amazon-ads-management/workflow.md",
+      "playbook_path": "references/capabilities/amazon-ads-management/playbook.md",
+      "tool_routing_path": "references/capabilities/amazon-ads-management/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-amazon-ads-report",
+      "title": "Amazon Ads 经营报表",
+      "description": "Amazon Ads 经营报表。用于优先读取同口径已有报告；必要时按授权创建报表任务，追踪任务 ID 后下载并核对总量。输入需明确账户、站点、报告类型、时间窗、归因和聚合口径；边界见执行手册。",
+      "category": "Amazon Ads",
+      "mode": "commerce",
+      "route": "官方账户连接或导出文件",
+      "capabilities": [
+        {
+          "provider": "official-account",
+          "tool": "report",
+          "validation": "connection_required",
+          "platform": "Amazon Ads"
+        }
+      ],
+      "limitation": "报告任务成功不等于下载文件完整；只读任务不新建远程报告；多分片必须对账",
+      "legacy_path": "sealeap-athena-amazon-ads-report",
+      "entrypoint": "sealeap-athena-amazon-advertising-operations",
+      "guide_path": "references/capabilities/amazon-ads-report/workflow.md",
+      "playbook_path": "references/capabilities/amazon-ads-report/playbook.md",
+      "tool_routing_path": "references/capabilities/amazon-ads-report/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-amazon-ads-insights",
+      "title": "Amazon Ads 广告专项洞察",
+      "description": "Amazon Ads 广告专项洞察。用于确认当前支持的专项报告类型与资格，读取或创建报告并核对分片字段和总量。输入需明确广告账户、站点、受众或展示份额报告、时间窗；边界见执行手册。",
+      "category": "Amazon Ads",
+      "mode": "commerce",
+      "route": "官方账户连接或导出文件",
+      "capabilities": [
+        {
+          "provider": "official-account",
+          "tool": "insights",
+          "validation": "connection_required",
+          "platform": "Amazon Ads"
+        }
+      ],
+      "limitation": "普通搜索词报表不能替代受众或展示份额报告；接口 beta 资格与字段组合需现查",
+      "legacy_path": "sealeap-athena-amazon-ads-insights",
+      "entrypoint": "sealeap-athena-amazon-advertising-operations",
+      "guide_path": "references/capabilities/amazon-ads-insights/workflow.md",
+      "playbook_path": "references/capabilities/amazon-ads-insights/playbook.md",
+      "tool_routing_path": "references/capabilities/amazon-ads-insights/tool-routing.md"
+    }
+  ]
+}

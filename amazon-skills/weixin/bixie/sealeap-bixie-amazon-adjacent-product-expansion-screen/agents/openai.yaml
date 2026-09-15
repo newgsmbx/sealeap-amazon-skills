@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 细分与互补赛道拓品筛选"
+  short_description: "Amazon 细分与互补赛道拓品筛选：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-bixie-amazon-adjacent-product-expansion-screen to diagnose this Amazon task and return an evidence-gated plan."

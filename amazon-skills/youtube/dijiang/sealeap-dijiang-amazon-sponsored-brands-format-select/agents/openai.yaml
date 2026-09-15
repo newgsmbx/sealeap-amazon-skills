@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 品牌广告形式与落地页选择"
+  short_description: "Amazon 品牌广告形式与落地页选择：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-dijiang-amazon-sponsored-brands-format-select to diagnose this Amazon task and return an evidence-gated plan."

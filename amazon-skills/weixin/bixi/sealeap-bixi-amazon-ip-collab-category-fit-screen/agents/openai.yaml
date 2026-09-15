@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon IP联名品类机会评估"
+  short_description: "Amazon IP联名品类机会评估：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-bixi-amazon-ip-collab-category-fit-screen to diagnose this Amazon task and return an evidence-gated plan."

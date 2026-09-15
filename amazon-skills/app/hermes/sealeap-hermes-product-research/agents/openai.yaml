@@ -1,0 +1,4 @@
+interface:
+  display_name: "Hermes · 选品、竞品与单位经济"
+  short_description: "结合需求、竞品、评论与完整成本，形成可追溯的选品判断和验证任务"
+  default_prompt: "使用 $sealeap-hermes-product-research 完成这项任务，先核对范围与已有数据，再交付有证据的结果和待确认项。"

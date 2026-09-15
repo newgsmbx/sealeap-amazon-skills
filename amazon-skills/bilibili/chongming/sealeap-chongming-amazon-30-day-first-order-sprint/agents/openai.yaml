@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 首单 30 天试跑计划"
+  short_description: "Amazon 首单 30 天试跑计划：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-chongming-amazon-30-day-first-order-sprint to diagnose this Amazon task and return an evidence-gated plan."

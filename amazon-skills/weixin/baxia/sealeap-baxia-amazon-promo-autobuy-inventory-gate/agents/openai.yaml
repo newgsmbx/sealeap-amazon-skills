@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 促销自动下单库存预案"
+  short_description: "Amazon 促销自动下单库存预案：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-baxia-amazon-promo-autobuy-inventory-gate to diagnose this Amazon task and return an evidence-gated plan."

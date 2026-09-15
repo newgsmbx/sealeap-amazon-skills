@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "entrypoint": "sealeap-athena-shopee-market-research",
+  "capabilities": [
+    {
+      "name": "sealeap-athena-shopee-market-product-search",
+      "title": "Shopee 市场商品搜索",
+      "description": "Shopee 市场商品搜索。用于检索商品并按国家和变体拆开价格、销量估计和评价。输入需明确国家、关键词、类目、价格和观察窗；边界见执行手册。",
+      "category": "Shopee",
+      "mode": "data",
+      "route": "Sorftime 直接工具",
+      "capabilities": [
+        {
+          "provider": "sorftime",
+          "tool": "shopee_product_search",
+          "validation": "tool_schema",
+          "required_fields": []
+        },
+        {
+          "provider": "sorftime",
+          "tool": "shopee_product_search_from_name",
+          "validation": "tool_schema",
+          "required_fields": [
+            "name"
+          ]
+        }
+      ],
+      "limitation": "各国币种不可混比；运费和补贴需单列",
+      "legacy_path": "sealeap-athena-shopee-market-product-search",
+      "entrypoint": "sealeap-athena-shopee-market-research",
+      "guide_path": "references/capabilities/shopee-market-product-search/workflow.md",
+      "playbook_path": "references/capabilities/shopee-market-product-search/playbook.md",
+      "tool_routing_path": "references/capabilities/shopee-market-product-search/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-shopee-public-product-detail",
+      "title": "Shopee 公开商品详情",
+      "description": "Shopee 公开商品详情。用于核对商品与变体、价格、销量估计和评价信息。输入需明确国家、商品 ID、店铺 ID（如需）、变体；边界见执行手册。",
+      "category": "Shopee",
+      "mode": "data",
+      "route": "Sorftime 直接工具",
+      "capabilities": [
+        {
+          "provider": "sorftime",
+          "tool": "shopee_product_request",
+          "validation": "tool_schema",
+          "required_fields": [
+            "product_id"
+          ]
+        }
+      ],
+      "limitation": "公开数据不替代自家订单；国家与币种必须明确",
+      "legacy_path": "sealeap-athena-shopee-public-product-detail",
+      "entrypoint": "sealeap-athena-shopee-market-research",
+      "guide_path": "references/capabilities/shopee-public-product-detail/workflow.md",
+      "playbook_path": "references/capabilities/shopee-public-product-detail/playbook.md",
+      "tool_routing_path": "references/capabilities/shopee-public-product-detail/tool-routing.md"
+    }
+  ]
+}

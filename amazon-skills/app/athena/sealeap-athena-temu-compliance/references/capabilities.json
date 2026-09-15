@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "entrypoint": "sealeap-athena-temu-compliance",
+  "capabilities": [
+    {
+      "name": "sealeap-athena-temu-eu-tax",
+      "title": "Temu 欧洲区 税务凭据核对",
+      "description": "Temu 欧洲区 税务凭据核对。用于获取正式税务凭据并对齐订单/结算期间，核对税额和币种后准备授权提交。输入需明确账户、地区、报告期间、发票或税务文件和目标动作；边界见执行手册。",
+      "category": "Temu",
+      "mode": "commerce",
+      "route": "官方账户连接或导出文件",
+      "capabilities": [
+        {
+          "provider": "official-account",
+          "tool": "tax",
+          "validation": "connection_required",
+          "platform": "Temu"
+        }
+      ],
+      "limitation": "不根据市场估算生成税额；下载、上传与税务申报不同；规则依当前官方要求；仅使用该区域已授权连接和当前 Partner schema；其他区域的字段和签名不可复用",
+      "legacy_path": "sealeap-athena-temu-eu-tax",
+      "entrypoint": "sealeap-athena-temu-compliance",
+      "guide_path": "references/capabilities/temu-eu-tax/workflow.md",
+      "playbook_path": "references/capabilities/temu-eu-tax/playbook.md",
+      "tool_routing_path": "references/capabilities/temu-eu-tax/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-temu-global-compliance",
+      "title": "Temu 全球区 合规材料管理",
+      "description": "Temu 全球区 合规材料管理。用于核对当前要求及证书适用对象，准备文件与属性变更并跟踪审核状态。输入需明确账户、国家、类目、产品标识、证书与截止日期；边界见执行手册。",
+      "category": "Temu",
+      "mode": "commerce",
+      "route": "官方账户连接或导出文件",
+      "capabilities": [
+        {
+          "provider": "official-account",
+          "tool": "compliance",
+          "validation": "connection_required",
+          "platform": "Temu"
+        }
+      ],
+      "limitation": "持有相似商品证书不代表本 SKU 有效；不得伪造认证或规避审查；仅使用该区域已授权连接和当前 Partner schema；其他区域的字段和签名不可复用",
+      "legacy_path": "sealeap-athena-temu-global-compliance",
+      "entrypoint": "sealeap-athena-temu-compliance",
+      "guide_path": "references/capabilities/temu-global-compliance/workflow.md",
+      "playbook_path": "references/capabilities/temu-global-compliance/playbook.md",
+      "tool_routing_path": "references/capabilities/temu-global-compliance/tool-routing.md"
+    }
+  ]
+}

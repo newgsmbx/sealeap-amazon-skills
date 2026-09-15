@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "entrypoint": "sealeap-athena-temu-product-pricing",
+  "capabilities": [
+    {
+      "name": "sealeap-athena-temu-us-add-product",
+      "title": "Temu 美国区 新商品草稿与发布",
+      "description": "Temu 美国区 新商品草稿与发布。用于确认当前类目必填字段与资格，生成本地草稿并预检；已授权发布时提交并核对商品状态。输入需明确账户、地区、类目、真实规格、图片、SKU、价格库存；边界见执行手册。",
+      "category": "Temu",
+      "mode": "commerce",
+      "route": "官方账户连接或导出文件",
+      "capabilities": [
+        {
+          "provider": "official-account",
+          "tool": "add-product",
+          "validation": "connection_required",
+          "platform": "Temu"
+        }
+      ],
+      "limitation": "缺必填属性不猜；预检不等于发布成功；商品创建超时先查重；仅使用该区域已授权连接和当前 Partner schema；其他区域的字段和签名不可复用",
+      "legacy_path": "sealeap-athena-temu-us-add-product",
+      "entrypoint": "sealeap-athena-temu-product-pricing",
+      "guide_path": "references/capabilities/temu-us-add-product/workflow.md",
+      "playbook_path": "references/capabilities/temu-us-add-product/playbook.md",
+      "tool_routing_path": "references/capabilities/temu-us-add-product/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-temu-us-product",
+      "title": "Temu 美国区 商品管理",
+      "description": "Temu 美国区 商品管理。用于读取商品现状与当前类目 schema，生成字段级变更预览，验证后执行授权范围并回读。输入需明确账户、地区、SKU/商品 ID、属性和目标动作；边界见执行手册。",
+      "category": "Temu",
+      "mode": "commerce",
+      "route": "官方账户连接或导出文件",
+      "capabilities": [
+        {
+          "provider": "official-account",
+          "tool": "product",
+          "validation": "connection_required",
+          "platform": "Temu"
+        }
+      ],
+      "limitation": "全量更新可能覆盖省略属性；价格和库存变化分别核实；删除前保存可恢复资料；仅使用该区域已授权连接和当前 Partner schema；其他区域的字段和签名不可复用",
+      "legacy_path": "sealeap-athena-temu-us-product",
+      "entrypoint": "sealeap-athena-temu-product-pricing",
+      "guide_path": "references/capabilities/temu-us-product/workflow.md",
+      "playbook_path": "references/capabilities/temu-us-product/playbook.md",
+      "tool_routing_path": "references/capabilities/temu-us-product/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-temu-us-pricing",
+      "title": "Temu 美国区 价格核对与变更",
+      "description": "Temu 美国区 价格核对与变更。用于读取现价和促销叠加，测算授权价格变化后逐 SKU 提交并回读生效值。输入需明确账户、地区、SKU、币种、当前与目标价格、利润底线；边界见执行手册。",
+      "category": "Temu",
+      "mode": "commerce",
+      "route": "官方账户连接或导出文件",
+      "capabilities": [
+        {
+          "provider": "official-account",
+          "tool": "pricing",
+          "validation": "connection_required",
+          "platform": "Temu"
+        }
+      ],
+      "limitation": "商品价、供货价、折后价分开；金额不能凭币种符号猜；同批失败逐项列示；仅使用该区域已授权连接和当前 Partner schema；其他区域的字段和签名不可复用",
+      "legacy_path": "sealeap-athena-temu-us-pricing",
+      "entrypoint": "sealeap-athena-temu-product-pricing",
+      "guide_path": "references/capabilities/temu-us-pricing/workflow.md",
+      "playbook_path": "references/capabilities/temu-us-pricing/playbook.md",
+      "tool_routing_path": "references/capabilities/temu-us-pricing/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-temu-eu-product",
+      "title": "Temu 欧洲区 商品管理",
+      "description": "Temu 欧洲区 商品管理。用于读取商品现状与当前类目 schema，生成字段级变更预览，验证后执行授权范围并回读。输入需明确账户、地区、SKU/商品 ID、属性和目标动作；边界见执行手册。",
+      "category": "Temu",
+      "mode": "commerce",
+      "route": "官方账户连接或导出文件",
+      "capabilities": [
+        {
+          "provider": "official-account",
+          "tool": "product",
+          "validation": "connection_required",
+          "platform": "Temu"
+        }
+      ],
+      "limitation": "全量更新可能覆盖省略属性；价格和库存变化分别核实；删除前保存可恢复资料；仅使用该区域已授权连接和当前 Partner schema；其他区域的字段和签名不可复用",
+      "legacy_path": "sealeap-athena-temu-eu-product",
+      "entrypoint": "sealeap-athena-temu-product-pricing",
+      "guide_path": "references/capabilities/temu-eu-product/workflow.md",
+      "playbook_path": "references/capabilities/temu-eu-product/playbook.md",
+      "tool_routing_path": "references/capabilities/temu-eu-product/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-temu-eu-pricing",
+      "title": "Temu 欧洲区 价格核对与变更",
+      "description": "Temu 欧洲区 价格核对与变更。用于读取现价和促销叠加，测算授权价格变化后逐 SKU 提交并回读生效值。输入需明确账户、地区、SKU、币种、当前与目标价格、利润底线；边界见执行手册。",
+      "category": "Temu",
+      "mode": "commerce",
+      "route": "官方账户连接或导出文件",
+      "capabilities": [
+        {
+          "provider": "official-account",
+          "tool": "pricing",
+          "validation": "connection_required",
+          "platform": "Temu"
+        }
+      ],
+      "limitation": "商品价、供货价、折后价分开；金额不能凭币种符号猜；同批失败逐项列示；仅使用该区域已授权连接和当前 Partner schema；其他区域的字段和签名不可复用",
+      "legacy_path": "sealeap-athena-temu-eu-pricing",
+      "entrypoint": "sealeap-athena-temu-product-pricing",
+      "guide_path": "references/capabilities/temu-eu-pricing/workflow.md",
+      "playbook_path": "references/capabilities/temu-eu-pricing/playbook.md",
+      "tool_routing_path": "references/capabilities/temu-eu-pricing/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-temu-global-product",
+      "title": "Temu 全球区 商品管理",
+      "description": "Temu 全球区 商品管理。用于读取商品现状与当前类目 schema，生成字段级变更预览，验证后执行授权范围并回读。输入需明确账户、地区、SKU/商品 ID、属性和目标动作；边界见执行手册。",
+      "category": "Temu",
+      "mode": "commerce",
+      "route": "官方账户连接或导出文件",
+      "capabilities": [
+        {
+          "provider": "official-account",
+          "tool": "product",
+          "validation": "connection_required",
+          "platform": "Temu"
+        }
+      ],
+      "limitation": "全量更新可能覆盖省略属性；价格和库存变化分别核实；删除前保存可恢复资料；仅使用该区域已授权连接和当前 Partner schema；其他区域的字段和签名不可复用",
+      "legacy_path": "sealeap-athena-temu-global-product",
+      "entrypoint": "sealeap-athena-temu-product-pricing",
+      "guide_path": "references/capabilities/temu-global-product/workflow.md",
+      "playbook_path": "references/capabilities/temu-global-product/playbook.md",
+      "tool_routing_path": "references/capabilities/temu-global-product/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-temu-global-pricing",
+      "title": "Temu 全球区 价格核对与变更",
+      "description": "Temu 全球区 价格核对与变更。用于读取现价和促销叠加，测算授权价格变化后逐 SKU 提交并回读生效值。输入需明确账户、地区、SKU、币种、当前与目标价格、利润底线；边界见执行手册。",
+      "category": "Temu",
+      "mode": "commerce",
+      "route": "官方账户连接或导出文件",
+      "capabilities": [
+        {
+          "provider": "official-account",
+          "tool": "pricing",
+          "validation": "connection_required",
+          "platform": "Temu"
+        }
+      ],
+      "limitation": "商品价、供货价、折后价分开；金额不能凭币种符号猜；同批失败逐项列示；仅使用该区域已授权连接和当前 Partner schema；其他区域的字段和签名不可复用",
+      "legacy_path": "sealeap-athena-temu-global-pricing",
+      "entrypoint": "sealeap-athena-temu-product-pricing",
+      "guide_path": "references/capabilities/temu-global-pricing/workflow.md",
+      "playbook_path": "references/capabilities/temu-global-pricing/playbook.md",
+      "tool_routing_path": "references/capabilities/temu-global-pricing/tool-routing.md"
+    }
+  ]
+}

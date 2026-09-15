@@ -1,0 +1,4 @@
+interface:
+  display_name: "TikTok 视频、直播与达人分析"
+  short_description: "TikTok 视频、直播与达人分析，按任务选择具体模式与工具，保留地区、数据口径和权限边界"
+  default_prompt: "使用 $sealeap-athena-tiktok-content-creator-research 处理我提供的任务，选择对应模式，沿用已有授权并交付证据与实际结果。"

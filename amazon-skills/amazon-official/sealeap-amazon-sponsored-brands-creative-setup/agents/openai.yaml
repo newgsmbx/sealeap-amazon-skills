@@ -1,0 +1,4 @@
+interface:
+  display_name: "SeaLeap 品牌推广创建与创意优化"
+  short_description: "按品牌推广目标准备创建配置并核查标题商品组合视频与落地页"
+  default_prompt: "使用 $sealeap-amazon-sponsored-brands-creative-setup，为这个品牌准备一份 SB 广告配置和创意简报，并列出审核缺口。"

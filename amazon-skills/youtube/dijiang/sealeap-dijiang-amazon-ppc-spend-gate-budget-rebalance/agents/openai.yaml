@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon PPC关键词判定与预算再平衡"
+  short_description: "Amazon PPC关键词判定与预算再平衡：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-dijiang-amazon-ppc-spend-gate-budget-rebalance to diagnose this Amazon task and return an evidence-gated plan."

@@ -6,7 +6,7 @@
   <p>
     <a href="https://sealeap.cn/"><img src="https://img.shields.io/badge/Website-sealeap.cn-0ea5e9?style=for-the-badge" alt="SeaLeap 官网" /></a>
     <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-22c55e?style=for-the-badge" alt="MIT License" /></a>
-    <img src="https://img.shields.io/badge/Skills-289-00a8e1?style=for-the-badge" alt="289 Skills" />
+    <img src="https://img.shields.io/badge/Skills-590-00a8e1?style=for-the-badge" alt="590 Skills" />
     <img src="https://img.shields.io/badge/Free-100%25-22c55e?style=for-the-badge" alt="完全免费" />
     <img src="https://img.shields.io/badge/Status-Continuously_Updated-ff9900?style=for-the-badge" alt="持续更新中" />
     <a href="https://github.com/xjli360/sealeap-amazon-skills/stargazers"><img src="https://img.shields.io/github/stars/xjli360/sealeap-amazon-skills?style=for-the-badge&logo=github" alt="GitHub stars" /></a>
@@ -22,7 +22,7 @@
 
 - **亚马逊官方授权内容**：在授权范围内整理官方课程、培训材料与行业资料。
 - **亚马逊官方公众号内容**：提炼公开发布的运营指南、产品解读、案例与行业洞察。
-- **抖音、微信、小红书等社媒公开内容**：提炼亚马逊电商知识领袖公开分享中的方法、判断条件与操作经验。
+- **抖音、微信、小红书、B 站、YouTube 等社媒公开内容**：提炼亚马逊电商知识领袖公开分享中的方法、判断条件与操作经验。
 - **更多公开知识来源**：持续扩展有价值的官方文档、公开研究与实践方法。
 
 “全宇宙”是我们持续搜集的目标。每次更新都把知识转化为独立编写的工作流、输入清单、决策依据、操作步骤和交付模板，方便卖家学习，也方便 AI Agent 调用。
@@ -41,17 +41,24 @@
 
 ## 技能目录
 
-截至 **2026-09-06**，仓库包含 **289 个独立 Skills**。每个 Skill 都使用 `sealeap-...` 名称，并拥有同名安装目录。
+截至 **2026-09-15**，仓库包含 **590 个独立 Skills**：六类内容来源 489 个，应用能力集合 101 个。每个 Skill 都使用 `sealeap-...` 名称，并拥有同名安装目录。
 
 | 集合 | Skills | 内容方向 | 入口 |
 |---|---:|---|---|
-| 亚马逊官方内容 | 19 | 官方授权材料、广告、品类增长与多站点经营 | [amazon-official](amazon-skills/amazon-official/) |
+| 亚马逊官方内容 | 38 | 官方授权材料、广告、品类增长与多站点经营 | [amazon-official](amazon-skills/amazon-official/) |
 | 抖音公开知识 | 211 | 选品、广告、关键词、转化、库存与 AI 运营 | [douyin](amazon-skills/douyin/) |
-| 微信公开知识 | 50 | 经营诊断、内容创意、增长与运营决策 | [weixin](amazon-skills/weixin/) |
+| 微信公开知识 | 108 | 经营诊断、内容创意、增长与运营决策 | [weixin](amazon-skills/weixin/) |
 | 小红书公开知识 | 9 | 起步模式、选品、流量、广告与库存运维 | [xiaohongshu](amazon-skills/xiaohongshu/) |
-| **合计** | **289** | **持续更新中** | |
+| B 站公开知识 | 74 | 后台实操、FBA 发货、选品测算、广告与站外引流 | [bilibili](amazon-skills/bilibili/) |
+| YouTube 公开知识 | 49 | 海外卖家 PPC、选品验证、品牌备案与新品启动 | [youtube](amazon-skills/youtube/) |
+| 应用能力集合 | 101 | Athena 39、Hermes 10、Apollo 52；按任务组织数据与业务能力 | [Athena](amazon-skills/app/athena/README.md) · [Hermes](amazon-skills/app/hermes/README.md) · [Apollo](amazon-skills/app/apollo/README.md) |
+| **合计** | **590** | **持续更新中** | |
 
-官方内容集合中的现有 Skills：
+Athena 已将原 227 个细分入口合并为 **38 个业务 Skill + 1 个本地搜索 Skill**；原 226 项业务能力保留在按需读取的参考文件中。旧名称可通过本地搜索定位新入口与具体模式，详见 [Athena 迁移索引](amazon-skills/app/athena/MIGRATION.md)。
+
+0913 官方材料已新增 **19 个 Skills**。完整的 38 项官方内容与逐份材料对应关系见 [官方内容索引](amazon-skills/amazon-official/README.md)。
+
+以下为原有官方基础内容分类：
 
 | 方向 | Skills |
 |---|---|
@@ -102,10 +109,13 @@ cd sealeap-amazon-skills
 ```text
 sealeap-amazon-skills/
 ├── amazon-skills/
-│   ├── amazon-official/   # 19 个 Skills
+│   ├── amazon-official/   # 38 个 Skills
 │   ├── douyin/            # 211 个 Skills
-│   ├── weixin/            # 50 个 Skills
-│   └── xiaohongshu/       # 9 个 Skills
+│   ├── weixin/            # 108 个 Skills
+│   ├── xiaohongshu/       # 9 个 Skills
+│   ├── bilibili/          # 74 个 Skills
+│   ├── youtube/           # 49 个 Skills
+│   └── app/               # 101 个 Skills：Athena 39、Hermes 10、Apollo 52
 ├── assets/                # 项目图片
 ├── README.md
 ├── LICENSE

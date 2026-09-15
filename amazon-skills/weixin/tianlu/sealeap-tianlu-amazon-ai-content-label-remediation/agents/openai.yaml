@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon AI生成素材标注核验"
+  short_description: "Amazon AI生成素材标注核验：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-tianlu-amazon-ai-content-label-remediation to diagnose this Amazon task and return an evidence-gated plan."

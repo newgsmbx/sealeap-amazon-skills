@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon Listing曝光异常排查"
+  short_description: "Amazon Listing曝光异常排查：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-feilian-amazon-listing-visibility-triage to diagnose this Amazon task and return an evidence-gated plan."

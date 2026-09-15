@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 蓝海筛选与差评差异化"
+  short_description: "Amazon 蓝海筛选与差评差异化：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-hundun-amazon-blue-ocean-filter-differentiation to diagnose this Amazon task and return an evidence-gated plan."

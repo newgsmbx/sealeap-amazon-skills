@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon FBA 混装货件分箱与抛重核算"
+  short_description: "Amazon FBA 混装货件分箱与抛重核算：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-zouwu-amazon-fba-mixed-carton-shipment to diagnose this Amazon task and return an evidence-gated plan."

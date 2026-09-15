@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon FBA送达异常申诉"
+  short_description: "Amazon FBA送达异常申诉：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-tianlu-amazon-fba-delivery-window-appeal to diagnose this Amazon task and return an evidence-gated plan."

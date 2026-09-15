@@ -1,0 +1,4 @@
+interface:
+  display_name: "Hermes · 多语言 Listing 与创意草稿"
+  short_description: "根据产品证据和本地查询意图，生成可审核的多语言商品文案与创意"
+  default_prompt: "使用 $sealeap-hermes-listing-localization 完成这项任务，先核对范围与已有数据，再交付有证据的结果和待确认项。"

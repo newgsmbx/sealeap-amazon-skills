@@ -1,0 +1,4 @@
+interface:
+  display_name: "SeaLeap 多站点商品推广创建与管理"
+  short_description: "核查跨站商品映射与本地化设置并逐国管理预算竞价和投放状态"
+  default_prompt: "使用 $sealeap-amazon-multi-country-campaign-setup，为这些 ASIN 和目标国家准备多站点广告设置表，并检查总预算和未投放国家。"

@@ -1,0 +1,4 @@
+interface:
+  display_name: "SeaLeap ASIN 生命周期广告规划"
+  short_description: "结合真实销售轨迹判断生命周期并安排流量测试拓展与成熟提效"
+  default_prompt: "使用 $sealeap-amazon-asin-lifecycle-ad-planning，依据这些 ASIN 的销售和库存曲线判断阶段，安排下一轮广告实验。"

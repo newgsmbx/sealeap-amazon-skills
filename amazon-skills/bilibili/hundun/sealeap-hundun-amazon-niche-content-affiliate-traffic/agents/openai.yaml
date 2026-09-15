@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 站外内容矩阵与联盟引流选品"
+  short_description: "Amazon 站外内容矩阵与联盟引流选品：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-hundun-amazon-niche-content-affiliate-traffic to diagnose this Amazon task and return an evidence-gated plan."

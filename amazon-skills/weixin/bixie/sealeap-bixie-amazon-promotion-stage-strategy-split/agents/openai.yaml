@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 大促产品阶段策略分配"
+  short_description: "Amazon 大促产品阶段策略分配：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-bixie-amazon-promotion-stage-strategy-split to diagnose this Amazon task and return an evidence-gated plan."

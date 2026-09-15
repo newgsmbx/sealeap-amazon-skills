@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon AI选品数据代理协同"
+  short_description: "Amazon AI选品数据代理协同：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-tianlu-amazon-ai-agent-mcp-product-research to diagnose this Amazon task and return an evidence-gated plan."

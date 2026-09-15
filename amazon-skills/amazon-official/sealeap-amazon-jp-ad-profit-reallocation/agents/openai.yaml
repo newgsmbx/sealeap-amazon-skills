@@ -1,0 +1,4 @@
+interface:
+  display_name: "SeaLeap 日本站广告利润与预算重分配"
+  short_description: "按日本站最新成本筛选可投商品并规划受众实验及广告预算重分配"
+  default_prompt: "使用 $sealeap-amazon-jp-ad-profit-reallocation，根据这份日本站 SKU 成本与广告报告，给出预算重分配草案和一个受众测试方案。"

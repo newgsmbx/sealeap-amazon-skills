@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 新品站外预热与首发流量组合"
+  short_description: "Amazon 新品站外预热与首发流量组合：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-fenghuang-amazon-prelaunch-audience-launch to diagnose this Amazon task and return an evidence-gated plan."

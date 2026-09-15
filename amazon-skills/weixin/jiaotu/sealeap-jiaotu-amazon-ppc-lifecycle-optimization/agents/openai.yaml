@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon PPC生命周期分阶段优化"
+  short_description: "Amazon PPC生命周期分阶段优化：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-jiaotu-amazon-ppc-lifecycle-optimization to diagnose this Amazon task and return an evidence-gated plan."

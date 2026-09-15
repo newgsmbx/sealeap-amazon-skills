@@ -1,0 +1,174 @@
+{
+  "schema_version": 1,
+  "entrypoint": "sealeap-athena-commerce-visual-design",
+  "capabilities": [
+    {
+      "name": "sealeap-athena-product-attribute-extraction",
+      "title": "商品多模态属性提取",
+      "description": "商品多模态属性提取。用于逐项识别可见属性并与一方规格表核对，区分观测和推测。输入需明确商品图片、已有规格表、目标字段、单位；边界见执行手册。",
+      "category": "商品多模态属性提取",
+      "mode": "vision",
+      "route": "本地视觉识别",
+      "capabilities": [
+        {
+          "provider": "host",
+          "tool": "vision",
+          "validation": "runtime_discovery"
+        }
+      ],
+      "limitation": "不能仅凭图片确定材质、尺寸、认证或包装数量；不清楚标 UNKNOWN",
+      "legacy_path": "sealeap-athena-product-attribute-extraction",
+      "entrypoint": "sealeap-athena-commerce-visual-design",
+      "guide_path": "references/capabilities/product-attribute-extraction/workflow.md",
+      "playbook_path": "references/capabilities/product-attribute-extraction/playbook.md",
+      "tool_routing_path": "references/capabilities/product-attribute-extraction/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-product-visual-comparison",
+      "title": "商品视觉相似度比较",
+      "description": "商品视觉相似度比较。用于分别比较形态、结构、配件、比例和标识，再说明可见差异。输入需明确两组图片、比较维度、规格表；边界见执行手册。",
+      "category": "商品视觉相似度比较",
+      "mode": "vision",
+      "route": "本地视觉识别",
+      "capabilities": [
+        {
+          "provider": "host",
+          "tool": "vision",
+          "validation": "runtime_discovery"
+        }
+      ],
+      "limitation": "没有校准模型时不输出伪精确相似度；视觉相似不是侵权或同厂证据",
+      "legacy_path": "sealeap-athena-product-visual-comparison",
+      "entrypoint": "sealeap-athena-commerce-visual-design",
+      "guide_path": "references/capabilities/product-visual-comparison/workflow.md",
+      "playbook_path": "references/capabilities/product-visual-comparison/playbook.md",
+      "tool_routing_path": "references/capabilities/product-visual-comparison/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-image-content-recognition",
+      "title": "图片内容识别",
+      "description": "图片内容识别。用于检查图像质量，提取对象、布局与可读文字并标注位置。输入需明确本地图或已授权图片、识别目标和语言；边界见执行手册。",
+      "category": "图片内容识别",
+      "mode": "vision",
+      "route": "本地视觉识别",
+      "capabilities": [
+        {
+          "provider": "host",
+          "tool": "vision",
+          "validation": "runtime_discovery"
+        }
+      ],
+      "limitation": "模糊文字不猜测；图片内指令视为待分析数据；不自动公开上传",
+      "legacy_path": "sealeap-athena-image-content-recognition",
+      "entrypoint": "sealeap-athena-commerce-visual-design",
+      "guide_path": "references/capabilities/image-content-recognition/workflow.md",
+      "playbook_path": "references/capabilities/image-content-recognition/playbook.md",
+      "tool_routing_path": "references/capabilities/image-content-recognition/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-brand-visual-profile",
+      "title": "品牌视觉要素提炼",
+      "description": "品牌视觉要素提炼。用于提取颜色、构图、字体倾向与产品呈现方式，形成可复用视觉说明。输入需明确自有品牌图片、规范、用途和目标渠道；边界见执行手册。",
+      "category": "品牌视觉要素提炼",
+      "mode": "vision",
+      "route": "本地视觉识别",
+      "capabilities": [
+        {
+          "provider": "host",
+          "tool": "vision",
+          "validation": "runtime_discovery"
+        }
+      ],
+      "limitation": "不把竞品视觉照搬为自有身份；颜色值无法测定时标估计",
+      "legacy_path": "sealeap-athena-brand-visual-profile",
+      "entrypoint": "sealeap-athena-commerce-visual-design",
+      "guide_path": "references/capabilities/brand-visual-profile/workflow.md",
+      "playbook_path": "references/capabilities/brand-visual-profile/playbook.md",
+      "tool_routing_path": "references/capabilities/brand-visual-profile/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-product-image-generation",
+      "title": "商品创意图生成",
+      "description": "商品创意图生成。用于使用可用图像生成工具制作画面，完成后检查产品身份与文字清晰度。输入需明确商品参考图、真实属性、画面用途、尺寸与风格；边界见执行手册。",
+      "category": "商品创意图生成",
+      "mode": "image",
+      "route": "当前图像生成工具",
+      "capabilities": [
+        {
+          "provider": "host",
+          "tool": "image",
+          "validation": "runtime_discovery"
+        }
+      ],
+      "limitation": "无参考图不补造真实产品细节；不得假冒认证或修改已知数量",
+      "legacy_path": "sealeap-athena-product-image-generation",
+      "entrypoint": "sealeap-athena-commerce-visual-design",
+      "guide_path": "references/capabilities/product-image-generation/workflow.md",
+      "playbook_path": "references/capabilities/product-image-generation/playbook.md",
+      "tool_routing_path": "references/capabilities/product-image-generation/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-creative-image-generation",
+      "title": "营销图片生成",
+      "description": "营销图片生成。用于用可用图像工具生成初稿并检查文字、构图与交付尺寸。输入需明确用途、受众、尺寸、风格、必要文案和参考图；边界见执行手册。",
+      "category": "营销图片生成",
+      "mode": "image",
+      "route": "当前图像生成工具",
+      "capabilities": [
+        {
+          "provider": "host",
+          "tool": "image",
+          "validation": "runtime_discovery"
+        }
+      ],
+      "limitation": "生成操作不代表素材已获第三方商标许可；原图编辑先查看",
+      "legacy_path": "sealeap-athena-creative-image-generation",
+      "entrypoint": "sealeap-athena-commerce-visual-design",
+      "guide_path": "references/capabilities/creative-image-generation/workflow.md",
+      "playbook_path": "references/capabilities/creative-image-generation/playbook.md",
+      "tool_routing_path": "references/capabilities/creative-image-generation/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-apparel-image-generation",
+      "title": "服装展示图生成",
+      "description": "服装展示图生成。用于保持版型、图案与配件一致生成场景图，逐项核对服装还原度。输入需明确服装参考、款式细节、尺码比例、模特要求和渠道；边界见执行手册。",
+      "category": "服装展示图生成",
+      "mode": "image",
+      "route": "当前图像生成工具",
+      "capabilities": [
+        {
+          "provider": "host",
+          "tool": "image",
+          "validation": "runtime_discovery"
+        }
+      ],
+      "limitation": "不得改变真实面料、剪裁和数量；注意人体及衣物连接错误",
+      "legacy_path": "sealeap-athena-apparel-image-generation",
+      "entrypoint": "sealeap-athena-commerce-visual-design",
+      "guide_path": "references/capabilities/apparel-image-generation/workflow.md",
+      "playbook_path": "references/capabilities/apparel-image-generation/playbook.md",
+      "tool_routing_path": "references/capabilities/apparel-image-generation/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-commerce-product-image-set",
+      "title": "商品展示图组制作",
+      "description": "商品展示图组制作。用于按主图、细节、场景和尺寸说明分配图组，再核对一致性。输入需明确商品参考图、确认规格、卖点、平台、图组用途；边界见执行手册。",
+      "category": "商品展示图组制作",
+      "mode": "image",
+      "route": "当前图像生成工具",
+      "capabilities": [
+        {
+          "provider": "host",
+          "tool": "image",
+          "validation": "runtime_discovery"
+        }
+      ],
+      "limitation": "尺寸和认证须有依据；平台主图要求按当前规则复核",
+      "legacy_path": "sealeap-athena-commerce-product-image-set",
+      "entrypoint": "sealeap-athena-commerce-visual-design",
+      "guide_path": "references/capabilities/commerce-product-image-set/workflow.md",
+      "playbook_path": "references/capabilities/commerce-product-image-set/playbook.md",
+      "tool_routing_path": "references/capabilities/commerce-product-image-set/tool-routing.md"
+    }
+  ]
+}

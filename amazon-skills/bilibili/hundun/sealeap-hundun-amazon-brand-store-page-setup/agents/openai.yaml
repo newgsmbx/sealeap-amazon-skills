@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 品牌旗舰店搭建"
+  short_description: "Amazon 品牌旗舰店搭建：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-hundun-amazon-brand-store-page-setup to diagnose this Amazon task and return an evidence-gated plan."

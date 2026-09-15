@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 平台新规响应核对流程"
+  short_description: "Amazon 平台新规响应核对流程：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-yazi-amazon-policy-change-response-checklist to diagnose this Amazon task and return an evidence-gated plan."

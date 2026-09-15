@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 反查卖家店铺挖选品线索"
+  short_description: "Amazon 反查卖家店铺挖选品线索：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-chongming-amazon-seller-storefront-lead-mining to diagnose this Amazon task and return an evidence-gated plan."

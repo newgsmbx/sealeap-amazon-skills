@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 参考价与促销天数合规审计"
+  short_description: "Amazon 参考价与促销天数合规审计：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-jiaotu-amazon-list-price-compliance-audit to diagnose this Amazon task and return an evidence-gated plan."

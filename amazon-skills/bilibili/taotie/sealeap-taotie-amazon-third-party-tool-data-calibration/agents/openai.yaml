@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 第三方选品工具数据交叉校准"
+  short_description: "Amazon 第三方选品工具数据交叉校准：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-taotie-amazon-third-party-tool-data-calibration to diagnose this Amazon task and return an evidence-gated plan."

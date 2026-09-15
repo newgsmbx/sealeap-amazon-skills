@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 定价字段与促销工具核对"
+  short_description: "Amazon 定价字段与促销工具核对：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-chiwen-amazon-price-field-tool-audit to diagnose this Amazon task and return an evidence-gated plan."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 定价点击转化漏斗诊断"
+  short_description: "Amazon 定价点击转化漏斗诊断：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-dijiang-amazon-price-ctr-funnel-diagnostic to diagnose this Amazon task and return an evidence-gated plan."

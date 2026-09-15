@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "entrypoint": "sealeap-athena-amazon-listing-management",
+  "capabilities": [
+    {
+      "name": "sealeap-athena-amazon-account-product",
+      "title": "Amazon 商品管理",
+      "description": "Amazon 商品管理。用于读取商品现状与当前类目 schema，生成字段级变更预览，验证后执行授权范围并回读。输入需明确账户、地区、SKU/商品 ID、属性和目标动作；边界见执行手册。",
+      "category": "Amazon",
+      "mode": "commerce",
+      "route": "官方账户连接或导出文件",
+      "capabilities": [
+        {
+          "provider": "official-account",
+          "tool": "product",
+          "validation": "connection_required",
+          "platform": "Amazon"
+        }
+      ],
+      "limitation": "全量更新可能覆盖省略属性；价格和库存变化分别核实；删除前保存可恢复资料",
+      "legacy_path": "sealeap-athena-amazon-account-product",
+      "entrypoint": "sealeap-athena-amazon-listing-management",
+      "guide_path": "references/capabilities/amazon-account-product/workflow.md",
+      "playbook_path": "references/capabilities/amazon-account-product/playbook.md",
+      "tool_routing_path": "references/capabilities/amazon-account-product/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-amazon-account-catalog",
+      "title": "Amazon 目录商品核对",
+      "description": "Amazon 目录商品核对。用于读取平台目录及变体关系，核对实体标识与属性来源。输入需明确账户、站点、ASIN 或目录 ID、语言和属性范围；边界见执行手册。",
+      "category": "Amazon",
+      "mode": "commerce",
+      "route": "官方账户连接或导出文件",
+      "capabilities": [
+        {
+          "provider": "official-account",
+          "tool": "catalog",
+          "validation": "connection_required",
+          "platform": "Amazon"
+        }
+      ],
+      "limitation": "平台目录和卖家刊登是不同实体；父子关系要双向核对",
+      "legacy_path": "sealeap-athena-amazon-account-catalog",
+      "entrypoint": "sealeap-athena-amazon-listing-management",
+      "guide_path": "references/capabilities/amazon-account-catalog/workflow.md",
+      "playbook_path": "references/capabilities/amazon-account-catalog/playbook.md",
+      "tool_routing_path": "references/capabilities/amazon-account-catalog/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-amazon-account-feeds",
+      "title": "Amazon 批量数据提交",
+      "description": "Amazon 批量数据提交。用于本地核对 schema、重复 SKU 与记录数，再上传并提交已授权批次，解析逐条处理结果。输入需明确账户、地区、feed 类型、输入文件、批次边界；边界见执行手册。",
+      "category": "Amazon",
+      "mode": "commerce",
+      "route": "官方账户连接或导出文件",
+      "capabilities": [
+        {
+          "provider": "official-account",
+          "tool": "feeds",
+          "validation": "connection_required",
+          "platform": "Amazon"
+        }
+      ],
+      "limitation": "HTTP 成功不是商品修改成功；不能盲目重发超时批次；保留原始校验和",
+      "legacy_path": "sealeap-athena-amazon-account-feeds",
+      "entrypoint": "sealeap-athena-amazon-listing-management",
+      "guide_path": "references/capabilities/amazon-account-feeds/workflow.md",
+      "playbook_path": "references/capabilities/amazon-account-feeds/playbook.md",
+      "tool_routing_path": "references/capabilities/amazon-account-feeds/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-amazon-account-uploads",
+      "title": "Amazon 素材上传",
+      "description": "Amazon 素材上传。用于检查文件格式和用途，使用正式上传能力提交已授权文件并回读上传状态。输入需明确账户、地区、本地文件、用途与访问范围；边界见执行手册。",
+      "category": "Amazon",
+      "mode": "commerce",
+      "route": "官方账户连接或导出文件",
+      "capabilities": [
+        {
+          "provider": "official-account",
+          "tool": "uploads",
+          "validation": "connection_required",
+          "platform": "Amazon"
+        }
+      ],
+      "limitation": "只上传明确选定文件；公开图床上传是独立外部动作；签名 URL 不入公开报告",
+      "legacy_path": "sealeap-athena-amazon-account-uploads",
+      "entrypoint": "sealeap-athena-amazon-listing-management",
+      "guide_path": "references/capabilities/amazon-account-uploads/workflow.md",
+      "playbook_path": "references/capabilities/amazon-account-uploads/playbook.md",
+      "tool_routing_path": "references/capabilities/amazon-account-uploads/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-amazon-account-aplus-content",
+      "title": "Amazon A+ 内容管理",
+      "description": "Amazon A+ 内容管理。用于先核对资格与模块限制，编写内容草案并预检，发布后跟踪审核与 ASIN 关联。输入需明确账户、站点、品牌资格、ASIN、模块素材与目标动作；边界见执行手册。",
+      "category": "Amazon",
+      "mode": "commerce",
+      "route": "官方账户连接或导出文件",
+      "capabilities": [
+        {
+          "provider": "official-account",
+          "tool": "aplus-content",
+          "validation": "connection_required",
+          "platform": "Amazon"
+        }
+      ],
+      "limitation": "内容提交、审核通过、前台可见分别验证；图片文案功效需证据",
+      "legacy_path": "sealeap-athena-amazon-account-aplus-content",
+      "entrypoint": "sealeap-athena-amazon-listing-management",
+      "guide_path": "references/capabilities/amazon-account-aplus-content/workflow.md",
+      "playbook_path": "references/capabilities/amazon-account-aplus-content/playbook.md",
+      "tool_routing_path": "references/capabilities/amazon-account-aplus-content/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-amazon-account-pricing",
+      "title": "Amazon 价格核对与变更",
+      "description": "Amazon 价格核对与变更。用于读取现价和促销叠加，测算授权价格变化后逐 SKU 提交并回读生效值。输入需明确账户、地区、SKU、币种、当前与目标价格、利润底线；边界见执行手册。",
+      "category": "Amazon",
+      "mode": "commerce",
+      "route": "官方账户连接或导出文件",
+      "capabilities": [
+        {
+          "provider": "official-account",
+          "tool": "pricing",
+          "validation": "connection_required",
+          "platform": "Amazon"
+        }
+      ],
+      "limitation": "商品价、供货价、折后价分开；金额不能凭币种符号猜；同批失败逐项列示",
+      "legacy_path": "sealeap-athena-amazon-account-pricing",
+      "entrypoint": "sealeap-athena-amazon-listing-management",
+      "guide_path": "references/capabilities/amazon-account-pricing/workflow.md",
+      "playbook_path": "references/capabilities/amazon-account-pricing/playbook.md",
+      "tool_routing_path": "references/capabilities/amazon-account-pricing/tool-routing.md"
+    }
+  ]
+}

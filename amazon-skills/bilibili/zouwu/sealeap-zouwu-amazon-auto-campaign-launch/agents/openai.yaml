@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 自动广告创建与启动后回读"
+  short_description: "Amazon 自动广告创建与启动后回读：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-zouwu-amazon-auto-campaign-launch to diagnose this Amazon task and return an evidence-gated plan."

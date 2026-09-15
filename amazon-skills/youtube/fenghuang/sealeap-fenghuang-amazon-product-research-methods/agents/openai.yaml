@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 多路径选品发现与需求验证"
+  short_description: "Amazon 多路径选品发现与需求验证：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-fenghuang-amazon-product-research-methods to diagnose this Amazon task and return an evidence-gated plan."

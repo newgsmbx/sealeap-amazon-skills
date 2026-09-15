@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 新品上线运营节奏与前置检查"
+  short_description: "Amazon 新品上线运营节奏与前置检查：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-taotie-amazon-new-listing-launch-sequence to diagnose this Amazon task and return an evidence-gated plan."

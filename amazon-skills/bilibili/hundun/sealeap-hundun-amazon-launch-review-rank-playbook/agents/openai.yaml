@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 新品冲榜与评论积累打法"
+  short_description: "Amazon 新品冲榜与评论积累打法：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-hundun-amazon-launch-review-rank-playbook to diagnose this Amazon task and return an evidence-gated plan."

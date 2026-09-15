@@ -1,0 +1,4 @@
+interface:
+  display_name: "Shopee 促销、广告与内容运营"
+  short_description: "Shopee 促销、广告与内容运营，按任务选择具体模式与工具，保留地区、数据口径和权限边界"
+  default_prompt: "使用 $sealeap-athena-shopee-growth-operations 处理我提供的任务，选择对应模式，沿用已有授权并交付证据与实际结果。"

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 新品上架前风险自检"
+  short_description: "Amazon 新品上架前风险自检：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-dijiang-amazon-fba-prelaunch-checklist to diagnose this Amazon task and return an evidence-gated plan."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 类目饱和度与货源门槛判断"
+  short_description: "Amazon 类目饱和度与货源门槛判断：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-bifang-amazon-category-saturation-entry-check to diagnose this Amazon task and return an evidence-gated plan."

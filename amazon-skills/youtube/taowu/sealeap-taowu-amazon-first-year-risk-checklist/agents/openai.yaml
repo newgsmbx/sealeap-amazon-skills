@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 新卖家首年风险自检"
+  short_description: "Amazon 新卖家首年风险自检：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-taowu-amazon-first-year-risk-checklist to diagnose this Amazon task and return an evidence-gated plan."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 大促消费分层选品定价校准"
+  short_description: "Amazon 大促消费分层选品定价校准：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-feilian-amazon-buyer-segment-price-calibration to diagnose this Amazon task and return an evidence-gated plan."

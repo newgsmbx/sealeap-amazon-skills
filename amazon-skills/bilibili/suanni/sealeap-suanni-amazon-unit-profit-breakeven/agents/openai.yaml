@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon FBA 单品利润与保本价测算"
+  short_description: "Amazon FBA 单品利润与保本价测算：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-suanni-amazon-unit-profit-breakeven to diagnose this Amazon task and return an evidence-gated plan."

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Apollo · Amazon 广告规则演示</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f3f6fa;color:#142139;font:16px/1.55 system-ui,sans-serif}main{max-width:1250px;margin:auto;padding:32px 24px}.eyebrow{font-size:13px;font-weight:700;letter-spacing:.08em;color:#2474af}h1{font-size:clamp(28px,4vw,42px);line-height:1.2;margin:10px 0}p{color:#53617a}.badge{display:inline-block;background:#fff0c9;color:#875712;border-radius:20px;padding:5px 13px;font-weight:650}.panel{background:white;border-radius:16px;padding:24px;margin:24px 0;box-shadow:0 8px 30px #16345f09}.controls{display:flex;flex-wrap:wrap;gap:20px;align-items:end}label{display:block;font-size:14px;font-weight:600}input{display:block;width:160px;padding:10px;border:1px solid #c7d2e0;border-radius:7px;font:inherit;margin-top:7px}button{background:#216ca5;color:white;border:0;border-radius:8px;padding:12px 20px;font:inherit;cursor:pointer}.cards{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}.card{background:white;border:1px solid #e0e7f0;padding:18px;border-radius:13px}.card strong{display:block;font-size:25px}.card span{color:#53617a;font-size:13px}.scroll{overflow:auto}table{width:100%;border-collapse:collapse;font-size:13px;white-space:nowrap}th,td{text-align:right;padding:12px 8px;border-bottom:1px solid #e1e7ef}th:first-child,td:first-child{text-align:left}th{color:#53617a;background:#f8fafc}.hit{background:#fff4e1}.reason{font-size:12px;color:#966322}footer{color:#53617a;font-size:13px}#message{min-height:24px;font-size:14px}@media(max-width:760px){.cards{grid-template-columns:repeat(2,1fr)}main{padding:22px 14px}.panel{padding:18px}input{width:130px}}
+</style>
+<main>
+<header><div class="eyebrow">APOLLO / AMAZON ADS LAB</div><h1>广告规则，先看命中原因</h1><span class="badge">SYNTHETIC · 合成数据 · 离线演示</span><p>调整阈值，查看拟暂停候选。下方仅有合成活动，所有金额为模拟 USD、统计窗口为同一演示周期。</p></header>
+<section class="panel"><div class="controls">
+<label>最低点击数<input id="clicks" type="number" min="0" step="1" value="20"></label>
+<label>最低花费（USD）<input id="spend" type="number" min="0" step="0.5" value="15"></label>
+<label>最高 ACOS（%）<input id="acos" type="number" min="0" step="1" value="35"></label>
+<button id="save" type="button">保存本地参数</button></div>
+<p id="message" role="status">达到最低样本后：无单，或 ACOS 超过设定值，进入拟暂停候选。</p></section>
+<div class="cards" id="cards"></div>
+<section class="panel"><h2>活动表现与规则预览</h2><div class="scroll"><table><thead><tr><th>活动</th><th>曝光</th><th>点击</th><th>花费</th><th>订单</th><th>销售额</th><th>CTR</th><th>CPC</th><th>CVR</th><th>ACOS</th><th>ROAS</th><th>拟动作</th></tr></thead><tbody id="rows"></tbody></table></div><p id="count"></p></section>
+<footer>零销售的 ACOS 显示“—”，无单由独立规则处理。阈值仅用于教学；真实决策还需归因成熟度、贡献利润、库存和账户授权。本页没有真实执行功能或后台调度。</footer>
+</main>
+<script>
+'use strict';
+const campaigns=[
+ {name:'模拟精准 01',impressions:18000,clicks:120,spend:72,orders:10,sales:300},
+ {name:'模拟词组 02',impressions:13000,clicks:80,spend:64,orders:3,sales:90},
+ {name:'模拟自动 03',impressions:9000,clicks:55,spend:33,orders:0,sales:0},
+ {name:'模拟定向 04',impressions:24000,clicks:160,spend:96,orders:15,sales:450},
+ {name:'模拟探索 05',impressions:1500,clicks:8,spend:6,orders:0,sales:0},
+ {name:'模拟待观察 06',impressions:0,clicks:0,spend:0,orders:0,sales:0}
+];
+const ratio=(n,d)=>d>0?n/d:null;
+const pct=x=>x===null?'—':(x*100).toFixed(1)+'%';
+const num=x=>x===null?'—':x.toFixed(2);
+const inputs=['clicks','spend','acos'];
+const storageKey='sealeap-apollo-ads-demo-v1';
+function getRules(){return Object.fromEntries(inputs.map(k=>[k,Number(document.getElementById(k).value)]));}
+function valid(r){return inputs.every(k=>Number.isFinite(r[k])&&r[k]>=0)&&Number.isInteger(r.clicks);}
+function classify(c,r){
+ if(c.clicks<r.clicks||c.spend<r.spend||c.clicks===0)return '样本不足';
+ if(c.orders===0)return '无单：拟暂停';
+ const acos=ratio(c.spend,c.sales);
+ return acos!==null&&acos>r.acos/100?'ACOS 高：拟暂停':'继续观察';
+}
+function render(){
+ const rules=getRules();
+ if(!valid(rules)){document.getElementById('message').textContent='请输入非负有限数；最低点击须为整数。';return;}
+ document.getElementById('message').textContent='预览已更新。保存只记录本地参数。';
+ let hits=0;
+ document.getElementById('rows').innerHTML=campaigns.map(c=>{
+  const decision=classify(c,rules),hit=decision.includes('拟暂停');if(hit)hits++;
+  const cells=[c.name,c.impressions,c.clicks,num(c.spend),c.orders,num(c.sales),pct(ratio(c.clicks,c.impressions)),num(ratio(c.spend,c.clicks)),pct(ratio(c.orders,c.clicks)),pct(ratio(c.spend,c.sales)),num(ratio(c.sales,c.spend)),decision];
+  return '<tr class="'+(hit?'hit':'')+'">'+cells.map(v=>'<td>'+v+'</td>').join('')+'</tr>';
+ }).join('');
+ const sums=campaigns.reduce((a,c)=>{for(const k of ['clicks','spend','orders','sales'])a[k]+=c[k];return a;},{clicks:0,spend:0,orders:0,sales:0});
+ const cards=[['模拟花费',num(sums.spend)],['模拟销售额',num(sums.sales)],['广告订单',sums.orders],['总 ACOS',pct(ratio(sums.spend,sums.sales))],['拟暂停活动',hits]];
+ document.getElementById('cards').innerHTML=cards.map(([label,value])=>'<div class="card"><span>'+label+'</span><strong>'+value+'</strong></div>').join('');
+ document.getElementById('count').textContent=hits+' / '+campaigns.length+' 个活动命中拟暂停规则；真实执行数为 0。';
+}
+try{const saved=JSON.parse(localStorage.getItem(storageKey));if(saved&&valid(saved))for(const k of inputs)document.getElementById(k).value=saved[k];}catch{}
+for(const k of inputs)document.getElementById(k).addEventListener('input',render);
+document.getElementById('save').addEventListener('click',()=>{const rules=getRules();if(!valid(rules))return;try{localStorage.setItem(storageKey,JSON.stringify(rules));document.getElementById('message').textContent='本地参数已保存。';}catch{document.getElementById('message').textContent='当前浏览器不允许本地保存，参数在本页仍可使用。';}});
+render();
+</script>
+</html>

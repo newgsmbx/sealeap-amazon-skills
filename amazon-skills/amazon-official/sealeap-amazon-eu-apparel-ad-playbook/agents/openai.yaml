@@ -1,0 +1,4 @@
+interface:
+  display_name: "SeaLeap 欧洲服饰生命周期投放实战"
+  short_description: "结合欧洲服饰生命周期和尺码材质证据规划阶段广告及受众实验"
+  default_prompt: "使用 $sealeap-amazon-eu-apparel-ad-playbook，判断这款英国服饰的生命周期，给出页面证据缺口和分阶段广告草案。"

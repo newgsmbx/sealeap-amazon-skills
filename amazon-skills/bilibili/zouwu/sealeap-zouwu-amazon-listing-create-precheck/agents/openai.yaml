@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon Listing 新建字段预检"
+  short_description: "Amazon Listing 新建字段预检：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-zouwu-amazon-listing-create-precheck to diagnose this Amazon task and return an evidence-gated plan."

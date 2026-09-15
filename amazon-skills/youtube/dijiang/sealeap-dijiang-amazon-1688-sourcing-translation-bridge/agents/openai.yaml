@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 1688跨语言寻源联系路径"
+  short_description: "Amazon 1688跨语言寻源联系路径：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-dijiang-amazon-1688-sourcing-translation-bridge to diagnose this Amazon task and return an evidence-gated plan."

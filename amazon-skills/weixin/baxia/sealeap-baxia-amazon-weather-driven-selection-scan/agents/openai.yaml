@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 极端天气选品排查"
+  short_description: "Amazon 极端天气选品排查：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-baxia-amazon-weather-driven-selection-scan to diagnose this Amazon task and return an evidence-gated plan."

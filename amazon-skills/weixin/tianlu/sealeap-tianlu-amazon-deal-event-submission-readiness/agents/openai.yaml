@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 秒杀活动提报预检"
+  short_description: "Amazon 秒杀活动提报预检：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-tianlu-amazon-deal-event-submission-readiness to diagnose this Amazon task and return an evidence-gated plan."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "SeaLeap AMC 入门与应用规划"
+  short_description: "定位AMC入口与适用任务并区分组合衡量受众构建和广告实际操作"
+  default_prompt: "使用 $sealeap-amazon-amc-getting-started，帮我核查 AMC 准备情况，并为当前业务目标选择一个可完成的分析任务。"

@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "entrypoint": "sealeap-athena-find-skills",
+  "capabilities": [
+    {
+      "name": "sealeap-athena-find-skills",
+      "title": "本地电商技能发现",
+      "description": "搜索本地电商技能并核对适用范围。用于查找、挑选或安装现有技能；明确的选品、广告、订单或内容任务直接使用对应业务技能，不强制重新搜索。",
+      "category": "工具发现",
+      "mode": "local-search",
+      "route": "Python 本地目录检索",
+      "capabilities": [
+        {
+          "provider": "local",
+          "tool": "find_skills.py",
+          "validation": "offline_behavior"
+        }
+      ],
+      "limitation": "搜索相关性不是质量或在线能力验证；安装保留完整目录",
+      "legacy_path": "sealeap-athena-find-skills",
+      "entrypoint": "sealeap-athena-find-skills",
+      "guide_path": "SKILL.md",
+      "playbook_path": "references/playbook.md",
+      "tool_routing_path": "references/tool-routing.md"
+    }
+  ]
+}

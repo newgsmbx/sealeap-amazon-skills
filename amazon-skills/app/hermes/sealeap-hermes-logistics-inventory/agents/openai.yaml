@@ -1,0 +1,4 @@
+interface:
+  display_name: "Hermes · 跨境物流与库存规划"
+  short_description: "统一运输报价与可售库存口径，评估断货积压风险并制定补货仓配方案"
+  default_prompt: "使用 $sealeap-hermes-logistics-inventory 完成这项任务，先核对范围与已有数据，再交付有证据的结果和待确认项。"

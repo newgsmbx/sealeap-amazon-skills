@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 小体量低垄断细分市场筛选"
+  short_description: "Amazon 小体量低垄断细分市场筛选：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-bifang-amazon-small-niche-market-screening to diagnose this Amazon task and return an evidence-gated plan."

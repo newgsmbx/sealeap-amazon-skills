@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 关联暂停排查与申诉"
+  short_description: "Amazon 关联暂停排查与申诉：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-dijiang-amazon-related-account-suspension-triage to diagnose this Amazon task and return an evidence-gated plan."

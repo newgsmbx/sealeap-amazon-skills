@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "entrypoint": "sealeap-athena-amazon-review-insights",
+  "capabilities": [
+    {
+      "name": "sealeap-athena-amazon-review-sample",
+      "title": "Amazon 评论样本分析",
+      "description": "Amazon 评论样本分析。用于按评论 ID 去重并分析使用场景、问题和可验证的改进方向。输入需明确站点、ASIN、日期窗、星级、语言；边界见执行手册。",
+      "category": "Amazon",
+      "mode": "data",
+      "route": "Sorftime 直接工具",
+      "capabilities": [
+        {
+          "provider": "sorftime",
+          "tool": "product_reviews",
+          "validation": "tool_schema",
+          "required_fields": [
+            "asin"
+          ]
+        },
+        {
+          "provider": "sorftime",
+          "tool": "product_customers_say",
+          "validation": "tool_schema",
+          "required_fields": [
+            "asin"
+          ]
+        }
+      ],
+      "limitation": "摘要不是原评论；注明接口条数上限、采样偏差及变体混合；不得声称已抓全",
+      "legacy_path": "sealeap-athena-amazon-review-sample",
+      "entrypoint": "sealeap-athena-amazon-review-insights",
+      "guide_path": "references/capabilities/amazon-review-sample/workflow.md",
+      "playbook_path": "references/capabilities/amazon-review-sample/playbook.md",
+      "tool_routing_path": "references/capabilities/amazon-review-sample/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-amazon-niche-review-themes",
+      "title": "细分市场评论主题",
+      "description": "细分市场评论主题。用于分商品采样、去重、聚类评论，并把痛点连接到可测试产品改进。输入需明确站点、可比 ASIN 清单、时间窗和样本量；边界见执行手册。",
+      "category": "细分市场评论主题",
+      "mode": "data",
+      "route": "Sorftime 直接工具",
+      "capabilities": [
+        {
+          "provider": "sorftime",
+          "tool": "product_reviews",
+          "validation": "tool_schema",
+          "required_fields": [
+            "asin"
+          ]
+        },
+        {
+          "provider": "sorftime",
+          "tool": "product_customers_say",
+          "validation": "tool_schema",
+          "required_fields": [
+            "asin"
+          ]
+        }
+      ],
+      "limitation": "评论主题占比只代表取得的样本；聚合摘要不能追溯为逐条原话",
+      "legacy_path": "sealeap-athena-amazon-niche-review-themes",
+      "entrypoint": "sealeap-athena-amazon-review-insights",
+      "guide_path": "references/capabilities/amazon-niche-review-themes/workflow.md",
+      "playbook_path": "references/capabilities/amazon-niche-review-themes/playbook.md",
+      "tool_routing_path": "references/capabilities/amazon-niche-review-themes/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-amazon-account-feedback",
+      "title": "Amazon 买家反馈分析",
+      "description": "Amazon 买家反馈分析。用于读取获准反馈并按商品、履约和服务原因分类，匿名化引用与建议。输入需明确账户、站点、时间窗、反馈类型与对象；边界见执行手册。",
+      "category": "Amazon",
+      "mode": "commerce",
+      "route": "官方账户连接或导出文件",
+      "capabilities": [
+        {
+          "provider": "official-account",
+          "tool": "feedback",
+          "validation": "connection_required",
+          "platform": "Amazon"
+        }
+      ],
+      "limitation": "卖家反馈和商品评论分开；不诱导修改评价或以利益交换好评",
+      "legacy_path": "sealeap-athena-amazon-account-feedback",
+      "entrypoint": "sealeap-athena-amazon-review-insights",
+      "guide_path": "references/capabilities/amazon-account-feedback/workflow.md",
+      "playbook_path": "references/capabilities/amazon-account-feedback/playbook.md",
+      "tool_routing_path": "references/capabilities/amazon-account-feedback/tool-routing.md"
+    }
+  ]
+}

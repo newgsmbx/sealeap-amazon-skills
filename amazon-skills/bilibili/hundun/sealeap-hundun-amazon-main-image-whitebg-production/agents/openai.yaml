@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 主图白底图合规制作"
+  short_description: "Amazon 主图白底图合规制作：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-hundun-amazon-main-image-whitebg-production to diagnose this Amazon task and return an evidence-gated plan."

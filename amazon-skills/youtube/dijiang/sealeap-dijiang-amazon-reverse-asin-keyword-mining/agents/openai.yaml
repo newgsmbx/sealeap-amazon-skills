@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 反查竞品关键词建库"
+  short_description: "Amazon 反查竞品关键词建库：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-dijiang-amazon-reverse-asin-keyword-mining to diagnose this Amazon task and return an evidence-gated plan."

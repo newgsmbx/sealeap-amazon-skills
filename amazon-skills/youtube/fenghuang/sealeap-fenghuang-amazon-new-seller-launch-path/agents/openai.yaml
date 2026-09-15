@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 新卖家开户到首发启动路径"
+  short_description: "Amazon 新卖家开户到首发启动路径：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-fenghuang-amazon-new-seller-launch-path to diagnose this Amazon task and return an evidence-gated plan."

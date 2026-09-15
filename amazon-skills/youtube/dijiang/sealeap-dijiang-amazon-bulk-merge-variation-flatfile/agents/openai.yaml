@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 批量合并已上线变体"
+  short_description: "Amazon 批量合并已上线变体：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-dijiang-amazon-bulk-merge-variation-flatfile to diagnose this Amazon task and return an evidence-gated plan."

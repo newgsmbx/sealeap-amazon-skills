@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 品牌备案申请与权益盘点"
+  short_description: "Amazon 品牌备案申请与权益盘点：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-dijiang-amazon-brand-registry-enrollment to diagnose this Amazon task and return an evidence-gated plan."

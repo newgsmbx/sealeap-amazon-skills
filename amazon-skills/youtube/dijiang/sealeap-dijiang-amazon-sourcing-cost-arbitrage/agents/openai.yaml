@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 跨境采购降本策略组合"
+  short_description: "Amazon 跨境采购降本策略组合：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-dijiang-amazon-sourcing-cost-arbitrage to diagnose this Amazon task and return an evidence-gated plan."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 数据报送后报税应对"
+  short_description: "Amazon 数据报送后报税应对：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-tianlu-amazon-data-reporting-filing-evidence-collection to diagnose this Amazon task and return an evidence-gated plan."

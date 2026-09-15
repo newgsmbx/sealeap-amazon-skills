@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon PPC 起始竞价与竞价策略选择"
+  short_description: "Amazon PPC 起始竞价与竞价策略选择：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-qiongqi-amazon-ppc-starting-bid-and-strategy to diagnose this Amazon task and return an evidence-gated plan."

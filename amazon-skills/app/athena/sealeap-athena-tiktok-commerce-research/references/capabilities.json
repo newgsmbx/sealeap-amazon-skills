@@ -1,0 +1,408 @@
+{
+  "schema_version": 1,
+  "entrypoint": "sealeap-athena-tiktok-commerce-research",
+  "capabilities": [
+    {
+      "name": "sealeap-athena-tiktok-new-product-cohort",
+      "title": "TikTok 新品样本观察",
+      "description": "TikTok 新品样本观察。用于按首次可证实上架时间构建新品样本，跟踪销量与内容变化。输入需明确国家、类目、上架日期定义、观察窗；边界见执行手册。",
+      "category": "TikTok",
+      "mode": "data",
+      "route": "Sorftime 直接工具",
+      "capabilities": [
+        {
+          "provider": "sorftime",
+          "tool": "tiktok_product_search",
+          "validation": "tool_schema",
+          "required_fields": []
+        },
+        {
+          "provider": "sorftime",
+          "tool": "tiktok_product_trend",
+          "validation": "tool_schema",
+          "required_fields": [
+            "product_id"
+          ]
+        }
+      ],
+      "limitation": "榜单新增不等于新上架；不能把缺失历史认定零销量",
+      "legacy_path": "sealeap-athena-tiktok-new-product-cohort",
+      "entrypoint": "sealeap-athena-tiktok-commerce-research",
+      "guide_path": "references/capabilities/tiktok-new-product-cohort/workflow.md",
+      "playbook_path": "references/capabilities/tiktok-new-product-cohort/playbook.md",
+      "tool_routing_path": "references/capabilities/tiktok-new-product-cohort/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-tiktok-product-discovery",
+      "title": "TikTok 商品发现",
+      "description": "TikTok 商品发现。用于检索符合需求的商品并拆开平台销量估计、视频和店铺信息。输入需明确国家、关键词、价格区间、观察窗；边界见执行手册。",
+      "category": "TikTok",
+      "mode": "data",
+      "route": "Sorftime 直接工具",
+      "capabilities": [
+        {
+          "provider": "sorftime",
+          "tool": "tiktok_product_search_from_name",
+          "validation": "tool_schema",
+          "required_fields": []
+        },
+        {
+          "provider": "sorftime",
+          "tool": "tiktok_product_search",
+          "validation": "tool_schema",
+          "required_fields": []
+        }
+      ],
+      "limitation": "一个视频关联多个商品时不把视频 GMV 全计给每个商品",
+      "legacy_path": "sealeap-athena-tiktok-product-discovery",
+      "entrypoint": "sealeap-athena-tiktok-commerce-research",
+      "guide_path": "references/capabilities/tiktok-product-discovery/workflow.md",
+      "playbook_path": "references/capabilities/tiktok-product-discovery/playbook.md",
+      "tool_routing_path": "references/capabilities/tiktok-product-discovery/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-tiktok-sales-sample-ranking",
+      "title": "TikTok 热销样本筛选",
+      "description": "TikTok 热销样本筛选。用于对取得的商品样本按同窗需求指标排序并核对趋势稳定性。输入需明确国家、类目、日期和销量口径；边界见执行手册。",
+      "category": "TikTok",
+      "mode": "data",
+      "route": "Sorftime 直接工具",
+      "capabilities": [
+        {
+          "provider": "sorftime",
+          "tool": "tiktok_product_search",
+          "validation": "tool_schema",
+          "required_fields": []
+        },
+        {
+          "provider": "sorftime",
+          "tool": "tiktok_product_trend",
+          "validation": "tool_schema",
+          "required_fields": [
+            "product_id"
+          ]
+        }
+      ],
+      "limitation": "估计 GMV 不是利润；样本榜不代表平台官方榜",
+      "legacy_path": "sealeap-athena-tiktok-sales-sample-ranking",
+      "entrypoint": "sealeap-athena-tiktok-commerce-research",
+      "guide_path": "references/capabilities/tiktok-sales-sample-ranking/workflow.md",
+      "playbook_path": "references/capabilities/tiktok-sales-sample-ranking/playbook.md",
+      "tool_routing_path": "references/capabilities/tiktok-sales-sample-ranking/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-tiktok-commerce-product-query",
+      "title": "TikTok 带货商品检索",
+      "description": "TikTok 带货商品检索。用于查询商品并追踪与店铺、视频关联的可验证字段。输入需明确国家、关键词或商品 ID、价格带；边界见执行手册。",
+      "category": "TikTok",
+      "mode": "data",
+      "route": "Sorftime 直接工具",
+      "capabilities": [
+        {
+          "provider": "sorftime",
+          "tool": "tiktok_product_search_from_name",
+          "validation": "tool_schema",
+          "required_fields": []
+        },
+        {
+          "provider": "sorftime",
+          "tool": "tiktok_product_request",
+          "validation": "tool_schema",
+          "required_fields": [
+            "product_id"
+          ]
+        }
+      ],
+      "limitation": "关联视频数不等于带货成功率；返回缺字段保留未知",
+      "legacy_path": "sealeap-athena-tiktok-commerce-product-query",
+      "entrypoint": "sealeap-athena-tiktok-commerce-research",
+      "guide_path": "references/capabilities/tiktok-commerce-product-query/workflow.md",
+      "playbook_path": "references/capabilities/tiktok-commerce-product-query/playbook.md",
+      "tool_routing_path": "references/capabilities/tiktok-commerce-product-query/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-tiktok-product-performance",
+      "title": "TikTok 商品表现研究",
+      "description": "TikTok 商品表现研究。用于读取商品和历史趋势，解释价格、需求与内容事件的对应关系。输入需明确国家、商品 ID、期间和变体范围；边界见执行手册。",
+      "category": "TikTok",
+      "mode": "data",
+      "route": "Sorftime 直接工具",
+      "capabilities": [
+        {
+          "provider": "sorftime",
+          "tool": "tiktok_product_request",
+          "validation": "tool_schema",
+          "required_fields": [
+            "product_id"
+          ]
+        },
+        {
+          "provider": "sorftime",
+          "tool": "tiktok_product_trend",
+          "validation": "tool_schema",
+          "required_fields": [
+            "product_id"
+          ]
+        }
+      ],
+      "limitation": "时间相关不是因果；缺直播贡献时不凭剩余项补齐",
+      "legacy_path": "sealeap-athena-tiktok-product-performance",
+      "entrypoint": "sealeap-athena-tiktok-commerce-research",
+      "guide_path": "references/capabilities/tiktok-product-performance/workflow.md",
+      "playbook_path": "references/capabilities/tiktok-product-performance/playbook.md",
+      "tool_routing_path": "references/capabilities/tiktok-product-performance/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-tiktok-product-batch-check",
+      "title": "TikTok 商品批量核对",
+      "description": "TikTok 商品批量核对。用于按 ID 逐项查询并记录成功、缺失、不可访问和失败。输入需明确国家、商品 ID 清单、所需字段与额度范围；边界见执行手册。",
+      "category": "TikTok",
+      "mode": "data",
+      "route": "Sorftime 直接工具",
+      "capabilities": [
+        {
+          "provider": "sorftime",
+          "tool": "tiktok_product_request",
+          "validation": "tool_schema",
+          "required_fields": [
+            "product_id"
+          ]
+        }
+      ],
+      "limitation": "部分成功不代表批次完整；不根据相似名称替换失败 ID",
+      "legacy_path": "sealeap-athena-tiktok-product-batch-check",
+      "entrypoint": "sealeap-athena-tiktok-commerce-research",
+      "guide_path": "references/capabilities/tiktok-product-batch-check/workflow.md",
+      "playbook_path": "references/capabilities/tiktok-product-batch-check/playbook.md",
+      "tool_routing_path": "references/capabilities/tiktok-product-batch-check/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-tiktok-public-product-detail",
+      "title": "TikTok Shop 公开商品核对",
+      "description": "TikTok Shop 公开商品核对。用于读取公开商品详情并核对所选规格、卖家与可用价格信息。输入需明确国家、商品 ID 或链接、规格与配送条件；边界见执行手册。",
+      "category": "TikTok",
+      "mode": "data",
+      "route": "Sorftime 直接工具",
+      "capabilities": [
+        {
+          "provider": "sorftime",
+          "tool": "tiktok_product_request",
+          "validation": "tool_schema",
+          "required_fields": [
+            "product_id"
+          ]
+        }
+      ],
+      "limitation": "公开商品数据不具有自家店铺操作权限；价格受地区和优惠影响",
+      "legacy_path": "sealeap-athena-tiktok-public-product-detail",
+      "entrypoint": "sealeap-athena-tiktok-commerce-research",
+      "guide_path": "references/capabilities/tiktok-public-product-detail/workflow.md",
+      "playbook_path": "references/capabilities/tiktok-public-product-detail/playbook.md",
+      "tool_routing_path": "references/capabilities/tiktok-public-product-detail/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-tiktok-market-product-relations",
+      "title": "TikTok 商品与内容关系",
+      "description": "TikTok 商品与内容关系。用于围绕商品汇总可验证的店铺、达人和视频关系并注明每条关系来源。输入需明确国家、商品或需求、期间、所需关系类型；边界见执行手册。",
+      "category": "TikTok",
+      "mode": "data",
+      "route": "Sorftime 直接工具",
+      "capabilities": [
+        {
+          "provider": "sorftime",
+          "tool": "tiktok_product_search",
+          "validation": "tool_schema",
+          "required_fields": []
+        },
+        {
+          "provider": "sorftime",
+          "tool": "tiktok_product_request",
+          "validation": "tool_schema",
+          "required_fields": [
+            "product_id"
+          ]
+        }
+      ],
+      "limitation": "字段缺失就报告缺口；关键词共现不能替代真实带货关联",
+      "legacy_path": "sealeap-athena-tiktok-market-product-relations",
+      "entrypoint": "sealeap-athena-tiktok-commerce-research",
+      "guide_path": "references/capabilities/tiktok-market-product-relations/workflow.md",
+      "playbook_path": "references/capabilities/tiktok-market-product-relations/playbook.md",
+      "tool_routing_path": "references/capabilities/tiktok-market-product-relations/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-tiktok-product-video-map",
+      "title": "TikTok 商品关联视频",
+      "description": "TikTok 商品关联视频。用于读取可用商品关系并逐条核对视频提及或商品链接。输入需明确国家、商品 ID、可验证视频 ID 和期间；边界见执行手册。",
+      "category": "TikTok",
+      "mode": "data",
+      "route": "Sorftime 直接工具",
+      "capabilities": [
+        {
+          "provider": "sorftime",
+          "tool": "tiktok_product_request",
+          "validation": "tool_schema",
+          "required_fields": [
+            "product_id"
+          ]
+        },
+        {
+          "provider": "sorftime",
+          "tool": "tiktok_video_request",
+          "validation": "tool_schema",
+          "required_fields": [
+            "video_id"
+          ]
+        }
+      ],
+      "limitation": "无法取得商品到视频关系时不得用关键词命中冒充绑定",
+      "legacy_path": "sealeap-athena-tiktok-product-video-map",
+      "entrypoint": "sealeap-athena-tiktok-commerce-research",
+      "guide_path": "references/capabilities/tiktok-product-video-map/workflow.md",
+      "playbook_path": "references/capabilities/tiktok-product-video-map/playbook.md",
+      "tool_routing_path": "references/capabilities/tiktok-product-video-map/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-tiktok-shop-discovery",
+      "title": "TikTok 店铺检索",
+      "description": "TikTok 店铺检索。用于搜索并确认店铺身份、经营市场和公开表现。输入需明确国家、店铺名或经营条件、期间；边界见执行手册。",
+      "category": "TikTok",
+      "mode": "data",
+      "route": "Sorftime 直接工具",
+      "capabilities": [
+        {
+          "provider": "sorftime",
+          "tool": "tiktok_shop_search",
+          "validation": "tool_schema",
+          "required_fields": []
+        },
+        {
+          "provider": "sorftime",
+          "tool": "tiktok_shop_search_from_name",
+          "validation": "tool_schema",
+          "required_fields": []
+        }
+      ],
+      "limitation": "相似店名不合并；公开统计不能替代卖家后台账单",
+      "legacy_path": "sealeap-athena-tiktok-shop-discovery",
+      "entrypoint": "sealeap-athena-tiktok-commerce-research",
+      "guide_path": "references/capabilities/tiktok-shop-discovery/workflow.md",
+      "playbook_path": "references/capabilities/tiktok-shop-discovery/playbook.md",
+      "tool_routing_path": "references/capabilities/tiktok-shop-discovery/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-tiktok-shop-catalog",
+      "title": "TikTok 店铺商品组合",
+      "description": "TikTok 店铺商品组合。用于读取店铺与可用商品关联，比较价格带、SKU 组合和样本贡献。输入需明确国家、店铺 ID、统计期间、商品范围；边界见执行手册。",
+      "category": "TikTok",
+      "mode": "data",
+      "route": "Sorftime 直接工具",
+      "capabilities": [
+        {
+          "provider": "sorftime",
+          "tool": "tiktok_shop_request",
+          "validation": "tool_schema",
+          "required_fields": [
+            "shop_id"
+          ]
+        },
+        {
+          "provider": "sorftime",
+          "tool": "tiktok_product_search",
+          "validation": "tool_schema",
+          "required_fields": []
+        }
+      ],
+      "limitation": "无法完整获取店铺商品时明确缺口；不将搜索命中当全店",
+      "legacy_path": "sealeap-athena-tiktok-shop-catalog",
+      "entrypoint": "sealeap-athena-tiktok-commerce-research",
+      "guide_path": "references/capabilities/tiktok-shop-catalog/workflow.md",
+      "playbook_path": "references/capabilities/tiktok-shop-catalog/playbook.md",
+      "tool_routing_path": "references/capabilities/tiktok-shop-catalog/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-tiktok-shop-profile",
+      "title": "TikTok 店铺画像",
+      "description": "TikTok 店铺画像。用于核对公开店铺资料和指标定义，整理经营结构与增长假设。输入需明确店铺 ID、国家、期间、关注指标；边界见执行手册。",
+      "category": "TikTok",
+      "mode": "data",
+      "route": "Sorftime 直接工具",
+      "capabilities": [
+        {
+          "provider": "sorftime",
+          "tool": "tiktok_shop_request",
+          "validation": "tool_schema",
+          "required_fields": [
+            "shop_id"
+          ]
+        }
+      ],
+      "limitation": "估计 GMV 不等于结算收入；跨币种和跨期间分开",
+      "legacy_path": "sealeap-athena-tiktok-shop-profile",
+      "entrypoint": "sealeap-athena-tiktok-commerce-research",
+      "guide_path": "references/capabilities/tiktok-shop-profile/workflow.md",
+      "playbook_path": "references/capabilities/tiktok-shop-profile/playbook.md",
+      "tool_routing_path": "references/capabilities/tiktok-shop-profile/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-tiktok-shop-benchmark",
+      "title": "TikTok 店铺对标",
+      "description": "TikTok 店铺对标。用于在同市场和期间对照店铺内容、商品与可用需求指标。输入需明确国家、候选店铺、期间和品类；边界见执行手册。",
+      "category": "TikTok",
+      "mode": "data",
+      "route": "Sorftime 直接工具",
+      "capabilities": [
+        {
+          "provider": "sorftime",
+          "tool": "tiktok_shop_search_from_name",
+          "validation": "tool_schema",
+          "required_fields": []
+        },
+        {
+          "provider": "sorftime",
+          "tool": "tiktok_shop_request",
+          "validation": "tool_schema",
+          "required_fields": [
+            "shop_id"
+          ]
+        }
+      ],
+      "limitation": "市场估计不可当后台收入；跨站店铺不直接排名",
+      "legacy_path": "sealeap-athena-tiktok-shop-benchmark",
+      "entrypoint": "sealeap-athena-tiktok-commerce-research",
+      "guide_path": "references/capabilities/tiktok-shop-benchmark/workflow.md",
+      "playbook_path": "references/capabilities/tiktok-shop-benchmark/playbook.md",
+      "tool_routing_path": "references/capabilities/tiktok-shop-benchmark/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-tiktok-shop-commerce-relations",
+      "title": "TikTok 店铺商业关系",
+      "description": "TikTok 店铺商业关系。用于从店铺身份开始，逐项核对跨商品和内容的实际关联。输入需明确国家、店铺、期间、商品/达人/视频关系需求；边界见执行手册。",
+      "category": "TikTok",
+      "mode": "data",
+      "route": "Sorftime 直接工具",
+      "capabilities": [
+        {
+          "provider": "sorftime",
+          "tool": "tiktok_shop_search",
+          "validation": "tool_schema",
+          "required_fields": []
+        },
+        {
+          "provider": "sorftime",
+          "tool": "tiktok_shop_request",
+          "validation": "tool_schema",
+          "required_fields": [
+            "shop_id"
+          ]
+        }
+      ],
+      "limitation": "搜索接口不能冒充店铺销量榜或热推榜；缺关系不自动推断",
+      "legacy_path": "sealeap-athena-tiktok-shop-commerce-relations",
+      "entrypoint": "sealeap-athena-tiktok-commerce-research",
+      "guide_path": "references/capabilities/tiktok-shop-commerce-relations/workflow.md",
+      "playbook_path": "references/capabilities/tiktok-shop-commerce-relations/playbook.md",
+      "tool_routing_path": "references/capabilities/tiktok-shop-commerce-relations/tool-routing.md"
+    }
+  ]
+}

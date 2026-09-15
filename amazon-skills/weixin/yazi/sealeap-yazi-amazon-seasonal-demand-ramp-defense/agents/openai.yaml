@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 季节性单品推进节奏管理"
+  short_description: "Amazon 季节性单品推进节奏管理：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-yazi-amazon-seasonal-demand-ramp-defense to diagnose this Amazon task and return an evidence-gated plan."

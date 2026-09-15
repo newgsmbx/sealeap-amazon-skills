@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 大促资格与价格联动预检"
+  short_description: "Amazon 大促资格与价格联动预检：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-yazi-amazon-event-eligibility-price-stack-check to diagnose this Amazon task and return an evidence-gated plan."

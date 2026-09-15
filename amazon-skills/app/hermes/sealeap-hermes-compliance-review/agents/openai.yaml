@@ -1,0 +1,4 @@
+interface:
+  display_name: "Hermes · 产品合规、税务与知识产权初筛"
+  short_description: "按产品用途和目标市场核查法规与资料，输出证据缺口及上市前初筛"
+  default_prompt: "使用 $sealeap-hermes-compliance-review 完成这项任务，先核对范围与已有数据，再交付有证据的结果和待确认项。"

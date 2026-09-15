@@ -1,0 +1,4 @@
+interface:
+  display_name: "SeaLeap 亚马逊品牌成长导航"
+  short_description: "定位品牌四个发展阶段并将主要痛点转为可衡量的广告行动计划"
+  default_prompt: "使用 $sealeap-amazon-brand-growth-navigator，根据品牌当前数据判断所处阶段，给出优先行动、指标和下一阶段条件。"

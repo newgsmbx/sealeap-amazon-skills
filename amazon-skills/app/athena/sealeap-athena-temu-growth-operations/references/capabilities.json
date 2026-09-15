@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "entrypoint": "sealeap-athena-temu-growth-operations",
+  "capabilities": [
+    {
+      "name": "sealeap-athena-temu-us-promotion",
+      "title": "Temu 美国区 促销管理",
+      "description": "Temu 美国区 促销管理。用于核对当前活动与资格，计算折扣叠加、库存和毛利影响，提交授权配置后回读。输入需明确账户、地区、活动类型、SKU、日期、折扣与预算；边界见执行手册。",
+      "category": "Temu",
+      "mode": "commerce",
+      "route": "官方账户连接或导出文件",
+      "capabilities": [
+        {
+          "provider": "official-account",
+          "tool": "promotion",
+          "validation": "connection_required",
+          "platform": "Temu"
+        }
+      ],
+      "limitation": "折扣、券和平台补贴分开；结束时间和时区明确；不重复创建同一活动；仅使用该区域已授权连接和当前 Partner schema；其他区域的字段和签名不可复用",
+      "legacy_path": "sealeap-athena-temu-us-promotion",
+      "entrypoint": "sealeap-athena-temu-growth-operations",
+      "guide_path": "references/capabilities/temu-us-promotion/workflow.md",
+      "playbook_path": "references/capabilities/temu-us-promotion/playbook.md",
+      "tool_routing_path": "references/capabilities/temu-us-promotion/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-temu-us-ads",
+      "title": "Temu 美国区 广告管理",
+      "description": "Temu 美国区 广告管理。用于先读广告实体与同窗报表，形成出价、预算或状态差异，执行已授权对象并回读。输入需明确账户、地区、广告产品、活动/广告组、期间、预算边界；边界见执行手册。",
+      "category": "Temu",
+      "mode": "commerce",
+      "route": "官方账户连接或导出文件",
+      "capabilities": [
+        {
+          "provider": "official-account",
+          "tool": "ads",
+          "validation": "connection_required",
+          "platform": "Temu"
+        }
+      ],
+      "limitation": "公开竞品广告数据没有自家写权限；预算是活动级；失败不切账户或 API 版本兜底；仅使用该区域已授权连接和当前 Partner schema；其他区域的字段和签名不可复用",
+      "legacy_path": "sealeap-athena-temu-us-ads",
+      "entrypoint": "sealeap-athena-temu-growth-operations",
+      "guide_path": "references/capabilities/temu-us-ads/workflow.md",
+      "playbook_path": "references/capabilities/temu-us-ads/playbook.md",
+      "tool_routing_path": "references/capabilities/temu-us-ads/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-temu-eu-promotion",
+      "title": "Temu 欧洲区 促销管理",
+      "description": "Temu 欧洲区 促销管理。用于核对当前活动与资格，计算折扣叠加、库存和毛利影响，提交授权配置后回读。输入需明确账户、地区、活动类型、SKU、日期、折扣与预算；边界见执行手册。",
+      "category": "Temu",
+      "mode": "commerce",
+      "route": "官方账户连接或导出文件",
+      "capabilities": [
+        {
+          "provider": "official-account",
+          "tool": "promotion",
+          "validation": "connection_required",
+          "platform": "Temu"
+        }
+      ],
+      "limitation": "折扣、券和平台补贴分开；结束时间和时区明确；不重复创建同一活动；仅使用该区域已授权连接和当前 Partner schema；其他区域的字段和签名不可复用",
+      "legacy_path": "sealeap-athena-temu-eu-promotion",
+      "entrypoint": "sealeap-athena-temu-growth-operations",
+      "guide_path": "references/capabilities/temu-eu-promotion/workflow.md",
+      "playbook_path": "references/capabilities/temu-eu-promotion/playbook.md",
+      "tool_routing_path": "references/capabilities/temu-eu-promotion/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-temu-eu-ads",
+      "title": "Temu 欧洲区 广告管理",
+      "description": "Temu 欧洲区 广告管理。用于先读广告实体与同窗报表，形成出价、预算或状态差异，执行已授权对象并回读。输入需明确账户、地区、广告产品、活动/广告组、期间、预算边界；边界见执行手册。",
+      "category": "Temu",
+      "mode": "commerce",
+      "route": "官方账户连接或导出文件",
+      "capabilities": [
+        {
+          "provider": "official-account",
+          "tool": "ads",
+          "validation": "connection_required",
+          "platform": "Temu"
+        }
+      ],
+      "limitation": "公开竞品广告数据没有自家写权限；预算是活动级；失败不切账户或 API 版本兜底；仅使用该区域已授权连接和当前 Partner schema；其他区域的字段和签名不可复用",
+      "legacy_path": "sealeap-athena-temu-eu-ads",
+      "entrypoint": "sealeap-athena-temu-growth-operations",
+      "guide_path": "references/capabilities/temu-eu-ads/workflow.md",
+      "playbook_path": "references/capabilities/temu-eu-ads/playbook.md",
+      "tool_routing_path": "references/capabilities/temu-eu-ads/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-temu-global-promotion",
+      "title": "Temu 全球区 促销管理",
+      "description": "Temu 全球区 促销管理。用于核对当前活动与资格，计算折扣叠加、库存和毛利影响，提交授权配置后回读。输入需明确账户、地区、活动类型、SKU、日期、折扣与预算；边界见执行手册。",
+      "category": "Temu",
+      "mode": "commerce",
+      "route": "官方账户连接或导出文件",
+      "capabilities": [
+        {
+          "provider": "official-account",
+          "tool": "promotion",
+          "validation": "connection_required",
+          "platform": "Temu"
+        }
+      ],
+      "limitation": "折扣、券和平台补贴分开；结束时间和时区明确；不重复创建同一活动；仅使用该区域已授权连接和当前 Partner schema；其他区域的字段和签名不可复用",
+      "legacy_path": "sealeap-athena-temu-global-promotion",
+      "entrypoint": "sealeap-athena-temu-growth-operations",
+      "guide_path": "references/capabilities/temu-global-promotion/workflow.md",
+      "playbook_path": "references/capabilities/temu-global-promotion/playbook.md",
+      "tool_routing_path": "references/capabilities/temu-global-promotion/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-temu-global-ads",
+      "title": "Temu 全球区 广告管理",
+      "description": "Temu 全球区 广告管理。用于先读广告实体与同窗报表，形成出价、预算或状态差异，执行已授权对象并回读。输入需明确账户、地区、广告产品、活动/广告组、期间、预算边界；边界见执行手册。",
+      "category": "Temu",
+      "mode": "commerce",
+      "route": "官方账户连接或导出文件",
+      "capabilities": [
+        {
+          "provider": "official-account",
+          "tool": "ads",
+          "validation": "connection_required",
+          "platform": "Temu"
+        }
+      ],
+      "limitation": "公开竞品广告数据没有自家写权限；预算是活动级；失败不切账户或 API 版本兜底；仅使用该区域已授权连接和当前 Partner schema；其他区域的字段和签名不可复用",
+      "legacy_path": "sealeap-athena-temu-global-ads",
+      "entrypoint": "sealeap-athena-temu-growth-operations",
+      "guide_path": "references/capabilities/temu-global-ads/workflow.md",
+      "playbook_path": "references/capabilities/temu-global-ads/playbook.md",
+      "tool_routing_path": "references/capabilities/temu-global-ads/tool-routing.md"
+    }
+  ]
+}

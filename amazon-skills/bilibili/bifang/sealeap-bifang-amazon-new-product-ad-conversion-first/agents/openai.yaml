@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 新品期广告转化优先策略"
+  short_description: "Amazon 新品期广告转化优先策略：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-bifang-amazon-new-product-ad-conversion-first to diagnose this Amazon task and return an evidence-gated plan."

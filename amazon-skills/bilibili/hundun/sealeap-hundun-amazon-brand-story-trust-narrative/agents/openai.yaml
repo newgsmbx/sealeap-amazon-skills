@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 品牌故事信任叙事设计"
+  short_description: "Amazon 品牌故事信任叙事设计：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-hundun-amazon-brand-story-trust-narrative to diagnose this Amazon task and return an evidence-gated plan."

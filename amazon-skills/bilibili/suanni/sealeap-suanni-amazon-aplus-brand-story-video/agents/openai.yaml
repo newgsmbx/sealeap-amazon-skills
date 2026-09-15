@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon A+ 品牌故事与视频上架准备"
+  short_description: "Amazon A+ 品牌故事与视频上架准备：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-suanni-amazon-aplus-brand-story-video to diagnose this Amazon task and return an evidence-gated plan."

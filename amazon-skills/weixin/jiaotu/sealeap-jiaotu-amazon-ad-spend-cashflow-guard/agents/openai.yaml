@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 广告账户余额现金流风控"
+  short_description: "Amazon 广告账户余额现金流风控：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-jiaotu-amazon-ad-spend-cashflow-guard to diagnose this Amazon task and return an evidence-gated plan."

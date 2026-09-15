@@ -1,0 +1,4 @@
+interface:
+  display_name: "SeaLeap 亚马逊一体化广告报表分析"
+  short_description: "按业务问题搭建一体化报表并校验粒度归因指标和搜索词承接差异"
+  default_prompt: "使用 $sealeap-amazon-unified-ad-report-analysis，审计这份报表的粒度和口径，再找出需要下钻的活动与预算候选。"

@@ -1,0 +1,177 @@
+{
+  "schema_version": 1,
+  "entrypoint": "sealeap-athena-amazon-product-intelligence",
+  "capabilities": [
+    {
+      "name": "sealeap-athena-amazon-page-detail",
+      "title": "Amazon 商品页面核对",
+      "description": "Amazon 商品页面核对。用于读取当前可见价格、规格、变体、卖点与配送信息，保留页面观察条件。输入需明确站点、ASIN 或商品链接、配送地区、关注字段；边界见执行手册。",
+      "category": "Amazon",
+      "mode": "data",
+      "route": "Sorftime 直接工具",
+      "capabilities": [
+        {
+          "provider": "sorftime",
+          "tool": "product_detail",
+          "validation": "tool_schema",
+          "required_fields": [
+            "asin"
+          ]
+        },
+        {
+          "provider": "sorftime",
+          "tool": "product_variations",
+          "validation": "tool_schema",
+          "required_fields": [
+            "asin"
+          ]
+        }
+      ],
+      "limitation": "页面价与到手价不同；父子 ASIN 不混用；快照不能证明后台库存",
+      "legacy_path": "sealeap-athena-amazon-page-detail",
+      "entrypoint": "sealeap-athena-amazon-product-intelligence",
+      "guide_path": "references/capabilities/amazon-page-detail/workflow.md",
+      "playbook_path": "references/capabilities/amazon-page-detail/playbook.md",
+      "tool_routing_path": "references/capabilities/amazon-page-detail/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-amazon-structured-product-detail",
+      "title": "Amazon 商品结构化分析",
+      "description": "Amazon 商品结构化分析。用于将商品详情、变体和分析报告拆成一方事实与第三方估计并统一单位。输入需明确站点、ASIN、变体范围与所需属性；边界见执行手册。",
+      "category": "Amazon",
+      "mode": "data",
+      "route": "Sorftime 直接工具",
+      "capabilities": [
+        {
+          "provider": "sorftime",
+          "tool": "product_detail",
+          "validation": "tool_schema",
+          "required_fields": [
+            "asin"
+          ]
+        },
+        {
+          "provider": "sorftime",
+          "tool": "product_variations",
+          "validation": "tool_schema",
+          "required_fields": [
+            "asin"
+          ]
+        },
+        {
+          "provider": "sorftime",
+          "tool": "product_report",
+          "validation": "tool_schema",
+          "required_fields": [
+            "asin"
+          ]
+        }
+      ],
+      "limitation": "价格、销量、排名来自不同时间时并列而不强行合并",
+      "legacy_path": "sealeap-athena-amazon-structured-product-detail",
+      "entrypoint": "sealeap-athena-amazon-product-intelligence",
+      "guide_path": "references/capabilities/amazon-structured-product-detail/workflow.md",
+      "playbook_path": "references/capabilities/amazon-structured-product-detail/playbook.md",
+      "tool_routing_path": "references/capabilities/amazon-structured-product-detail/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-amazon-competitor-compare",
+      "title": "Amazon 竞品对比",
+      "description": "Amazon 竞品对比。用于对齐变体、规格和期间后比较商品、需求及流量差异。输入需明确站点、ASIN 清单、用途与统一比较维度；边界见执行手册。",
+      "category": "Amazon",
+      "mode": "ss",
+      "route": "卖家精灵直连",
+      "capabilities": [
+        {
+          "provider": "sellersprite_open",
+          "tool": "competitor_lookup",
+          "validation": "local_interface"
+        }
+      ],
+      "limitation": "同品牌不代表直接竞品；父体与子体指标不混算",
+      "legacy_path": "sealeap-athena-amazon-competitor-compare",
+      "entrypoint": "sealeap-athena-amazon-product-intelligence",
+      "guide_path": "references/capabilities/amazon-competitor-compare/workflow.md",
+      "playbook_path": "references/capabilities/amazon-competitor-compare/playbook.md",
+      "tool_routing_path": "references/capabilities/amazon-competitor-compare/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-amazon-price-rank-snapshot",
+      "title": "Amazon 价格排名快照",
+      "description": "Amazon 价格排名快照。用于获取价格、排名与商品事实，区分报价来源、条件和观察时点。输入需明确站点、ASIN、时间和所需字段；边界见执行手册。",
+      "category": "Amazon",
+      "mode": "ss",
+      "route": "卖家精灵直连",
+      "capabilities": [
+        {
+          "provider": "sellersprite_open",
+          "tool": "keepa",
+          "validation": "local_interface"
+        },
+        {
+          "provider": "sellersprite_open",
+          "tool": "asin_detail",
+          "validation": "local_interface"
+        }
+      ],
+      "limitation": "促销价、Buy Box 价、第三方价不能互换；排名不是销量",
+      "legacy_path": "sealeap-athena-amazon-price-rank-snapshot",
+      "entrypoint": "sealeap-athena-amazon-product-intelligence",
+      "guide_path": "references/capabilities/amazon-price-rank-snapshot/workflow.md",
+      "playbook_path": "references/capabilities/amazon-price-rank-snapshot/playbook.md",
+      "tool_routing_path": "references/capabilities/amazon-price-rank-snapshot/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-amazon-price-rank-history",
+      "title": "Amazon 价格排名历史",
+      "description": "Amazon 价格排名历史。用于对齐历史价格、排名和销量估计，保留原频率与缺失段。输入需明确站点、ASIN、起止时间、序列类型；边界见执行手册。",
+      "category": "Amazon",
+      "mode": "ss",
+      "route": "卖家精灵直连",
+      "capabilities": [
+        {
+          "provider": "sellersprite_open",
+          "tool": "keepa",
+          "validation": "local_interface"
+        },
+        {
+          "provider": "sellersprite_open",
+          "tool": "asin_sales_trend",
+          "validation": "local_interface"
+        }
+      ],
+      "limitation": "禁止将断档补零；事件同现只表示相关；累计与日值分开",
+      "legacy_path": "sealeap-athena-amazon-price-rank-history",
+      "entrypoint": "sealeap-athena-amazon-product-intelligence",
+      "guide_path": "references/capabilities/amazon-price-rank-history/workflow.md",
+      "playbook_path": "references/capabilities/amazon-price-rank-history/playbook.md",
+      "tool_routing_path": "references/capabilities/amazon-price-rank-history/tool-routing.md"
+    },
+    {
+      "name": "sealeap-athena-amazon-sales-estimate-check",
+      "title": "Amazon 销量估计核验",
+      "description": "Amazon 销量估计核验。用于使用已验证估算接口并与同窗其他来源核对偏差。输入需明确站点、ASIN 或 BSR、类目、预测期间；边界见执行手册。",
+      "category": "Amazon",
+      "mode": "ss",
+      "route": "卖家精灵直连",
+      "capabilities": [
+        {
+          "provider": "sellersprite_open",
+          "tool": "sales_prediction_asin",
+          "validation": "local_interface"
+        },
+        {
+          "provider": "sellersprite_open",
+          "tool": "sales_prediction_bsr",
+          "validation": "local_interface"
+        }
+      ],
+      "limitation": "月度估计不能除以 30 冒充真实每日销量；估算不等于自家订单",
+      "legacy_path": "sealeap-athena-amazon-sales-estimate-check",
+      "entrypoint": "sealeap-athena-amazon-product-intelligence",
+      "guide_path": "references/capabilities/amazon-sales-estimate-check/workflow.md",
+      "playbook_path": "references/capabilities/amazon-sales-estimate-check/playbook.md",
+      "tool_routing_path": "references/capabilities/amazon-sales-estimate-check/tool-routing.md"
+    }
+  ]
+}

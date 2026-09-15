@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 主图合规核对与点击率设计"
+  short_description: "Amazon 主图合规核对与点击率设计：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-luduan-amazon-main-image-ctr-design to diagnose this Amazon task and return an evidence-gated plan."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 跨境税务单证复核转介"
+  short_description: "Amazon 跨境税务单证复核转介：证据化诊断、方案与单变量验证"
+  default_prompt: "Use $sealeap-yazi-amazon-tax-evidence-handoff-checklist to diagnose this Amazon task and return an evidence-gated plan."
