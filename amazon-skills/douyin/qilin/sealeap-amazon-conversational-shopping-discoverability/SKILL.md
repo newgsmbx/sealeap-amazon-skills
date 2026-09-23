@@ -1,6 +1,6 @@
 ---
 name: sealeap-amazon-conversational-shopping-discoverability
-description: Improve an Amazon listing's discoverability for conversational shopping assistants through complete structured attributes, factual use cases, evidence-backed content, localization, and compliant customer support signals. Use when the user asks how Rufus, Alexa, or AI shopping recommendations may find a product. Never seed reviews or Q&A, fabricate scenarios, or guarantee recommendation placement.
+description: "Map verified product facts to customer shopping missions, structured attributes and localized Amazon listing content, then design observable conversational-shopping tests. Use for Shopping Mission、场景化Listing、Alexa for Shopping、Rufus and AI购物可见性. Never seed reviews or Q&A, fabricate scenarios, or guarantee recommendation placement."
 ---
 
 # Amazon 对话式购物可发现性
@@ -54,6 +54,8 @@ description: Improve an Amazon listing's discoverability for conversational shop
 
 ### 3. 映射真实场景
 
+读取 [购物任务与证据映射](references/shopping-mission.md)，建立支持、条件支持、不支持和未知的任务卡，并按用户指定字段交付。
+
 从搜索词、客服、退货和评论主题聚合出高频任务，用产品事实判断支持、不支持或需条件支持。
 
 ### 4. 改造内容
@@ -76,7 +78,7 @@ description: Improve an Amazon listing's discoverability for conversational shop
 
 ## 必须交付的结果
 
-- 产品事实与场景矩阵。
+- 产品事实与场景矩阵，含任务条件、证据 ID 和字段分配。
 - 属性缺口清单。
 - Listing 内容改写草稿。
 - 对话式查询测试与监控方案。

@@ -11,6 +11,8 @@ description: Turn verified Amazon product and audience evidence into reviewable 
 
 开始前读 [references/source-and-guardrails.md](references/source-and-guardrails.md)。生成概念和 prompt 读 [references/creative-workflow.md](references/creative-workflow.md)，审核与实验读 [references/review-and-testing.md](references/review-and-testing.md)。
 
+实际使用 Creative Agent 或制作视频时，读取 [生产与商品一致性审核](references/creative-agent-production.md)，核对当前工具能力、逐镜商品事实和目标广告位要求。
+
 ## 工作流
 
 ### 1. 确认模式
@@ -18,10 +20,11 @@ description: Turn verified Amazon product and audience evidence into reviewable 
 - `IDEATE`：只生成方向；
 - `BRIEF`：输出可交付给设计/视频团队的 brief；
 - `GENERATE_PREP`：准备给当前可用 AI 工具的 prompt，不提交；
+- GENERATE：用户明确要求实际生成，且工具、素材和费用授权覆盖时生成并保存真实产物；
 - `TEST_PREP`：做审核、版本管理和 A/B 草案；
 - `APPROVED_PUBLISH`：仅在用户明确批准具体素材与投放对象后执行。
 
-默认 `BRIEF`，不把工具入口存在等同于当前账户可用。
+未说明实际生成时默认 BRIEF；用户明确要求生成时按已有授权继续。工具入口存在不等同于当前账户可用。
 
 ### 2. 建立事实包
 

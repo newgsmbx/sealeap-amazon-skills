@@ -1,0 +1,4 @@
+interface:
+  display_name: "SP/SB 智购提示广告审计"
+  short_description: "核对智购提示问题与商品事实，分析报表并准备有依据的暂停候选"
+  default_prompt: "使用 $sealeap-amazon-prompts-ad-audit，根据我提供的数据完成核对，保留缺失与证据边界，输出可复核结果。"

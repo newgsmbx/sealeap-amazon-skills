@@ -54,3 +54,7 @@ Do not invent missing product facts. Mark uncertainty as NEEDS_DATA.
 ## 筛选评分
 
 每项 0–2 分：受众相关性、事实可证、单一信息、品牌差异、格式适配、移动端/无声可懂、制作可行、政策风险。任一事实或政策项为 0 时直接淘汰，不用总分抵消。
+
+## 进入实际素材生产
+
+工具资格、分镜合同、产品锁定和逐镜检查见 [Creative Agent 生产流程](creative-agent-production.md)。只修改一个创意假设时保留其余镜头/商品事实一致，不把不同产品版本混入同一实验。

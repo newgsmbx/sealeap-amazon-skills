@@ -1,6 +1,6 @@
 ---
 name: sealeap-chiwen-amazon-price-field-tool-audit
-description: "Audit whether the price-related fields on a listing offer are populated correctly — the advertised-price floor, the everyday selling price, automated-pricing bounds, a time-boxed promotional price, and a reference/list price — and configure the pricing-automation, discount, business-price, and subscription-discount tools that read from them. Flags the specific downside of leaving any one field wrong or unset ahead of a promotional event. Use for 定价字段填错了会怎样、自动定价要不要开、企业购价格怎么设、订购省折扣设多少、大促前定价字段要检查什么. Do not use to set a discount or reference price without first confirming the current official reference-price and promotion-day rules for the target marketplace."
+description: "Audit Amazon pricing fields and diagnose missing List Price or Typical Price displays using current marketplace rules, genuine price history, Featured Offer and same-product evidence. Use for 划线价消失、参考价不显示、2026参考价规则、自动定价边界、企业购折扣、订购省折扣 or 促销资格核查. Do not fabricate reference prices, orders, or guaranteed display thresholds."
 ---
 
 # Amazon 定价字段与促销工具核对
@@ -32,12 +32,16 @@ Audit whether the price-related fields on a listing offer are populated correctl
 
 ## 开始前要拿到
 
-- 目标 marketplace、类目、价格带、上架时间与运营模式
-- 候选品与同购买意图可比样本的销量、评论、价格和上架时间
-- 关键词需求、历史趋势、广告依赖、同款密度和品牌集中度
-- 采购、头程、平台费、退货、仓储、交期和合规/IP 基础信息
+- 目标 marketplace、币种、店铺、SKU/子 ASIN 与当前定价字段
+- Featured Offer、日常价/促销价/List Price、自动定价边界及有效日期
+- 当前参考价规则、真实成交/促销历史、同款站外报价与商品身份凭据
+- 单位成本、平台/履约费、退货损失及可承受贡献利润；缺失时不建议折扣幅度
 
 缺失项必须标为 `NEEDS_EVIDENCE`；不得猜数字、补属性或把不同站点、ASIN、变体、币种和时间窗混在一起。
+
+## 参考价专项
+
+划线价不展示、突然消失或子体显示不同，先读 [参考价诊断](references/reference-price-diagnostics.md)。用户只问显示异常时交付对应核查结果，不强制开展选品和广告研究。
 
 ## 工作流
 

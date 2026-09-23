@@ -1,9 +1,14 @@
 ---
 name: sealeap-xiezhi-amazon-evergreen-variation-roadmap
-description: "Plan a compliant long-lived Amazon variation roadmap for products that can legitimately expand by color, size, pattern, or other allowed themes. Use when a team wants recurring niche launches under one valid parent without abusing review sharing."
+description: "Plan compliant Amazon variation expansion or diagnose changes in shared reviews, ratings and review counts. Use for 长期变体规划、评论共享资格、变体评论骤降 and 子体评分变化. Check current product-type themes and functional differences separately; never merge unrelated products or remove variations to manipulate reviews."
 ---
 
 # Amazon 长期变体路线图
+
+## 先选任务模式
+
+- 扩展规划：执行下方路线图。
+- 评论变化诊断：先读 [评论共享核对](references/review-sharing-audit.md)，只交付子体资格、前后证据和修复草稿，不展开年度扩品。
 
 ## 目标
 

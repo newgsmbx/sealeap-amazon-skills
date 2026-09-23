@@ -1,0 +1,57 @@
+{
+  "data_kind": "SYNTHETIC",
+  "scope": {
+    "account_id": "DEMO_STORE",
+    "marketplace": "US",
+    "view": "ASIN",
+    "entity_id": "DEMO_ASIN",
+    "report_definition": "SYNTHETIC_SQP_V1",
+    "timezone": "UTC"
+  },
+  "window_start": "2026-07-01",
+  "window_end": "2026-08-31",
+  "periods": [
+    {
+      "id": "P1",
+      "start": "2026-07-01",
+      "end": "2026-07-31",
+      "complete": true,
+      "mature": true
+    },
+    {
+      "id": "P2",
+      "start": "2026-08-01",
+      "end": "2026-08-31",
+      "complete": true,
+      "mature": true
+    }
+  ],
+  "rows": [
+    {
+      "period_id": "P1",
+      "query": "demo organizer",
+      "query_volume": 100,
+      "market_impressions": 200,
+      "entity_impressions": 20,
+      "market_clicks": 100,
+      "entity_clicks": 10,
+      "market_cart_adds": 20,
+      "entity_cart_adds": 2,
+      "market_purchases": 10,
+      "entity_purchases": 1
+    },
+    {
+      "period_id": "P2",
+      "query": "demo organizer",
+      "query_volume": 1000,
+      "market_impressions": 2000,
+      "entity_impressions": 1800,
+      "market_clicks": 1000,
+      "entity_clicks": 900,
+      "market_cart_adds": 200,
+      "entity_cart_adds": 180,
+      "market_purchases": 100,
+      "entity_purchases": 90
+    }
+  ]
+}

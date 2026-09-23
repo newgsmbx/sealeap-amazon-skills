@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "count": 6,
+  "skills": [
+    {
+      "name": "sealeap-amazon-fba-reimbursement-audit",
+      "title": "FBA 赔偿与成本复核",
+      "description": "核对 FBA 丢失或损坏事件、采购成本与已赔金额，生成证据缺口、成本差异和复核材料。用于少赔、库存缺陷、获物成本或赔偿记录对账；不处理买家退款，也不自动提交索赔。",
+      "path": "sealeap-amazon-fba-reimbursement-audit/SKILL.md",
+      "verified_at": "2026-09-23"
+    },
+    {
+      "name": "sealeap-amazon-sp-offsite-diagnostics",
+      "title": "SP 站内外流量诊断",
+      "description": "诊断 Amazon Sponsored Products 在站内、站外媒体与创作者渠道的花费和转化变化。用于 Amazon and beyond、站外流量、SP ACOS 上升或站点投放范围核对；不把整体掉单自动归因于算法，也不替代创作者佣金测算。",
+      "path": "sealeap-amazon-sp-offsite-diagnostics/SKILL.md",
+      "verified_at": "2026-09-23"
+    },
+    {
+      "name": "sealeap-amazon-prompts-ad-audit",
+      "title": "SP/SB 智购提示广告审计",
+      "description": "分析 Amazon Sponsored Products 与 Sponsored Brands Prompts 的问题文本、商品事实、花费及成熟转化，生成核查和暂停候选。用于智购提示广告、Prompts 报表和错误回答审查；不用于编写通用 AI 提示词或操纵购物助手推荐。",
+      "path": "sealeap-amazon-prompts-ad-audit/SKILL.md",
+      "verified_at": "2026-09-23"
+    },
+    {
+      "name": "sealeap-amazon-ppwr-packaging-audit",
+      "title": "欧洲包装 PPWR 合规材料自查",
+      "description": "按欧盟配送国家、主体、包装类型和当前平台要求核对 PPWR/EPR 注册、ERN 上传、申报缴费及证据状态。用于欧洲包装合规、号码被拒、代付与注册差异或跨国配送检查；不自动注册、签约、缴费，也不出具法律合规认证。",
+      "path": "sealeap-amazon-ppwr-packaging-audit/SKILL.md",
+      "verified_at": "2026-09-23"
+    },
+    {
+      "name": "sealeap-amazon-creator-commission-planning",
+      "title": "创作者合作与佣金利润测算",
+      "description": "为 Amazon Creator Connections 规划商品、品牌加佣、样品和活动预算，并用实际结算口径复盘贡献利润。用于达人合作佣金上限、寄样盈亏或活动复盘；区分按销售加佣与 Sponsored Products for creators 按点击费用，不自动联系达人或发布活动。",
+      "path": "sealeap-amazon-creator-commission-planning/SKILL.md",
+      "verified_at": "2026-09-23"
+    },
+    {
+      "name": "sealeap-amazon-sqp-period-reconciliation",
+      "title": "SQP 跨期对账与流量诊断",
+      "description": "合并同一 Amazon Brand Analytics SQP 范围内不重叠的完整周期，重算查询份额与漏斗比率，并比较需求、曝光、点击及购买变化。用于月季度拼接、同比环比和销量下降归因；不直接平均百分比、不混合 Brand/ASIN 视图，也不把缺失查询记零。",
+      "path": "sealeap-amazon-sqp-period-reconciliation/SKILL.md",
+      "verified_at": "2026-09-23"
+    }
+  ]
+}
